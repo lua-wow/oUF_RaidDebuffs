@@ -1,0 +1,11 @@
+## Interface: 100100
+## Author: Tukz
+## Version: 1.0.0
+## Title: oUF RaidDebuffs
+## Notes: Raid Debuffs tracker support for oUF layouts.
+## RequiredDeps: oUF
+
+## X-Maintainer: Tukz
+## X-Website: http://www.tukui.org
+
+oUF_RaidDebuffs.lua
