@@ -99,7 +99,25 @@ function loader:PLAYER_ENTERING_WORLD(...)
 	Debuffs = table.wipe(Debuffs or {})
 	local isInInstance, instanceType = IsInInstance()
 	local flag = (instanceType == "raid" or instanceType == "party") and "PvE" or "PvP"
-	CopyTable(RD.Debuffs[flag] or {}, Debuffs)
+	
+	if (isInInstance and (instanceType == "raid" or instanceType == "party")) then
+		local instanceName, instanceType, difficultyID, difficultyName, _, _, _, instanceID, _, _ = GetInstanceInfo()
+		local difficultyName, groupType, isHeroic, isChallengeMode, _, _, _ = GetDifficultyInfo(difficultyID)
+
+		-- insert instance specific debuffs
+		Debuffs = CopyTable(RD.Debuffs[instanceID] or {}, Debuffs)
+		
+		local isMythicKeystone = (isHeroic and isChallengeMode)
+		if (isMythicKeystone) then
+			-- insert affixes debuffs
+			Debuffs = CopyTable(RD.Debuffs["Affixes"] or {}, Debuffs)
+		end
+	else
+		-- insert general debuffs, like world bosses
+		Debuffs = CopyTable(RD.Debuffs["General"] or {}, Debuffs)
+		-- insert classes debuffs
+		Debuffs = CopyTable(RD.Debuffs["PvP"] or {}, Debuffs)
+	end
 end
 
 --------------------------------------------------
@@ -458,8 +476,6 @@ end
 local function ForceUpdate(element)
 	return Path(element.__owner, "ForceUpdate", element.__owner.unit)
 end
-
-
 
 local function Enable(self)
 	local element = self.RaidDebuffs

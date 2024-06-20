@@ -5,16 +5,12 @@ local RD = ns.oUF_RaidDebuffs
 if not oUF.isClassic then return end
 
 local Debuffs = {
-    ["PvE"] = {
-        -- [[ Classic Era ]]--
-        ----------------------------------------------------------
-        -- Onyxia's Lair
-        ----------------------------------------------------------
+    -- Onyxia's Lair
+    [249] = {
         [18431] = RD:CreatePriority(2), --Bellowing Roar
-        
-        ----------------------------------------------------------
-        -- Molten Core
-        ----------------------------------------------------------
+    },
+    -- Molten Core
+    [409] = {
         [19703] = RD:CreatePriority(2), --Lucifron's Curse
         [19408] = RD:CreatePriority(2), --Panic
         [19716] = RD:CreatePriority(2), --Gehennas' Curse
@@ -24,20 +20,18 @@ local Debuffs = {
         [19659] = RD:CreatePriority(2), --Ignite Mana
         [19714] = RD:CreatePriority(2), --Deaden Magic
         [19713] = RD:CreatePriority(2), --Shazzrah's Curse
-        
-        ----------------------------------------------------------
-        -- Blackwing's Lair
-        ----------------------------------------------------------
+    },
+    -- Blackwing's Lair
+    [469] = {
         [23023] = RD:CreatePriority(2), --Conflagration
         [18173] = RD:CreatePriority(2), --Burning Adrenaline
         [24573] = RD:CreatePriority(2), --Mortal Strike
         [23340] = RD:CreatePriority(2), --Shadow of Ebonroc
         [23170] = RD:CreatePriority(2), --Brood Affliction: Bronze
         [22687] = RD:CreatePriority(2), --Veil of Shadow
-        
-        ----------------------------------------------------------
-        -- Zul'Gurub
-        ----------------------------------------------------------
+    },
+    -- Zul'Gurub
+    [309] = {
         [23860] = RD:CreatePriority(2), --Holy Fire
         [22884] = RD:CreatePriority(2), --Psychic Scream
         [23918] = RD:CreatePriority(2), --Sonic Burst
@@ -49,19 +43,17 @@ local Debuffs = {
         [17172] = RD:CreatePriority(2), --Hex
         [24306] = RD:CreatePriority(2), --Delusions of Jin'do
         [24099] = RD:CreatePriority(2), --Poison Bolt Volley
-        
-        ----------------------------------------------------------
-        -- Ahn'Qiraj Ruins
-        ----------------------------------------------------------
+    },
+    -- Ruins of Ahn'Qiraj
+    [509] = {
         [25646] = RD:CreatePriority(2), --Mortal Wound
         [25471] = RD:CreatePriority(2), --Attack Order
         [96] = RD:CreatePriority(2), --Dismember
         [25725] = RD:CreatePriority(2), --Paralyze
         [25189] = RD:CreatePriority(2), --Enveloping Winds
-        
-        ----------------------------------------------------------
-        -- Ahn'Qiraj Temple
-        ----------------------------------------------------------
+    },
+    -- Ahn'Qiraj Temple
+    [531] = {
         [785] = RD:CreatePriority(2), --True Fulfillment
         [26580] = RD:CreatePriority(2), --Fear
         [26050] = RD:CreatePriority(2), --Acid Spit
@@ -69,10 +61,9 @@ local Debuffs = {
         [26053] = RD:CreatePriority(2), --Noxious Poison
         [26613] = RD:CreatePriority(2), --Unbalancing Strike
         [26029] = RD:CreatePriority(2), --Dark Glare
-        
-        ----------------------------------------------------------
-        -- Naxxramas
-        ----------------------------------------------------------
+    },
+    -- Naxxramas
+    [3456] = {
         [28732] = RD:CreatePriority(2), --Widow's Embrace
         [28622] = RD:CreatePriority(2), --Web Wrap
         [28169] = RD:CreatePriority(2), --Mutating Injection
@@ -81,11 +72,10 @@ local Debuffs = {
         [27808] = RD:CreatePriority(2), --Frost Blast
         [28410] = RD:CreatePriority(2), --Chains of Kel'Thuzad
         [27819] = RD:CreatePriority(2), --Detonate Mana
+    },
 
-        -- [[ The Burning Crusade ]]--
-        ----------------------------------------------------------
-        -- Karazhan
-        ----------------------------------------------------------
+    -- Karazhan
+    [532] = {
         -- Trash
         [29679] = RD:CreatePriority(4), -- Bad Poetry
         [29505] = RD:CreatePriority(3), -- Banshee Shriek
@@ -176,10 +166,19 @@ local Debuffs = {
         [30127] = RD:CreatePriority(4), -- Searing Cinders
         [30210] = RD:CreatePriority(3), -- Smoldering Breath
         [25653] = RD:CreatePriority(3), -- Tail Sweep
+    },
+    -- Magtheridon's Lair
+    [544] = {
+        -- Trash
+        [34437] = RD:CreatePriority(4), -- Death Coil
+        [34435] = RD:CreatePriority(3), -- Rain of Fire
+        [34439] = RD:CreatePriority(5), -- Unstable Affliction
         
-        ----------------------------------------------------------
-        -- Gruul's Lair
-        ----------------------------------------------------------
+        -- Magtheridon
+        [30410] = RD:CreatePriority(3), -- Shadow Grasp
+    },
+    -- Gruul's Lair
+    [565] = {
         -- High King Maulgar
         
         -- Blindeye the Seer
@@ -200,21 +199,9 @@ local Debuffs = {
         
         -- Gruul the Dragonkiller
         [36240] = RD:CreatePriority(4), -- Cave In
-        
-        ----------------------------------------------------------
-        -- Magtheridon's Lair
-        ----------------------------------------------------------
-        -- Trash
-        [34437] = RD:CreatePriority(4), -- Death Coil
-        [34435] = RD:CreatePriority(3), -- Rain of Fire
-        [34439] = RD:CreatePriority(5), -- Unstable Affliction
-        
-        -- Magtheridon
-        [30410] = RD:CreatePriority(3), -- Shadow Grasp
-        
-        ----------------------------------------------------------
-        -- Serpentshrine Cavern
-        ----------------------------------------------------------
+    },
+    -- Serpentshrine Cavern
+    [548] = {
         -- Trash
         [38634] = RD:CreatePriority(3), -- Arcane Lightning
         [39032] = RD:CreatePriority(4), -- Initial Infection
@@ -248,10 +235,9 @@ local Debuffs = {
         -- Lady Vashj
         [38316] = RD:CreatePriority(3), -- Entangle
         [38280] = RD:CreatePriority(5), -- Static Charge
-
-        ----------------------------------------------------------
-        -- Tempest Keep: The Eye
-        ----------------------------------------------------------
+    },
+    -- Tempest Keep: The Eye
+    [550] = {
         -- Trash
         [37133] = RD:CreatePriority(4), -- Arcane Buffet
         [37132] = RD:CreatePriority(3), -- Arcane Shock
@@ -281,19 +267,17 @@ local Debuffs = {
         [37027] = RD:CreatePriority(5), -- Remote Toy
         [36991] = RD:CreatePriority(4), -- Rend
         [36797] = RD:CreatePriority(5), -- Mind Control
-        
-        ----------------------------------------------------------
-        -- The Battle for Mount Hyjal
-        ----------------------------------------------------------
+    },
+    -- The Battle for Mount Hyjal
+    [534] = {
         -- Rage Winterchill
         -- Anetheron
         -- Kaz'rogal
         -- Azgalor
         -- Archimonde
-        
-        ----------------------------------------------------------
-        -- Black Temple
-        ----------------------------------------------------------
+    },
+    -- Black Temple
+    [564] = {
         -- High Warlord Naj'entus
         -- Supremus
         -- Shade of Akama
@@ -303,20 +287,18 @@ local Debuffs = {
         -- Mother Shahraz
         -- Illidari Council
         -- Illidan Stormrage
-        
-        ----------------------------------------------------------
-        -- Zul'Aman
-        ----------------------------------------------------------
+    },
+    -- Zul'Aman
+    [568] = {     
         -- Nalorakk
         -- Jan'alai
         -- Akil'zon
         -- Halazzi
         -- Hexxlord Jin'Zakk
         -- Zul'jin
-        
-        ----------------------------------------------------------
-        -- Sunwell Plateau
-        ----------------------------------------------------------
+    },
+    -- Sunwell Plateau
+    [580] = {
         -- Kalecgos
         -- Sathrovarr
         -- Brutallus
