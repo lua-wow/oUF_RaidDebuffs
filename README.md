@@ -1,48 +1,57 @@
 # oUF_RaidDebuffs
 
-Raid Debuffs tracker suport for oUF layouts
+Display aura icon on raid frame unit if the aura is dispelable by the player.
+
+## Element: RaidDebuffs
+
+Handles the visibility and updating of an icon based on raid units debuffs.
+
+### Widgets
+
+RaidDebuffs		- A `Frame` to hold a `Button`s representing debuffs.
+
+### Sub-Widgets
+
+Icon			- A `Texture` to represent spell icon.
+Cooldown		- A `Cooldown` to represent spell duration. 
+Time			- A `FontString` to represent spell duration.
+Count			- A `FontString` to represent spell duration.
+
+### Example
 
 ```lua
--- health oUF
-local Health = self.Health
-
--- create raid debuff
+-- Position and size
 local RaidDebuffs = CreateFrame("Frame", nil, Health)
 RaidDebuffs:SetPoint("CENTER", Health, "CENTER", 0, 0)
 RaidDebuffs:SetHeight(32)
 RaidDebuffs:SetWidth(32)
 RaidDebuffs:SetFrameLevel(Health:GetFrameLevel() + 10)
 
--- raid debuff icon texture
-RaidDebuffs.icon = RaidDebuffs:CreateTexture(nil, "ARTWORK")
-RaidDebuffs.icon:SetTexCoord(.1, .9, .1, .9)
-RaidDebuffs.icon:SetInside(RaidDebuffs)
+-- Options
+RaidDebuffs.showOnlyDispelableDebuffs = true
 
--- raid debuff cd
-RaidDebuffs.cd = CreateFrame("Cooldown", nil, RaidDebuffs, "CooldownFrameTemplate")
-RaidDebuffs.cd:SetInside(RaidDebuffs, 1, 0)
-RaidDebuffs.cd:SetReverse(true)
-RaidDebuffs.cd:SetHideCountdownNumbers(true)
-RaidDebuffs.cd:SetAlpha(.7)
-RaidDebuffs.cd.noOCC = true
-RaidDebuffs.cd.noCooldownCount = true
+-- Add an icon texture
+local Icon = RaidDebuffs:CreateTexture(nil, "ARTWORK")
+Icon:SetAllPoints()
 
--- raid debuffs options
-RaidDebuffs.onlyMatchSpellID = true
-RaidDebuffs.showDispellableDebuff = true
---RaidDebuffs.forceShow = true
+-- Add a cooldown
+local Cooldown = CreateFrame("Cooldown", nil, RaidDebuffs, "CooldownFrameTemplate")
+Cooldown:()
+Cooldown:SetReverse(true)
+Cooldown:SetHideCountdownNumbers(true)
 
--- raid debuff timer
-RaidDebuffs.time = RaidDebuffs:CreateFontString(nil, "OVERLAY")
-RaidDebuffs.time:SetFont(C.Medias.Font, 12, "OUTLINE")
-RaidDebuffs.time:SetPoint("CENTER", RaidDebuffs, 1, 0)
+-- Add a timer
+local Time = RaidDebuffs:CreateFontString(nil, "OVERLAY", "NumberFontNormal")
+Time:SetPoint("CENTER", RaidDebuffs, 1, 0)
 
--- raid debuff stacks
-RaidDebuffs.count = RaidDebuffs:CreateFontString(nil, "OVERLAY")
-RaidDebuffs.count:SetFont(C.Medias.Font, 12, "OUTLINE")
-RaidDebuffs.count:SetPoint("BOTTOMRIGHT", RaidDebuffs, "BOTTOMRIGHT", 2, 0)
-RaidDebuffs.count:SetTextColor(1, .9, 0)
+-- Add a stack count
+local Count = RaidDebuffs:CreateFontString(nil, "OVERLAY", "NumberFontNormal")
+Count:SetPoint("BOTTOMRIGHT", RaidDebuffs, "BOTTOMRIGHT", 2, 0)
 
 -- register with oUF
+RaidDebuffs.Icon = Icon
+RaidDebuffs.Cooldown = Cooldown
+RaidDebuffs.Time = Time
+RaidDebuffs.Count = Count
 self.RaidDebuffs = RaidDebuffs
 ```

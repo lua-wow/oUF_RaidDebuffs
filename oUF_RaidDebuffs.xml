@@ -1,0 +1,6 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="debuffs\init.lua"/>
+	<Script file="debuffs\retail.lua"/>
+	<Script file="debuffs\classic.lua"/>
+	<Script file="oUF_RaidDebuffs.lua"/>
+</Ui>
