@@ -1112,7 +1112,7 @@ local Debuffs = {
         [401383] = RD:CreatePriority(), -- Oppressing Howl
         [401525] = RD:CreatePriority(), -- Scorching Detonation
         [401905] = RD:CreatePriority(), -- Dazzled
-        [401951] = RD:CreatePriority(), -- Oblivion
+        [401951] = RD:CreatePriority({ enable = false }), -- Oblivion
         [402051] = RD:CreatePriority(), -- Searing Breath
         [403520] = RD:CreatePriority(), -- Embrace of Nothingness
         [404154] = RD:CreatePriority(), -- Void Surge
@@ -1305,6 +1305,20 @@ local Debuffs = {
         [20549]		= RD:CreatePriority(4), -- War Stomp
         [107079]	= RD:CreatePriority(4), -- Quaking Palm
     }
+}
+
+local Blacklist = {
+    -- Lust
+    [57723] = true,     -- Exhaustion
+    [57724] = true,     -- Sated
+    [80354] = true,     -- Temporal Displacement
+    [390435] = true,    -- Exhaustion
+    [264689] = true,    -- Fatigued
+    -- General
+    [160029] = true,    -- Resurrecting
+    [371070] = true,    -- Rotting from Within
+    -- Mythic+
+    [206151] = true,    -- Challenger's Burden
 }
 
 RD.Debuffs = Debuffs

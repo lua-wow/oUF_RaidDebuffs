@@ -76,6 +76,8 @@ local GetTime = _G.GetTime
 local UnitAura = _G.UnitAura
 local UnitCanAttack = _G.UnitCanAttack
 local UnitIsCharmed = _G.UnitIsCharmed
+local UnitIsUnit = _G.UnitIsUnit
+local UnitIsOwnerOrControllerOfUnit = _G.UnitIsOwnerOrControllerOfUnit
 
 --------------------------------------------------
 -- Loader
@@ -257,6 +259,9 @@ end
 
 local function Update(element, unit, data)
 	if (data) then
+		element.duration = data.duration or 0
+		element.expirationTime = data.expirationTime
+
 		local color = oUF.colors.debuff[data.dispelName or "none"]
 		if (element.Backdrop) then
 			if (color) then
@@ -271,7 +276,7 @@ local function Update(element, unit, data)
 		end
 
 		if (element.Count) then
-			element.Count:SetText((data.applications > 1) and data.applications or '')
+			element.Count:SetText((data.applications and data.applications > 1) and data.applications or '')
 		end
 
 		if (element.Cooldown) then
@@ -285,7 +290,6 @@ local function Update(element, unit, data)
 
 		if (element.Time) then
 			if (data.duration > 0) then
-				element.expirationTime = data.expirationTime
 				element.Time:Show()
 				element:SetScript("OnUpdate", element.OnUpdate or OnUpdate)
 			else
@@ -312,32 +316,52 @@ local function Update(element, unit, data)
 end
 
 local function FilterAura(element, unit, data)
-	if (Blacklist[data.spellId]) then return false end
+	-- ignore black listed ones
+	if Blacklist[data.spellId] then return false end
 	
 	-- store if the unit its charmed, mind controlled units (Imperial Vizier Zor'lok: Convert)
 	local isCharmed = UnitIsCharmed(unit)
-	
+
 	-- store if we cand attack that unit, if its so the unit its hostile (Amber-Shaper Un'sok: Reshape Life)
 	local canAttack = UnitCanAttack("player", unit)
-	
+
 	-- we can not dispel if unit its charmed or is not friendly
 	if (isCharmed or canAttack) then return false end
+
+	-- ignore auras applied by yourself
+	-- if data.isPlayerAura then return false end
+
+	-- ignore auras applied by a player
+	-- if data.isFromPlayerOrPlayerPet then return false end
+
+	-- always display auras applied by the boss
+	if (data.isBossAura) then return true end
+	
+	-- print("oUF_RaidDebuffs", data.name, data.spellId, "player:", data.isFromPlayerOrPlayerPet, "boss:", data.isBossAura, "raid:", data.isRaid)
 
 	-- show aura only when stacks are high enough
 	if (data.applications < data.stackThreshold) then return false end
 
-	if (element.showOnlyDispelableDebuffs) then
+	-- ignore spell not dispelable by the player
+	if (element.showOnlyDispelableDebuffs and data.dispelName) then
 		return data.isDispelable
 	end
+
+	-- ignore auras applied by itself
+	if (data.sourceUnit == unit and not data.dispelName) then
+		return false
+	end
+
 	return true
 end
 
 local function SortAuras(a, b)
-	-- check if one aura is dispelable and the other is not
+	-- dispelable debuffs needs to be on top of the list
     if a.isDispelable ~= b.isDispelable then
         return a.isDispelable
     end
 
+	-- sort dispel priority, magic is priority over curse, etc.
 	if a.dispelName ~= b.dispelName then
 		return a.dispelPriority > b.dispelPriority
 	end
@@ -353,12 +377,23 @@ end
 local function ProcessData(element, unit, data)
 	if (not data) then return end
 
-	local debuff = RD.Debuffs[data.spellId]
-	data.enable = debuff and debuff.enable or false
-	data.priority = debuff and debuff.priority or 0
-	data.stackThreshold = debuff and debuff.stackThreshold or 0
+	-- whether or not this aura was applied by you or by your pet
+	data.isPlayerAura = data.sourceUnit and (UnitIsUnit("player", data.sourceUnit) or UnitIsOwnerOrControllerOfUnit("player", data.sourceUnit))
+
+	-- whether or not this aura is dispelable by the player class/spec
 	data.isDispelable = DispelFilter[data.dispelName]
 	data.dispelPriority = DispelPriority[data.dispelName] or 0
+
+	local debuff = RD.Debuffs[data.spellId]
+	if debuff then
+		data.enable = debuff.enable or false
+		data.priority = debuff.priority or 0
+		data.stackThreshold = debuff.stackThreshold or 0
+	else
+		data.enable = true
+		data.priority = 0
+		data.stackThreshold = 0
+	end
 
 	--[[ Callback: RaidDebuffs:PostProcessAuraData(unit, data)
 	Called after the aura data has been processed.
