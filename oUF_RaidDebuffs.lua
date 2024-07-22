@@ -87,7 +87,12 @@ local function CopyTable(src, dest)
 		dest = {}
 	end
 	for k, v in next, src do
-		dest[k] = v
+		local name = GetSpellInfo(k)
+		if name then
+			dest[k] = v
+		else
+			RD.print("Spell " .. k .. " do not exists.")
+		end
 	end
 	return dest
 end
@@ -100,23 +105,23 @@ end)
 function loader:PLAYER_ENTERING_WORLD(...)
 	Debuffs = table.wipe(Debuffs or {})
 	local isInInstance, instanceType = IsInInstance()
-	local flag = (instanceType == "raid" or instanceType == "party") and "PvE" or "PvP"
 	
 	if (isInInstance and (instanceType == "raid" or instanceType == "party")) then
-		local instanceName, instanceType, difficultyID, difficultyName, _, _, _, instanceID, _, _ = GetInstanceInfo()
+		local instanceName, _, difficultyID, difficultyName, _, _, _, instanceID, _, _ = GetInstanceInfo()
 		local difficultyName, groupType, isHeroic, isChallengeMode, _, _, _ = GetDifficultyInfo(difficultyID)
 
 		-- insert instance specific debuffs
 		Debuffs = CopyTable(RD.Debuffs[instanceID] or {}, Debuffs)
 		
+		-- insert affixes debuffs
 		local isMythicKeystone = (isHeroic and isChallengeMode)
 		if (isMythicKeystone) then
-			-- insert affixes debuffs
 			Debuffs = CopyTable(RD.Debuffs["Affixes"] or {}, Debuffs)
 		end
 	else
 		-- insert general debuffs, like world bosses
 		Debuffs = CopyTable(RD.Debuffs["General"] or {}, Debuffs)
+		
 		-- insert classes debuffs
 		Debuffs = CopyTable(RD.Debuffs["PvP"] or {}, Debuffs)
 	end
@@ -328,17 +333,9 @@ local function FilterAura(element, unit, data)
 	-- we can not dispel if unit its charmed or is not friendly
 	if (isCharmed or canAttack) then return false end
 
-	-- ignore auras applied by yourself
-	-- if data.isPlayerAura then return false end
-
-	-- ignore auras applied by a player
-	-- if data.isFromPlayerOrPlayerPet then return false end
-
 	-- always display auras applied by the boss
 	if (data.isBossAura) then return true end
 	
-	-- print("oUF_RaidDebuffs", data.name, data.spellId, "player:", data.isFromPlayerOrPlayerPet, "boss:", data.isBossAura, "raid:", data.isRaid)
-
 	-- show aura only when stacks are high enough
 	if (data.applications < data.stackThreshold) then return false end
 

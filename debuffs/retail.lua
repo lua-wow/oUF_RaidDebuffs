@@ -4,6 +4,8 @@ local RD = ns.oUF_RaidDebuffs
 
 if not oUF.isRetail then return end
 
+local _, class = UnitClass("player")
+
 local Debuffs = {
     ["Affixes"] = {
         ----------------------------------------------------------
@@ -750,196 +752,279 @@ local Debuffs = {
     ----------------------------------------------------------
     -- The Azure Vault
     [2515] = {
-        [370764] = RD:CreatePriority(), -- Piercing Shards
-        [371007] = RD:CreatePriority(), -- Splintering Shards
-        [374523] = RD:CreatePriority(), -- Arcane Roots
-        [374567] = RD:CreatePriority(), -- Explosive Brand
-        [374789] = RD:CreatePriority(), -- Infused Strike
-        [375591] = RD:CreatePriority(), -- Sappy Burst
-        [375596] = RD:CreatePriority(), -- Erratic Growth Channel
-        [375602] = RD:CreatePriority(), -- Erratic Growth
-        [375649] = RD:CreatePriority(), -- Infused Ground
-        [377488] = RD:CreatePriority(), -- Icy Bindings
-        [384978] = RD:CreatePriority(), -- Dragon Strike
-        [385267] = RD:CreatePriority(), -- Crackling Vortex
-        [385409] = RD:CreatePriority(), -- Ouch, ouch, ouch!
-        [386640] = RD:CreatePriority(), -- Tear Flesh
-        [386881] = RD:CreatePriority(), -- Frost Bomb
-        [387150] = RD:CreatePriority(), -- Frozen Ground
-        [387151] = RD:CreatePriority(), -- Icy Devastator
-        [387564] = RD:CreatePriority(), -- Mystic Vapors
-        [388777] = RD:CreatePriority(), -- Oppressive Miasma
+        -- Trash
+        [370764] = RD:CreatePriority(1), -- Piercing Shards
+        [375596] = RD:CreatePriority(2), -- Erratic Growth (Channel)
+        [375602] = RD:CreatePriority(3), -- Erratic Growth
+        [377488] = RD:CreatePriority(5), -- Icy Bindings
+        [387564] = RD:CreatePriority(2), -- Mystic Vapors
+        -- [371007] = RD:CreatePriority(), -- Splintering Shards
+        -- [374523] = RD:CreatePriority(), -- Arcane Roots
+        -- [375591] = RD:CreatePriority(), -- Sappy Burst
+        -- [375649] = RD:CreatePriority(), -- Infused Ground
+        -- [385267] = RD:CreatePriority(), -- Crackling Vortex
+        -- [385409] = RD:CreatePriority(), -- Ouch, ouch, ouch!
+        -- [386640] = RD:CreatePriority(), -- Tear Flesh
+        -- [388777] = RD:CreatePriority(), -- Oppressive Miasma
+        
+        -- Leymor
+        [374567] = RD:CreatePriority(false), -- Explosive Brand
+        [374789] = RD:CreatePriority(5), -- Infused Strike
+        
+        -- Azureblade
+        
+        -- Telash Greywing
+        [386881] = RD:CreatePriority(1), -- Frost Bomb
+        -- [387150] = RD:CreatePriority(), -- Frozen Ground
+        -- [387151] = RD:CreatePriority(), -- Icy Devastator
+        
+        -- Umbrelskul
+        [384978] = RD:CreatePriority(1), -- Dragon Strike
+        [385331] = RD:CreatePriority(), -- Fracture
     },
     -- The Nokhud Offensive
     [2516] = {
-        [375937] = RD:CreatePriority(), -- Rending Strike
-        [376730] = RD:CreatePriority(), -- Stormwinds
-        [376827] = RD:CreatePriority(), -- Conductive Strike
-        [376864] = RD:CreatePriority(), -- Static Spear
-        [376894] = RD:CreatePriority(), -- Crackling Upheaval
-        [376899] = RD:CreatePriority(), -- Crackling Cloud
-        [381692] = RD:CreatePriority(), -- Swift Stab
-        [382628] = RD:CreatePriority(), -- Surge of Power
-        [384134] = RD:CreatePriority(), -- Pierce
-        [384492] = RD:CreatePriority(), -- Hunter's Mark
-        [386025] = RD:CreatePriority(), -- Tempest
-        [386912] = RD:CreatePriority(), -- Stormsurge Cloud
-        [387615] = RD:CreatePriority(), -- Grasp of the Dead
-        [387629] = RD:CreatePriority(), -- Rotting Wind
-        [388446] = RD:CreatePriority(), -- Stormcaller's Fury 2
-        [388451] = RD:CreatePriority(), -- Stormcaller's Fury 1
-        [388801] = RD:CreatePriority(), -- Mortal Strike
-        [395035] = RD:CreatePriority(), -- Shatter Soul
-        [395669] = RD:CreatePriority(), -- Aftershock
-        [376634] = RD:CreatePriority(), -- Iron Spear
+        -- Trash
+        [386025] = RD:CreatePriority(3), -- Tempest
+        [387629] = RD:CreatePriority(2), -- Rotting Wind
+        -- [381692] = RD:CreatePriority(), -- Swift Stab
+        -- [384134] = RD:CreatePriority(), -- Pierce
+        -- [384492] = RD:CreatePriority(), -- Hunter's Mark
+        -- [386912] = RD:CreatePriority(), -- Stormsurge Cloud
+        -- [387615] = RD:CreatePriority(), -- Grasp of the Dead
+        -- [388446] = RD:CreatePriority(), -- Stormcaller's Fury 2
+        -- [388451] = RD:CreatePriority(), -- Stormcaller's Fury 1
+        -- [388801] = RD:CreatePriority(), -- Mortal Strike
+        -- [395035] = RD:CreatePriority(), -- Shatter Soul
+        -- [395669] = RD:CreatePriority(), -- Aftershock
+        -- [376634] = RD:CreatePriority(), -- Iron Spear
+        
+        -- Granyth
+        
+        -- The Raging Tempest
+        [382628] = RD:CreatePriority(false), -- Surge of Power
+        -- [376899] = RD:CreatePriority(), -- Crackling Cloud
+        
+        -- Teera and Maruuk
+        [386063] = RD:CreatePriority(2), -- Frightful Roar
+        
+        -- Balakar Khan
+        [375937] = RD:CreatePriority(1), -- Rending Strike
+        [376730] = RD:CreatePriority(false), -- Stormwinds
+        [376864] = RD:CreatePriority(3), -- Static Spear
+        [376827] = RD:CreatePriority(3), -- Conductive Strike
+        [376894] = RD:CreatePriority(1), -- Crackling Upheaval
     },
     -- Neltharus
     [2519] = {
-        [372224] = RD:CreatePriority(), -- Dragonbone Axe
-        [372461] = RD:CreatePriority(), -- Imbued Magma
-        [372570] = RD:CreatePriority(), -- Bold Ambush
-        [372570] = RD:CreatePriority(), -- Bold Ambush
-        [372971] = RD:CreatePriority(), -- Reverberating Slam
-        [373089] = RD:CreatePriority(), -- Scorching Fusillade
-        [373540] = RD:CreatePriority(), -- Binding Spear
-        [373735] = RD:CreatePriority(), -- Dragon Strike
-        [374451] = RD:CreatePriority(), -- Burning Chain
-        [374482] = RD:CreatePriority(), -- Grounding Chain
-        [374534] = RD:CreatePriority(), -- Heated Swings
-        [374842] = RD:CreatePriority(), -- Blazing Aegis
-        [374854] = RD:CreatePriority(), -- Erupted Ground
-        [375204] = RD:CreatePriority(), -- Liquid Hot Magma
-        [375890] = RD:CreatePriority(), -- Magma Eruption
-        [376784] = RD:CreatePriority(), -- Flame Vulnerability
-        [377018] = RD:CreatePriority(), -- Molten Gold
-        [377522] = RD:CreatePriority(), -- Burning Pursuit
+        -- Trash
+        [372461] = RD:CreatePriority(1), -- Imbued Magma
+        [372971] = RD:CreatePriority(5), -- Reverberating Slam
+        [373540] = RD:CreatePriority(5), -- Binding Spear
         [378221] = RD:CreatePriority(), -- Molten Vulnerability
-        [378818] = RD:CreatePriority(), -- Magma Conflagration
-        [381482] = RD:CreatePriority(), -- Forgefire
-        [384161] = RD:CreatePriority(), -- Mote of Combustion
-        [387059] = RD:CreatePriority(), -- Burning Chain
-        [389059] = RD:CreatePriority(), -- Slag Eruption
-        [396332] = RD:CreatePriority(), -- Fiery Focus
-        -- [2451] Uldaman: Legacy of Tyr
-        [369006] = RD:CreatePriority(), -- Burning Heat
-        [369110] = RD:CreatePriority(), -- Unstable Embers
-        [369337] = RD:CreatePriority(), -- Difficult Terrain
-        [369365] = RD:CreatePriority(3), -- Curse of Stone
-        [369366] = RD:CreatePriority(5), -- Trapped in Stone
-        [369411] = RD:CreatePriority(), -- Sonic Burst
-        [369419] = RD:CreatePriority(), -- Venomous Fangs
-        [369811] = RD:CreatePriority(), -- Brutal Slam
-        [369818] = RD:CreatePriority(), -- Diseased Bite
-        [369828] = RD:CreatePriority(), -- Chomp
-        [372718] = RD:CreatePriority(), -- Earthen Shards
-        [375286] = RD:CreatePriority(), -- Searing Cannonfire
-        [376325] = RD:CreatePriority(), -- Eternity Zone
-        [377405] = RD:CreatePriority(), -- Time Sink
-        [377486] = RD:CreatePriority(), -- Time Blade
-        [377510] = RD:CreatePriority(), -- Stolen Time
-        [377732] = RD:CreatePriority(), -- Jagged Bite
-        [377825] = RD:CreatePriority(), -- Burning Pitch
-        [382071] = RD:CreatePriority(), -- Resonating Orb
-        [382576] = RD:CreatePriority(), -- Scorn of Tyr
+        [378818] = RD:CreatePriority(1), -- Magma Conflagration
+        -- [372224] = RD:CreatePriority(), -- Dragonbone Axe
+        -- [372570] = RD:CreatePriority(), -- Bold Ambush
+        -- [372570] = RD:CreatePriority(), -- Bold Ambush
+        -- [373089] = RD:CreatePriority(), -- Scorching Fusillade
+        -- [373540] = RD:CreatePriority(), -- Binding Spear
+        -- [373735] = RD:CreatePriority(), -- Dragon Strike
+        -- [374451] = RD:CreatePriority(), -- Burning Chain
+        -- [374482] = RD:CreatePriority(), -- Grounding Chain
+        -- [374534] = RD:CreatePriority(), -- Heated Swings
+        -- [374842] = RD:CreatePriority(), -- Blazing Aegis
+        -- [374854] = RD:CreatePriority(), -- Erupted Ground
+        -- [375204] = RD:CreatePriority(), -- Liquid Hot Magma
+        -- [376784] = RD:CreatePriority(), -- Flame Vulnerability
+        -- [377018] = RD:CreatePriority(), -- Molten Gold
+        -- [377522] = RD:CreatePriority(), -- Burning Pursuit
+        -- [381482] = RD:CreatePriority(), -- Forgefire
+        -- [384161] = RD:CreatePriority(), -- Mote of Combustion
+        -- [387059] = RD:CreatePriority(), -- Burning Chain
+        -- [389059] = RD:CreatePriority(), -- Slag Eruption
+        -- [396332] = RD:CreatePriority(), -- Fiery Focus
+        
+        -- Chargath, Bane of Scales
+        
+        -- Forgemaster Gorek
+        
+        -- Magmatusk
+        [375890] = RD:CreatePriority(), -- Magma Eruption
+
+        -- Warlord Sargha
+        [377018] = RD:CreatePriority(), -- Molten Gold
     },
     -- Brackenhide Hollow
     [2520] = {
+        -- Trash
         [367481] = RD:CreatePriority(5), -- Bloody Bite
-        [367521] = RD:CreatePriority(), -- Bone Bolt
-        [368081] = RD:CreatePriority(), -- Withering
-        [368091] = RD:CreatePriority(), -- Infected Bite
-        [368299] = RD:CreatePriority(), -- Toxic Trap
-        [373872] = RD:CreatePriority(), -- Gushing Ooze
-        [373896] = RD:CreatePriority(), -- Withering Rot
-        [373899] = RD:CreatePriority(), -- Decaying Roots
-        [373912] = RD:CreatePriority(), -- Decaystrike
-        [373917] = RD:CreatePriority(), -- Decaystrike
-        [375416] = RD:CreatePriority(), -- Bleeding
-        [376149] = RD:CreatePriority(), -- Choking Rotcloud
-        [377222] = RD:CreatePriority(), -- Consume
-        [377844] = RD:CreatePriority(), -- Bladestorm
-        [378020] = RD:CreatePriority(), -- Gash Frenzy
-        [378229] = RD:CreatePriority(), -- Marked for Butchery
+        -- [367521] = RD:CreatePriority(), -- Bone Bolt
+        -- [368081] = RD:CreatePriority(), -- Withering
+        -- [368091] = RD:CreatePriority(), -- Infected Bite
+        -- [368299] = RD:CreatePriority(), -- Toxic Trap
+        -- [373872] = RD:CreatePriority(), -- Gushing Ooze
+        -- [373896] = RD:CreatePriority(), -- Withering Rot
+        -- [373899] = RD:CreatePriority(), -- Decaying Roots
+        -- [373912] = RD:CreatePriority(), -- Decaystrike
+        -- [373917] = RD:CreatePriority(), -- Decaystrike
+        -- [375416] = RD:CreatePriority(), -- Bleeding
+        -- [376149] = RD:CreatePriority(), -- Choking Rotcloud
+        -- [377844] = RD:CreatePriority(), -- Bladestorm
+        -- [381461] = RD:CreatePriority(), -- Savage Charge
+        -- [381835] = RD:CreatePriority(), -- Bladestorm
+        -- [382723] = RD:CreatePriority(), -- Crushing Smash
+        -- [382787] = RD:CreatePriority(), -- Decay Claws
+        -- [382808] = RD:CreatePriority(), -- Withering Contagion
+        -- [383087] = RD:CreatePriority(), -- Withering Contagion
+        -- [383875] = RD:CreatePriority(), -- Partially Digested
+        -- [384425] = RD:CreatePriority(), -- Smell Like Meat
+        -- [384575] = RD:CreatePriority(), -- Crippling Bite
+        -- [384725] = RD:CreatePriority(), -- Feeding Frenzy
+        -- [384970] = RD:CreatePriority(), -- Scented Meat
+        -- [384974] = RD:CreatePriority(), -- Scented Meat
+        -- [385185] = RD:CreatePriority(), -- Disoriented
+        -- [385356] = RD:CreatePriority(), -- Ensnaring Trap
+
+        -- Hackclaw's War-Band
         [381379] = RD:CreatePriority(10), -- Decayed Senses
-        [381461] = RD:CreatePriority(), -- Savage Charge
-        [381835] = RD:CreatePriority(), -- Bladestorm
-        [382723] = RD:CreatePriority(), -- Crushing Smash
-        [382787] = RD:CreatePriority(), -- Decay Claws
-        [382808] = RD:CreatePriority(), -- Withering Contagion
-        [383087] = RD:CreatePriority(), -- Withering Contagion
-        [383875] = RD:CreatePriority(), -- Partially Digested
-        [384425] = RD:CreatePriority(), -- Smell Like Meat
-        [384575] = RD:CreatePriority(), -- Crippling Bite
-        [384725] = RD:CreatePriority(), -- Feeding Frenzy
-        [384970] = RD:CreatePriority(), -- Scented Meat
-        [384974] = RD:CreatePriority(), -- Scented Meat
-        [385185] = RD:CreatePriority(), -- Disoriented
-        [385356] = RD:CreatePriority(), -- Ensnaring Trap
+        [378020] = RD:CreatePriority(2), -- Gash Frenzy
+        [378229] = RD:CreatePriority(1), -- Marked for Butchery
+        
+        -- Treemouth
+        [377222] = RD:CreatePriority(1), -- Consume
+
+        -- Gutshot
+
+        -- Decatriarch Wratheye
     },
     -- Ruby Life Pools
     [2521] = {
-        [372047] = RD:CreatePriority(), -- Flurry
-        [372682] = RD:CreatePriority(), -- Primal Chill 1
-        [372697] = RD:CreatePriority(), -- Jagged Earth
-        [372820] = RD:CreatePriority(), -- Scorched Earth
-        [372858] = RD:CreatePriority(), -- Searing Blows
-        [372860] = RD:CreatePriority(), -- Searing Wounds
-        [372963] = RD:CreatePriority(), -- Chillstorm
-        [373589] = RD:CreatePriority(), -- Primal Chill 2
-        [373692] = RD:CreatePriority(), -- Inferno 2
-        [373693] = RD:CreatePriority(), -- Living Bomb
-        [373869] = RD:CreatePriority(), -- Burning Touch
-        [381515] = RD:CreatePriority(), -- Stormslam
-        [381518] = RD:CreatePriority(), -- Winds of Change
-        [381862] = RD:CreatePriority(), -- Infernocore
-        [384773] = RD:CreatePriority(), -- Flaming Embers
-        [384823] = RD:CreatePriority(), -- Inferno 1
-        [385536] = RD:CreatePriority(), -- Flame Dance
-        [392406] = RD:CreatePriority(), -- Thunderclap
-        [392451] = RD:CreatePriority(), -- Flashfire
-        [392924] = RD:CreatePriority(), -- Shock Blast
-        [396411] = RD:CreatePriority(), -- Primal Overload
+        -- Trash
+        [373589] = RD:CreatePriority(), -- Primal Chill
+        -- [372047] = RD:CreatePriority(), -- Flurry
+        -- [372697] = RD:CreatePriority(), -- Jagged Earth
+        -- [372820] = RD:CreatePriority(), -- Scorched Earth
+        -- [372858] = RD:CreatePriority(), -- Searing Blows
+        -- [372963] = RD:CreatePriority(), -- Chillstorm
+        -- [373692] = RD:CreatePriority(), -- Inferno 2
+        -- [373693] = RD:CreatePriority(), -- Living Bomb
+        -- [373869] = RD:CreatePriority(), -- Burning Touch
+        -- [381515] = RD:CreatePriority(), -- Stormslam
+        -- [381518] = RD:CreatePriority(), -- Winds of Change
+        -- [384773] = RD:CreatePriority(), -- Flaming Embers
+        -- [384823] = RD:CreatePriority(), -- Inferno 1
+        -- [385536] = RD:CreatePriority(), -- Flame Dance
+        -- [392406] = RD:CreatePriority(), -- Thunderclap
+        -- [392451] = RD:CreatePriority(), -- Flashfire
+        -- [392924] = RD:CreatePriority(), -- Shock Blast
+        -- [396411] = RD:CreatePriority(), -- Primal Overload
+
+        -- Melidrussa Chillworn
+        [372682] = RD:CreatePriority(3), -- Primal Chill
+        
+        -- Kokia Blazehoof
+        [372811] = RD:CreatePriority(4), -- Molten Bolder
+        [372860] = RD:CreatePriority(3), -- Searing Wounds
+        
+        -- Kyrakka and Erkhart Stormvein
+        [381862] = RD:CreatePriority(5), -- Infernocore
     },
     -- Algeth'ar Academy
     [2526] = {
-        [376997] = RD:CreatePriority(), -- Savage Peck
-        [377008] = RD:CreatePriority(), -- Deafening Screech
-        [377344] = RD:CreatePriority(), -- Peck
-        [386181] = RD:CreatePriority(), -- Mana Bomb
-        [386201] = RD:CreatePriority(), -- Corrupted Mana
-        [387932] = RD:CreatePriority(), -- Astral Whirlwind
-        [388544] = RD:CreatePriority(), -- Barkbreaker
-        [388866] = RD:CreatePriority(), -- Mana Void
-        [388912] = RD:CreatePriority(), -- Severing Slash
-        [388984] = RD:CreatePriority(), -- Vicious Ambush
-        [389011] = RD:CreatePriority(), -- Overwhelming Power
-        [389033] = RD:CreatePriority(), -- Lasher Toxin
-        [391977] = RD:CreatePriority(), -- Oversurge
-        [396716] = RD:CreatePriority(), -- Splinterbark
+        -- Trash
+        -- [376997] = RD:CreatePriority(), -- Savage Peck
+        -- [377344] = RD:CreatePriority(), -- Peck
+        -- [386181] = RD:CreatePriority(), -- Mana Bomb
+        -- [386201] = RD:CreatePriority(), -- Corrupted Mana
+        -- [387932] = RD:CreatePriority(), -- Astral Whirlwind
+        -- [388544] = RD:CreatePriority(), -- Barkbreaker
+        -- [388866] = RD:CreatePriority(), -- Mana Void
+        -- [388912] = RD:CreatePriority(), -- Severing Slash
+        -- [388984] = RD:CreatePriority(), -- Vicious Ambush
+        -- [391977] = RD:CreatePriority(), -- Oversurge
+        -- [396716] = RD:CreatePriority(), -- Splinterbark
+
+        -- Vexamus
+
+        -- Overgrown Ancient
+        [389033] = RD:CreatePriority(5), -- Lasher Toxin
+        
+        -- Crawth
+        [377008] = RD:CreatePriority(5), -- Deafening Screech
+        [397210] = RD:CreatePriority(false), -- Sonic Vulnerability
+        
+        -- Echo of Doragosa
+        [389011] = RD:CreatePriority(0, 2), -- Overwhelming Power
     },
     -- Halls of Infusion
     [2527] = {
-        [374339] = RD:CreatePriority(), -- Demoralizing Shout
-        [374389] = RD:CreatePriority(10), -- Gulp Swog Toxin
-        [374610] = RD:CreatePriority(), -- Fixate
-        [374615] = RD:CreatePriority(), -- Cheap Shot
-        [374706] = RD:CreatePriority(), -- Pyretic Burst
-        [374724] = RD:CreatePriority(), -- Molten Subduction
-        [375384] = RD:CreatePriority(), -- Rumbling Earth
-        [383935] = RD:CreatePriority(), -- Spark Volley
-        [384524] = RD:CreatePriority(), -- Titanic Fist
-        [385168] = RD:CreatePriority(), -- Thunderstorm
-        [385555] = RD:CreatePriority(5), -- Gulp
-        [385963] = RD:CreatePriority(), -- Frost Shock
-        -- [386743] = RD:CreatePriority(), -- Polar Winds
-        [387571] = RD:CreatePriority(), -- Focused Deluge
-        [389179] = RD:CreatePriority(), -- Power Overload
-        [389181] = RD:CreatePriority(), -- Power Field
+        -- Trash
+        [374610] = RD:CreatePriority(2), -- Fixate
+        [374724] = RD:CreatePriority(1), -- Molten Subduction
+        [375384] = RD:CreatePriority(1), -- Rumbling Earth
+        [391634] = RD:CreatePriority(5), -- Deep Chill
+        -- [374339] = RD:CreatePriority(), -- Demoralizing Shout
+        -- [374615] = RD:CreatePriority(), -- Cheap Shot
+        -- [374706] = RD:CreatePriority(), -- Pyretic Burst
+        -- [383935] = RD:CreatePriority(), -- Spark Volley
+        -- [385168] = RD:CreatePriority(), -- Thunderstorm
+        
+        -- Watcher Irideous
+        [384524] = RD:CreatePriority(1), -- Titanic Fist
+        [389179] = RD:CreatePriority(2), -- Power Overload
         [389443] = RD:CreatePriority(), -- Purifying Blast
-        [389446] = RD:CreatePriority(), -- Nullifying Pulse
-        [391634] = RD:CreatePriority(), -- Deep Chill
+        [389446] = RD:CreatePriority(1), -- Nullifying Pulse
+        -- [389181] = RD:CreatePriority(), -- Power Field
+        
+        -- Gulping Goliath
+        [385555] = RD:CreatePriority(5), -- Gulp
+        [374389] = RD:CreatePriority(10), -- Gulp Swog Toxin
+        
+        -- Khajin the Unyielding
+        [386743] = RD:CreatePriority(false), -- Polar Winds
+        -- [385963] = RD:CreatePriority(), -- Frost Shock
+        
+        -- Primal Tsunami
+        [383204] = RD:CreatePriority(), -- Crashing Tsunami
+        -- [387571] = RD:CreatePriority(), -- Focused Deluge
     },
-    
+    -- Uldaman: Legacy of Tyr
+    [2451] = {
+        -- Trash
+        [369365] = RD:CreatePriority(3), -- Curse of Stone
+        [369366] = RD:CreatePriority(5), -- Trapped in Stone
+        [369411] = RD:CreatePriority(3), -- Sonic Burst
+        [369811] = RD:CreatePriority(4), -- Brutal Slam
+        [369828] = RD:CreatePriority(5), -- Chomp
+        -- [369337] = RD:CreatePriority(), -- Difficult Terrain
+        -- [369419] = RD:CreatePriority(), -- Venomous Fangs
+        -- [369818] = RD:CreatePriority(), -- Diseased Bite
+        -- [375286] = RD:CreatePriority(), -- Searing Cannonfire
+        -- [377486] = RD:CreatePriority(), -- Time Blade
+        -- [377510] = RD:CreatePriority(), -- Stolen Time
+        -- [377732] = RD:CreatePriority(), -- Jagged Bite
+        -- [377825] = RD:CreatePriority(), -- Burning Pitch
+        -- [382071] = RD:CreatePriority(), -- Resonating Orb
+        -- [382576] = RD:CreatePriority(), -- Scorn of Tyr
+        
+        -- The Lost Dwarves
+        
+        -- Bromach
+        
+        -- Sentinel Talondas
+        [372718] = RD:CreatePriority(3), -- Earthen Shards
+        
+        -- Emberon
+        [369006] = RD:CreatePriority(1), -- Burning Heat
+        -- [369110] = RD:CreatePriority(), -- Unstable Embers
+        
+        -- Chrono-Lord Deios
+        [377405] = RD:CreatePriority(2), -- Time Sink
+        -- [376333] = RD:CreatePriority(false), -- Temporal Zone
+        -- [376209] = RD:CreatePriority(1), -- Rewind Timeflow
+        -- [376325] = RD:CreatePriority(), -- Eternity Zone
+    },
+
     -- Vault of the Incarnates
     [2522] = {
         -- Eranog
@@ -976,13 +1061,14 @@ local Debuffs = {
         [377780] = RD:CreatePriority(5), -- Skeletal Fractures
         [372514] = RD:CreatePriority(5), -- Frost Bite
         [374554] = RD:CreatePriority(4), -- Lava Pool
-        [374709] = RD:CreatePriority(4), -- Seismic Rupture
+        [374704] = RD:CreatePriority(4), -- Seismic Rupture
         [374023] = RD:CreatePriority(6), -- Searing Carnage
         [374427] = RD:CreatePriority(6), -- Ground Shatter
         [390920] = RD:CreatePriority(5), -- Shocking Burst
         [372458] = RD:CreatePriority(6), -- Below Zero
         
         -- Broodkeeper Diurna
+        [390569] = RD:CreatePriority(false),
         [388920] = RD:CreatePriority(6), -- Frozen Shroud
         [378782] = RD:CreatePriority(5), -- Mortal Wounds
         [378787] = RD:CreatePriority(5), -- Crushing Stoneclaws
@@ -990,6 +1076,7 @@ local Debuffs = {
         [375578] = RD:CreatePriority(4), -- Flame Sentry
         
         -- Raszageth the Storm-Eater
+        [381251] = RD:CreatePriority(false), -- Electric Lash
     },
     -- Aberrus, the Shadowed Crucible
     [2569] = {
@@ -1112,7 +1199,7 @@ local Debuffs = {
         [401383] = RD:CreatePriority(), -- Oppressing Howl
         [401525] = RD:CreatePriority(), -- Scorching Detonation
         [401905] = RD:CreatePriority(), -- Dazzled
-        [401951] = RD:CreatePriority({ enable = false }), -- Oblivion
+        [401951] = RD:CreatePriority(false), -- Oblivion
         [402051] = RD:CreatePriority(), -- Searing Breath
         [403520] = RD:CreatePriority(), -- Embrace of Nothingness
         [404154] = RD:CreatePriority(), -- Void Surge
@@ -1308,17 +1395,37 @@ local Debuffs = {
 }
 
 local Blacklist = {
-    -- Lust
-    [57723] = true,     -- Exhaustion
-    [57724] = true,     -- Sated
-    [80354] = true,     -- Temporal Displacement
-    [390435] = true,    -- Exhaustion
-    [264689] = true,    -- Fatigued
-    -- General
-    [160029] = true,    -- Resurrecting
-    [371070] = true,    -- Rotting from Within
     -- Mythic+
-    [206151] = true,    -- Challenger's Burden
+    [206151] = true,                    -- Challenger's Burden
+
+    -- Lust
+    [57723] = true,                     -- Exhaustion
+    [57724] = true,                     -- Sated
+    [80354] = true,                     -- Temporal Displacement
+    [390435] = true,                    -- Exhaustion
+    [264689] = true,                    -- Fatigued
+
+    -- General
+    [160029] = true,                    -- Resurrecting
+    [371070] = true,                    -- Rotting from Within
+
+    -- Items / Trinkets
+    [425417] = true,                    -- Solar Maelstrom
+    [426897] = true,                    -- Burnout
+    [429204] = true,                    -- Blossom of Amirdrassil
+    [433759] = true,                    -- Inexorable Resonator
+
+    -- Death Knight
+    [97821] = (class ~= "DEATHKNIGHT"), -- Void-Touched
+
+    -- Druid
+    [382912] = true,                    -- Well-Honed Instinctswwwwwwwwwwwwwwwwm
+
+    -- Shaman
+    [225080] = true,                    -- Reincarnation
+
+    -- Warlock
+    [387847] = true,                    -- Fel Armor
 }
 
 RD.Debuffs = Debuffs
