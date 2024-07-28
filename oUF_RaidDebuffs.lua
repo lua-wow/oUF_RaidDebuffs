@@ -60,6 +60,15 @@ local RD = ns.oUF_RaidDebuffs
 local Debuffs = {}
 local Blacklist = RD.Blacklist or {}
 
+for zoneID, zoneData in next, RD.Debuffs do
+	for spellID, value in next, zoneData do
+		local data = C_Spell.GetSpellInfo(spellID)
+		if not data then
+			print("[" .. zoneID .. "] Spell " .. spellID .. " do not exists.")
+		end
+	end
+end
+
 -- Constants
 local class = select(2, UnitClass("player"))
 
@@ -75,6 +84,7 @@ local IsSpellKnown = _G.IsSpellKnown
 local GetTime = _G.GetTime
 local UnitAura = _G.UnitAura
 local UnitCanAttack = _G.UnitCanAttack
+local UnitCanAssist = _G.UnitCanAssist
 local UnitIsCharmed = _G.UnitIsCharmed
 local UnitIsUnit = _G.UnitIsUnit
 local UnitIsOwnerOrControllerOfUnit = _G.UnitIsOwnerOrControllerOfUnit
@@ -381,7 +391,7 @@ local function ProcessData(element, unit, data)
 	data.isDispelable = DispelFilter[data.dispelName]
 	data.dispelPriority = DispelPriority[data.dispelName] or 0
 
-	local debuff = RD.Debuffs[data.spellId]
+	local debuff = Debuffs[data.spellId]
 	if debuff then
 		data.enable = debuff.enable or false
 		data.priority = debuff.priority or 0

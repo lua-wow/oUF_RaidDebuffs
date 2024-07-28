@@ -466,8 +466,8 @@ local Debuffs = {
         -- Shriekwing
         [328897] = RD:CreatePriority(), -- Exsanguinated
         [330713] = RD:CreatePriority(), -- Reverberating Pain
-        [329370] = RD:CreatePriority(), -- Deadly Descent
-        [336494] = RD:CreatePriority(), -- Echo Screech
+        -- [329370] = RD:CreatePriority(), -- Deadly Descent
+        -- [336494] = RD:CreatePriority(), -- Echo Screech
         [346301] = RD:CreatePriority(), -- Bloodlight
         [342077] = RD:CreatePriority(), -- Echolocation
         
@@ -526,7 +526,7 @@ local Debuffs = {
         [339181] = RD:CreatePriority(), -- Chain Slam (Root)
         [331209] = RD:CreatePriority(), -- Hateful Gaze
         [335293] = RD:CreatePriority(), -- Chain Link
-        [335270] = RD:CreatePriority(), -- Chain This One!
+        -- [335270] = RD:CreatePriority(), -- Chain This One!
         [342419] = RD:CreatePriority(), -- Chain Them! 1
         [342420] = RD:CreatePriority(), -- Chain Them! 2
         [335295] = RD:CreatePriority(), -- Shattering Chain
@@ -710,7 +710,8 @@ local Debuffs = {
         [363681] = RD:CreatePriority(3), -- Deconstructing Blast
         [363676] = RD:CreatePriority(4), -- Deconstructing Energy Player 1
         [363795] = RD:CreatePriority(4), -- Deconstructing Energy Player 2
-        [464312] = RD:CreatePriority(5), -- Ephemeral Barrier
+        -- [464312] = RD:CreatePriority(5), -- Ephemeral Barrier
+
         -- Halondrus the Reclaimer
         [361309] = RD:CreatePriority(3), -- Lightshatter Beam
         [361002] = RD:CreatePriority(4), -- Ephemeral Fissure
@@ -1332,7 +1333,7 @@ local Debuffs = {
         [9484]		= RD:CreatePriority(3), -- Shackle Undead
         [200196]	= RD:CreatePriority(4), -- Holy Word: Chastise
         [200200]	= RD:CreatePriority(4), -- Holy Word: Chastise
-        [226943]	= RD:CreatePriority(3), -- Mind Bomb
+        -- [226943]	= RD:CreatePriority(3), -- Mind Bomb
         [605]		= RD:CreatePriority(5), -- Mind Control
         [8122]		= RD:CreatePriority(3), -- Psychic Scream
         [15487]		= RD:CreatePriority(2), -- Silence
@@ -1419,7 +1420,7 @@ local Blacklist = {
     [97821] = (class ~= "DEATHKNIGHT"), -- Void-Touched
 
     -- Druid
-    [382912] = true,                    -- Well-Honed Instinctswwwwwwwwwwwwwwwwm
+    [382912] = true,                    -- Well-Honed Instincts
 
     -- Shaman
     [225080] = true,                    -- Reincarnation
