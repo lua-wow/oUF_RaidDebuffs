@@ -6,7 +6,7 @@ local RD = {}
 function RD:CreatePriority(arg1, arg2)
     local enable = true
     local priority = 0
-    local threshold = 0
+    local stackThreshold = 0
 
     if type(arg1) == "boolean" then
         enable = arg1
@@ -15,13 +15,13 @@ function RD:CreatePriority(arg1, arg2)
     end
     
     if type(arg2) == "number" then
-        threshold = arg2
+        stackThreshold = arg2
     end
 
     return {
         enable = enable,
         priority = tonumber(priority) or 0,
-        threshold = tonumber(threshold) or 0
+        stackThreshold = tonumber(stackThreshold) or 0
     }
 end
 

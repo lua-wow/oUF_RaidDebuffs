@@ -71,6 +71,18 @@ local Debuffs = {
         [397911] = RD:CreatePriority(), -- Touch of Ruin
         [397914] = RD:CreatePriority(), -- Defiling Mist
     },
+    -- Shado-pan Monastery
+    [959] = {
+        [106774] = RD:CreatePriority(false),    -- Honarable Combat
+    },
+
+    -- Mogu'shan Vaults
+    [1008] = {
+        -- Will of the Emperor
+        [116779] = RD:CreatePriority(false),    -- Titan Gas
+        [116782] = RD:CreatePriority(false),    -- Titan Gas
+        [116803] = RD:CreatePriority(false),    -- Titan Gas
+    },
 
     ----------------------------------------------------------
     -- Warlords of Draenor
@@ -952,7 +964,7 @@ local Debuffs = {
         
         -- Crawth
         [377008] = RD:CreatePriority(5), -- Deafening Screech
-        [397210] = RD:CreatePriority(false), -- Sonic Vulnerability
+        [397210] = RD:CreatePriority(0, 3), -- Sonic Vulnerability
         
         -- Echo of Doragosa
         [389011] = RD:CreatePriority(0, 2), -- Overwhelming Power
@@ -1075,6 +1087,7 @@ local Debuffs = {
         [378787] = RD:CreatePriority(5), -- Crushing Stoneclaws
         [375620] = RD:CreatePriority(6), -- Ionizing Charge
         [375578] = RD:CreatePriority(4), -- Flame Sentry
+        [390561] = RD:CreatePriority(false), -- Diurna's Gaze
         
         -- Raszageth the Storm-Eater
         [381251] = RD:CreatePriority(false), -- Electric Lash
@@ -1414,7 +1427,7 @@ local Blacklist = {
     [425417] = true,                    -- Solar Maelstrom
     [426897] = true,                    -- Burnout
     [429204] = true,                    -- Blossom of Amirdrassil
-    [433759] = true,                    -- Inexorable Resonator
+    -- [433759] = true,                    -- Inexorable Resonator
 
     -- Death Knight
     [97821] = (class ~= "DEATHKNIGHT"), -- Void-Touched
