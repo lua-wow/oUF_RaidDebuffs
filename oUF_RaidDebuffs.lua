@@ -333,6 +333,10 @@ end
 local function FilterAura(element, unit, data)
 	-- ignore black listed ones
 	if Blacklist[data.spellId] then return false end
+	if data.enable == false then return false end
+	
+	-- ignore debuffs applied by the unit itself
+	if data.sourceUnit and UnitIsUnit(unit, data.sourceUnit) then return false end
 	
 	-- store if the unit its charmed, mind controlled units (Imperial Vizier Zor'lok: Convert)
 	local isCharmed = UnitIsCharmed(unit)
@@ -407,7 +411,7 @@ local function ProcessData(element, unit, data)
 
 	* self - the RaidDebuffs element
 	* unit - the unit for which the update has been triggered (string)
-	* data - [UnitAuraInfo](https://wowpedia.fandom.com/wiki/Struct_UnitAuraInfo) object (table)
+	* data - [AuraData](https://warcraft.wiki.gg/wiki/Struct_AuraData) object (table)
 
 	## Returns
 
