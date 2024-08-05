@@ -4,12 +4,12 @@ local oUF = ns.oUF
 local RD = {}
 
 function RD:CreatePriority(arg1, arg2)
-    local enable = true
+    local enabled = true
     local priority = 0
     local stackThreshold = 0
 
     if type(arg1) == "boolean" then
-        enable = arg1
+        enabled = arg1
     elseif type(arg1) == "number" then
         priority = arg1
     end
@@ -19,7 +19,7 @@ function RD:CreatePriority(arg1, arg2)
     end
 
     return {
-        enable = enable,
+        enabled = enabled,
         priority = tonumber(priority) or 0,
         stackThreshold = tonumber(stackThreshold) or 0
     }

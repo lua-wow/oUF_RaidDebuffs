@@ -2,6 +2,10 @@
 
 Display aura icon on raid frame unit if the aura is dispelable by the player.
 
+## Requiments
+
+-   [LibDispel](https://github.com/lua-wow/LibDispel)
+
 ## Element: RaidDebuffs
 
 Handles the visibility and updating of an icon based on raid units debuffs.

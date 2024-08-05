@@ -4,7 +4,7 @@ local RD = ns.oUF_RaidDebuffs
 
 if not oUF.isClassic then return end
 
-local Debuffs = {
+local debuffs = {
     -- Onyxia's Lair
     [249] = {
         [18431] = RD:CreatePriority(2), --Bellowing Roar
@@ -398,5 +398,5 @@ local Debuffs = {
     }
 }
 
-RD.Debuffs = Debuffs
-RD.Blacklist = Blacklist
+RD.debuffs = debuffs
+RD.blacklist = blacklist

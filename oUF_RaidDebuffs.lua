@@ -56,11 +56,14 @@ local _, ns = ...
 local oUF = ns.oUF or oUF
 assert(oUF, "oUF RaidDebuffs was unable to locate oUF install.")
 
-local RD = ns.oUF_RaidDebuffs
-local Debuffs = {}
-local Blacklist = RD.Blacklist or {}
+local LibDispel = LibStub("LibDispel")
+assert(LibDispel, "Filger requires LibDispel")
 
-for zoneID, zoneData in next, RD.Debuffs do
+local RD = ns.oUF_RaidDebuffs
+local debuffs = {}
+local blacklist = RD.blacklist or {}
+
+for zoneID, zoneData in next, RD.debuffs do
 	for spellID, value in next, zoneData do
 		local data = C_Spell.GetSpellInfo(spellID)
 		if not data then
@@ -121,122 +124,32 @@ function loader:PLAYER_ENTERING_WORLD(...)
 		local difficultyName, groupType, isHeroic, isChallengeMode, _, _, _ = GetDifficultyInfo(difficultyID)
 
 		-- insert instance specific debuffs
-		Debuffs = CopyTable(RD.Debuffs[instanceID] or {}, Debuffs)
+		Debuffs = CopyTable(RD.debuffs[instanceID] or {}, Debuffs)
 		
 		-- insert affixes debuffs
 		local isMythicKeystone = (isHeroic and isChallengeMode)
 		if (isMythicKeystone) then
-			Debuffs = CopyTable(RD.Debuffs["Affixes"] or {}, Debuffs)
+			Debuffs = CopyTable(RD.debuffs["Affixes"] or {}, debuffs)
 		end
 	else
 		-- insert general debuffs, like world bosses
-		Debuffs = CopyTable(RD.Debuffs["General"] or {}, Debuffs)
+		Debuffs = CopyTable(RD.debuffs["General"] or {}, debuffs)
 		
 		-- insert classes debuffs
-		Debuffs = CopyTable(RD.Debuffs["PvP"] or {}, Debuffs)
+		Debuffs = CopyTable(RD.debuffs["PvP"] or {}, debuffs)
 	end
 end
 
 --------------------------------------------------
 -- Dispel
 --------------------------------------------------
-local DispelPriority = {
+local dispelPriority = {
 	["Magic"] = 4,
 	["Curse"] = 3,
 	["Disease"]	= 2,
 	["Poison"] = 1,
 	["none"] = 0
 }
-
-local DispelFilterClasses = {
-	["DRUID"] = {
-		["Magic"] = false,
-		["Curse"] = true,
-		["Poison"] = true,
-		["Disease"] = false
-	},
-	["EVOKER"] = {
-		["Magic"] = true,
-		["Curse"] = true,
-		["Poison"] = true,
-		["Disease"] = true
-	},
-	["MAGE"] = {
-		["Curse"] = true
-	},
-	["MONK"] = {
-		["Magic"] = false,
-		["Poison"] = true,
-		["Disease"] = true
-	},
-	["PALADIN"] = {
-		["Magic"] = true,
-		["Poison"] = true,
-		["Disease"] = true
-	},
-	["PRIEST"] = {
-		["Magic"] = true,
-		["Disease"] = true
-	},
-	["SHAMAN"] = {
-		["Magic"] = false,
-		["Curse"] = (oUF.isRetail and true) or (oUF.isClassic and true) or false,
-		["Poison"] = true,
-		["Disease"] = true
-	}
-}
-
-local DispelFilter = DispelFilterClasses[class] or {}
-
---------------------------------------------------
--- Talents
---------------------------------------------------
-local function CheckTalentTree(tree)
-	local activeSpecGroup = GetActiveSpecGroup(false)
-	local currentSpec = GetSpecialization(false, false, activeSpecGroup)
-	return (currentSpec == tree)
-end
-
-local function CheckSpecialization()
-	if (class == "DRUID") then
-		local isRestoration = CheckTalentTree(4)
-		DispelFilter.Magic = isRestoration
-	elseif (class == "EVOKER") then
-		local isPreservation = CheckTalentTree(2)
-		DispelFilter.Magic = isPreservation
-		DispelFilter.Curse = isPreservation
-		DispelFilter.Poison = isPreservation
-		DispelFilter.Disease = isPreservation
-	elseif (class == "MONK") then
-		local isMistweaver = CheckTalentTree(2)
-		DispelFilter.Magic = isMistweaver
-	elseif (class == "PALADIN") then
-		local isHoly = CheckTalentTree(1)
-		DispelFilter.Magic = isHoly
-	elseif (class == "PRIEST") then
-		-- do nothing
-	elseif (class == "SHAMAN") then
-		local isRestoration = CheckTalentTree(3)
-		DispelFilter.Magic = isRestoration
-	end
-end
-
-local function UpdateDispelFilter(self, event, ...)
-	if (event == "CHARACTER_POINTS_CHANGED") then
-		local levels = ...
-		-- Not interested in gained points from leveling
-		if (levels > 0) then return end
-	elseif (event == "UNIT_SPELLCAST_SUCCEEDED") then
-		local unit, _, spellID = ...
-		-- watch if player change spec
-		if (unit ~= "player") then return end
-		-- 200749 = 'Activating Specialization'
-		-- 384255 = 'Changing Talents'
-		if (spellID ~= 200749 and spellID ~= 384255) then return end
-	end
-
-	CheckSpecialization()
-end
 
 --------------------------------------------------
 -- Raid Debuffs
@@ -332,8 +245,8 @@ end
 
 local function FilterAura(element, unit, data)
 	-- ignore black listed ones
-	if Blacklist[data.spellId] then return false end
-	if data.enable == false then return false end
+	if blacklist[data.spellId] then return false end
+	if data.enabled == false then return false end
 	
 	-- ignore debuffs applied by the unit itself
 	if data.sourceUnit and UnitIsUnit(unit, data.sourceUnit) then return false end
@@ -372,11 +285,6 @@ local function SortAuras(a, b)
         return a.isDispelable
     end
 
-	-- sort dispel priority, magic is priority over curse, etc.
-	if a.dispelName ~= b.dispelName then
-		return a.dispelPriority > b.dispelPriority
-	end
-
 	-- if both auras are dispelable or both are not, compare their priorities
     if a.priority ~= b.priority then
         return a.priority > b.priority
@@ -392,19 +300,21 @@ local function ProcessData(element, unit, data)
 	data.isPlayerAura = data.sourceUnit and (UnitIsUnit("player", data.sourceUnit) or UnitIsOwnerOrControllerOfUnit("player", data.sourceUnit))
 
 	-- whether or not this aura is dispelable by the player class/spec
-	data.isDispelable = DispelFilter[data.dispelName]
-	data.dispelPriority = DispelPriority[data.dispelName] or 0
-
-	local debuff = Debuffs[data.spellId]
+	data.isDispelable = LibDispel:IsDispelable(unit, data.spellId, data.dispelName, data.isHarmful)
+	
+	local debuff = debuffs[data.spellId]
 	if debuff then
-		data.enable = debuff.enable or false
+		data.enabled = debuff.enabled or false
 		data.priority = debuff.priority or 0
 		data.stackThreshold = debuff.stackThreshold or 0
 	else
-		data.enable = true
+		data.enabled = true
 		data.priority = 0
 		data.stackThreshold = 0
 	end
+
+	-- increment priority based on dispel type
+	data.priority = data.priority + (dispelPriority[data.dispelName or "none"] or 0)
 
 	--[[ Callback: RaidDebuffs:PostProcessAuraData(unit, data)
 	Called after the aura data has been processed.
@@ -533,17 +443,6 @@ local function Enable(self)
 			loader:RegisterEvent("PLAYER_ENTERING_WORLD", UpdateDebuffsTable)
 		end
 
-		if (oUF.isRetail) then
-			self:RegisterEvent("PLAYER_TALENT_UPDATE", UpdateDispelFilter, true)
-			self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED", UpdateDispelFilter, true)
-		end
-
-		if (oUF.isClassic) then
-			self:RegisterEvent("CHARACTER_POINTS_CHANGED", UpdateDispelFilter, true)
-		end
-
-		CheckSpecialization(element)
-
 		self:RegisterEvent("UNIT_AURA", UpdateAuras)
 
 		return true
@@ -556,15 +455,6 @@ local function Disable(self)
 		
 		if (loader and loader:IsEventRegistered("PLAYER_ENTERING_WORLD")) then
 			loader:UnregisterEvent("PLAYER_ENTERING_WORLD")
-		end
-
-		if (oUF.isRetail) then
-			self:UnregisterEvent("PLAYER_TALENT_UPDATE", UpdateDispelFilter)
-			self:UnregisterEvent("UNIT_SPELLCAST_SUCCEEDED", UpdateDispelFilter)
-		end
-
-		if (oUF.isClassic) then
-			self:UnregisterEvent("CHARACTER_POINTS_CHANGED", UpdateDispelFilter)
 		end
 
 		self:UnregisterEvent("UNIT_AURA", UpdateAuras)

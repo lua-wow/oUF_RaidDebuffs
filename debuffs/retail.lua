@@ -6,7 +6,7 @@ if not oUF.isRetail then return end
 
 local _, class = UnitClass("player")
 
-local Debuffs = {
+local debuffs = {
     ["Affixes"] = {
         ----------------------------------------------------------
         -- Mythic+ Affixes
@@ -1408,7 +1408,7 @@ local Debuffs = {
     }
 }
 
-local Blacklist = {
+local blacklist = {
     -- Mythic+
     [206151] = true,                    -- Challenger's Burden
 
@@ -1442,5 +1442,5 @@ local Blacklist = {
     [387847] = true,                    -- Fel Armor
 }
 
-RD.Debuffs = Debuffs
-RD.Blacklist = Blacklist
+RD.debuffs = debuffs
+RD.blacklist = blacklist
