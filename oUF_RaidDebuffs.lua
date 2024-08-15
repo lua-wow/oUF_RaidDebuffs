@@ -60,17 +60,6 @@ local LibDispel = LibStub("LibDispel")
 assert(LibDispel, "Filger requires LibDispel")
 
 local RD = ns.oUF_RaidDebuffs
-local debuffs = {}
-local blacklist = RD.blacklist or {}
-
-for zoneID, zoneData in next, RD.debuffs do
-	for spellID, value in next, zoneData do
-		local data = C_Spell.GetSpellInfo(spellID)
-		if not data then
-			print("[" .. zoneID .. "] Spell " .. spellID .. " do not exists.")
-		end
-	end
-end
 
 -- Constants
 local class = select(2, UnitClass("player"))
@@ -82,7 +71,6 @@ local type, pairs, wipe = type, pairs, wipe
 -- Blizzard
 local GetActiveSpecGroup = _G.GetActiveSpecGroup
 local GetSpecialization = _G.GetSpecialization
-local GetSpellInfo = _G.GetSpellInfo
 local IsSpellKnown = _G.IsSpellKnown
 local GetTime = _G.GetTime
 local UnitAura = _G.UnitAura
@@ -92,31 +80,48 @@ local UnitIsCharmed = _G.UnitIsCharmed
 local UnitIsUnit = _G.UnitIsUnit
 local UnitIsOwnerOrControllerOfUnit = _G.UnitIsOwnerOrControllerOfUnit
 
+local GetSpellName = C_Spell and C_Spell.GetSpellName or _G.GetSpellInfo
+
+-- Mine
+local debuffs = {}
+local blacklist = RD.blacklist or {}
+
 --------------------------------------------------
 -- Loader
 --------------------------------------------------
-local function CopyTable(src, dest)
-	if (type(dest) ~= "table") then
-		dest = {}
-	end
-	for k, v in next, src do
-		local name = GetSpellInfo(k)
-		if name then
-			dest[k] = v
-		else
-			RD.print("Spell " .. k .. " do not exists.")
+local function CopyTable(dest, src)
+	if dest and type(dest) == "table" then
+		for k, v in next, src do
+			local name = GetSpellName(k)
+			if name then
+				dest[k] = v
+			end
 		end
 	end
 	return dest
 end
 
 local loader = CreateFrame("Frame")
+loader:RegisterEvent("PLAYER_LOGIN")
 loader:SetScript("OnEvent", function (self, event, ...)
 	self[event](self, ...)
 end)
 
+function loader:PLAYER_LOGIN()
+	for zoneID, data in next, (RD.debuffs or {}) do
+		for spellID, value in next, data do
+			local name = GetSpellName(spellID)
+			if not name then
+				print("[" .. zoneID .. "] Spell " .. spellID .. " do not exists.")
+			end
+		end
+	end
+
+	self:UnregisterEvent("PLAYER_LOGIN")
+end
+
 function loader:PLAYER_ENTERING_WORLD(...)
-	Debuffs = table.wipe(Debuffs or {})
+	debuffs = table.wipe(debuffs or {})
 	local isInInstance, instanceType = IsInInstance()
 	
 	if (isInInstance and (instanceType == "raid" or instanceType == "party")) then
@@ -124,19 +129,19 @@ function loader:PLAYER_ENTERING_WORLD(...)
 		local difficultyName, groupType, isHeroic, isChallengeMode, _, _, _ = GetDifficultyInfo(difficultyID)
 
 		-- insert instance specific debuffs
-		Debuffs = CopyTable(RD.debuffs[instanceID] or {}, Debuffs)
+		debuffs = CopyTable(debuffs, RD.debuffs[instanceID] or {})
 		
 		-- insert affixes debuffs
 		local isMythicKeystone = (isHeroic and isChallengeMode)
 		if (isMythicKeystone) then
-			Debuffs = CopyTable(RD.debuffs["Affixes"] or {}, debuffs)
+			debuffs = CopyTable(debuffs, RD.debuffs["Affixes"] or {})
 		end
 	else
 		-- insert general debuffs, like world bosses
-		Debuffs = CopyTable(RD.debuffs["General"] or {}, debuffs)
+		debuffs = CopyTable(debuffs, RD.debuffs["General"] or {})
 		
 		-- insert classes debuffs
-		Debuffs = CopyTable(RD.debuffs["PvP"] or {}, debuffs)
+		debuffs = CopyTable(debuffs, RD.debuffs["PvP"] or {})
 	end
 end
 
