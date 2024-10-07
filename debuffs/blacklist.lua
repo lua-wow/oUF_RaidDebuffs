@@ -27,17 +27,24 @@ local blacklist = {
     -- [429204] = true,                    -- Blossom of Amirdrassil
     -- [433759] = true,                    -- Inexorable Resonator
 
-    -- Death Knight
-    [97821] = (class ~= "DEATHKNIGHT"), -- Void-Touched
+    -- Others
+    [306600] = true,                    -- Experience Eliminated
 
-    -- Druid
-    [382912] = true,                    -- Well-Honed Instincts
+    -- Classes
+        -- DEATH KNIGHT
+        [97821] = (class ~= "DEATHKNIGHT"), -- Void-Touched
 
-    -- Shaman
-    [225080] = true,                    -- Reincarnation
+        -- DRUID
+        [382912] = true,                    -- Well-Honed Instincts
 
-    -- Warlock
-    [387847] = true,                    -- Fel Armor
+        -- PALADIN
+        [157131] = true,                    -- Recently Saved by the Light
+
+        -- SHAMAN
+        [225080] = true,                    -- Reincarnation
+
+        -- WARLOCK
+        [387847] = true,                    -- Fel Armor
 }
 
 RD.blacklist = blacklist

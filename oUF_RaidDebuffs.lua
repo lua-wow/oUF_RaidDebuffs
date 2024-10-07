@@ -32,7 +32,6 @@
 
 		-- Add a cooldown
 		local Cooldown = CreateFrame("Cooldown", nil, RaidDebuffs, "CooldownFrameTemplate")
-		Cooldown:()
 		Cooldown:SetReverse(true)
 		Cooldown:SetHideCountdownNumbers(true)
 
@@ -62,7 +61,7 @@ assert(LibDispel, "Filger requires LibDispel")
 local RD = ns.oUF_RaidDebuffs
 
 -- Constants
-local class = select(2, UnitClass("player"))
+local _, class = UnitClass("player")
 
 -- Lua
 local format, floor = format, floor
@@ -71,16 +70,15 @@ local type, pairs, wipe = type, pairs, wipe
 -- Blizzard
 local GetActiveSpecGroup = _G.GetActiveSpecGroup
 local GetSpecialization = _G.GetSpecialization
-local IsSpellKnown = _G.IsSpellKnown
-local GetTime = _G.GetTime
-local UnitAura = _G.UnitAura
-local UnitCanAttack = _G.UnitCanAttack
-local UnitCanAssist = _G.UnitCanAssist
-local UnitIsCharmed = _G.UnitIsCharmed
-local UnitIsUnit = _G.UnitIsUnit
-local UnitIsOwnerOrControllerOfUnit = _G.UnitIsOwnerOrControllerOfUnit
-
 local GetSpellName = C_Spell and C_Spell.GetSpellName or _G.GetSpellInfo
+local GetTime = _G.GetTime
+local IsSpellKnown = _G.IsSpellKnown
+local UnitAura = _G.UnitAura
+local UnitCanAssist = _G.UnitCanAssist
+local UnitCanAttack = _G.UnitCanAttack
+local UnitIsCharmed = _G.UnitIsCharmed
+local UnitIsOwnerOrControllerOfUnit = _G.UnitIsOwnerOrControllerOfUnit
+local UnitIsUnit = _G.UnitIsUnit
 
 -- Mine
 local debuffs = {}
@@ -89,18 +87,6 @@ local blacklist = RD.blacklist or {}
 --------------------------------------------------
 -- Loader
 --------------------------------------------------
-local function CopyTable(dest, src)
-	if dest and type(dest) == "table" then
-		for k, v in next, src do
-			local name = GetSpellName(k)
-			if name then
-				dest[k] = v
-			end
-		end
-	end
-	return dest
-end
-
 local loader = CreateFrame("Frame")
 loader:RegisterEvent("PLAYER_LOGIN")
 loader:SetScript("OnEvent", function (self, event, ...)
@@ -108,41 +94,40 @@ loader:SetScript("OnEvent", function (self, event, ...)
 end)
 
 function loader:PLAYER_LOGIN()
-	for zoneID, data in next, (RD.debuffs or {}) do
-		for spellID, value in next, data do
-			local name = GetSpellName(spellID)
-			if not name then
-				print("[" .. zoneID .. "] Spell " .. spellID .. " do not exists.")
-			end
-		end
-	end
-
+	RD:ValidateDebuffs()
 	self:UnregisterEvent("PLAYER_LOGIN")
 end
 
-function loader:PLAYER_ENTERING_WORLD(...)
+function loader:Update()
 	debuffs = table.wipe(debuffs or {})
+
 	local isInInstance, instanceType = IsInInstance()
+	local instanceName, _, difficultyID, difficultyName, _, _, _, instanceID, _, _ = GetInstanceInfo()
+	local isDelve = C_DelvesUI.HasActiveDelve(instanceID)
 	
-	if (isInInstance and (instanceType == "raid" or instanceType == "party")) then
-		local instanceName, _, difficultyID, difficultyName, _, _, _, instanceID, _, _ = GetInstanceInfo()
-		local difficultyName, groupType, isHeroic, isChallengeMode, _, _, _ = GetDifficultyInfo(difficultyID)
+	if (isInInstance and (instanceType == "raid" or instanceType == "party" or isDelve)) then
+		-- local difficultyName, groupType, isHeroic, isChallengeMode, displayHeroic, displayMythic, _ = GetDifficultyInfo(difficultyID)
+		-- local isMythicKey = isHeroic and isChallengeMode
 
 		-- insert instance specific debuffs
-		debuffs = CopyTable(debuffs, RD.debuffs[instanceID] or {})
+		debuffs = Mixin(debuffs, RD.debuffs[instanceID] or {})
 		
 		-- insert affixes debuffs
-		local isMythicKeystone = (isHeroic and isChallengeMode)
-		if (isMythicKeystone) then
-			debuffs = CopyTable(debuffs, RD.debuffs["Affixes"] or {})
-		end
+		debuffs = Mixin(debuffs, RD.debuffs["Affixes"] or {})
 	else
 		-- insert general debuffs, like world bosses
-		debuffs = CopyTable(debuffs, RD.debuffs["General"] or {})
+		debuffs = Mixin(debuffs, RD.debuffs["General"] or {})
 		
 		-- insert classes debuffs
-		debuffs = CopyTable(debuffs, RD.debuffs["PvP"] or {})
+		debuffs = Mixin(debuffs, RD.debuffs["PvP"] or {})
 	end
+
+	-- insert delves auras, because delves do not trigger PLAYER_ENTERING_WORLD
+	debuffs = Mixin(debuffs, RD.debuffs["Delves"] or {})
+end
+
+function loader:PLAYER_ENTERING_WORLD(isLogin, isReload)
+	self:Update()
 end
 
 --------------------------------------------------
@@ -321,6 +306,10 @@ local function ProcessData(element, unit, data)
 	-- increment priority based on dispel type
 	data.priority = data.priority + (dispelPriority[data.dispelName or "none"] or 0)
 
+	if data.name == "Void Essence" and FilterAura(element, unit, data) then
+		print(data.name, data.spellId, "enabled", data.enabled)
+	end
+
 	--[[ Callback: RaidDebuffs:PostProcessAuraData(unit, data)
 	Called after the aura data has been processed.
 
@@ -445,7 +434,7 @@ local function Enable(self)
 		element.ForceUpdate = ForceUpdate
 
 		if (loader and not loader:IsEventRegistered("PLAYER_ENTERING_WORLD")) then
-			loader:RegisterEvent("PLAYER_ENTERING_WORLD", UpdateDebuffsTable)
+			loader:RegisterEvent("PLAYER_ENTERING_WORLD")
 		end
 
 		self:RegisterEvent("UNIT_AURA", UpdateAuras)

@@ -40,7 +40,6 @@ Icon:SetAllPoints()
 
 -- Add a cooldown
 local Cooldown = CreateFrame("Cooldown", nil, RaidDebuffs, "CooldownFrameTemplate")
-Cooldown:()
 Cooldown:SetReverse(true)
 Cooldown:SetHideCountdownNumbers(true)
 

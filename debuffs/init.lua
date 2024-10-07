@@ -25,11 +25,11 @@ function RD:CreatePriority(arg1, arg2)
     }
 end
 
-RD.print = function(...)
+function RD:print(...)
     print("|cff4AAB4DoUF_RaidDebuffs:|r", ...)
 end
 
-RD.error = function(...)
+function RD:error(...)
     print("|cffff0000oUF_RaidDebuffs:|r", ...)
 end
 
