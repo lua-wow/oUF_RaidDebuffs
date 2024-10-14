@@ -38,10 +38,11 @@ local debuffs = {
         [409492] = RD:CreatePriority(1), -- Afflicted Cry (Afflicted)
 
         -- The War Within: Season 1
-        [440313] = RD:CreatePriority(0), -- Void Rift
+        [440313] = RD:CreatePriority(3), -- Void Rift
         [461910] = RD:CreatePriority(false), -- Cosmic Ascension
         [462661] = RD:CreatePriority(false), -- Blessing from Beyond (Xal'atath Bargain: Voidbound)
         [463767] = RD:CreatePriority(false), -- Void Essence
+        [465136] = RD:CreatePriority(false), -- Lingering Void
     },
     ["Delves"] = {
         -- The War Within: Delves
@@ -395,6 +396,30 @@ local debuffs = {
     },
     
     ----------------------------------------------------------
+    -- Wrath of the Lich King
+    ----------------------------------------------------------
+    -- Ulduar
+    [603] = {
+        -- Flame Leviathan
+        -- Ignis the Furnace Master
+        -- Razorscale
+        -- XT-002 Decontructor
+        -- The Assembly of Iron
+        -- Kologarn
+        -- Auriaya
+        -- Hodir
+        -- Thorim
+        -- Freya
+        -- Mimiron
+        -- General Vezax
+
+        -- Yogg-Saron
+        [63050] = RD:CreatePriority(false), -- Sanity
+
+        -- Algalon the Observer
+    },
+
+    ----------------------------------------------------------
     -- Mists of Pandaria
     ----------------------------------------------------------
     -- Shado-pan Monastery
@@ -699,24 +724,45 @@ local debuffs = {
     },
     -- The Necrotic Wake
     [2286] = {
-        [321821] = RD:CreatePriority(), -- Disgusting Guts
-        [323365] = RD:CreatePriority(), -- Clinging Darkness
-        [338353] = RD:CreatePriority(), -- Goresplatter
-        [333485] = RD:CreatePriority(), -- Disease Cloud
-        [338357] = RD:CreatePriority(), -- Tenderize
-        [328181] = RD:CreatePriority(), -- Frigid Cold
-        [320170] = RD:CreatePriority(), -- Necrotic Bolt
-        [323464] = RD:CreatePriority(), -- Dark Ichor
-        [323198] = RD:CreatePriority(), -- Dark Exile
-        [343504] = RD:CreatePriority(), -- Dark Grasp
-        [343556] = RD:CreatePriority(), -- Morbid Fixation 1
-        [338606] = RD:CreatePriority(), -- Morbid Fixation 2
-        [324381] = RD:CreatePriority(), -- Chill Scythe
+        -- Trash
+        [320462] = RD:CreatePriority(), -- Necrotic Bolt
         [320573] = RD:CreatePriority(), -- Shadow Well
-        [333492] = RD:CreatePriority(), -- Necrotic Ichor
+        [321807] = RD:CreatePriority(), -- Bonelfay
+        [321821] = RD:CreatePriority(), -- Disgusting Guts (Disease)
+        [323365] = RD:CreatePriority(), -- Clinging Darkness (Magic)
+        [323471] = RD:CreatePriority(), -- Throw Cleaver
+        [324293] = RD:CreatePriority(), -- Rasping Scream (Magic / Fear)
+        [324381] = RD:CreatePriority(), -- Chill Scythe
+        [327396] = RD:CreatePriority(), -- Grim Fate
+        [328181] = RD:CreatePriority(), -- Frigid Cold
+        [328664] = RD:CreatePriority(), -- Chilled (Magic)
+        [333485] = RD:CreatePriority(), -- Disease Cloud
+        [333485] = RD:CreatePriority(false), -- Disease Cloud
         [334748] = RD:CreatePriority(), -- Drain Fluids
-        [333489] = RD:CreatePriority(), -- Necrotic Breath
+        [338353] = RD:CreatePriority(), -- Goresplatter (Disease)
+        [338357] = RD:CreatePriority(8), -- Tenderize (Tank)
+        [338606] = RD:CreatePriority(5), -- Morbid Fixation 2
+        [343504] = RD:CreatePriority(), -- Dark Grasp
+        [343556] = RD:CreatePriority(5), -- Morbid Fixation 1
+        [345625] = RD:CreatePriority(), -- Death Burst
+        
+        -- Blightbone
         [320717] = RD:CreatePriority(), -- Blood Hunger
+        [320646] = RD:CreatePriority(), -- Fetid Gas (Silence)
+        
+        -- Amarth <The Harvester>
+        [320170] = RD:CreatePriority(), -- Necrotic Bolt
+        [333489] = RD:CreatePriority(), -- Necrotic Breath
+        [333492] = RD:CreatePriority(), -- Necrotic Ichor
+        
+        -- Surgeon Stitchflesh
+        [320200] = RD:CreatePriority(1), -- Stitchneedle
+        [320366] = RD:CreatePriority(), -- Embalming Ichor
+        [322681] = RD:CreatePriority(3), -- Meat Hook
+        
+        -- Nalthor the Rimebinder
+        [320784] = RD:CreatePriority(), -- Comet Storm
+        [320788] = RD:CreatePriority(5), -- Frozen Binds (Magic)
     },
     -- Halls of Atonement
     [2287] = {
@@ -1696,6 +1742,7 @@ local debuffs = {
         [437956] = RD:CreatePriority(3),        -- Erupting Inferno
         
         -- Brew Master Aldryr
+        [431897] = RD:CreatePriority(false),    -- Rowdy Yell
         
         -- I'pa
         [439325] = RD:CreatePriority(1),        -- Burning Fermentation (Magic)
@@ -1713,6 +1760,7 @@ local debuffs = {
         -- Trash
         [431491] = RD:CreatePriority(0),        -- Tainted Slash
         [432448] = RD:CreatePriority(2),        -- Stygian Seed (Magic)
+        [449042] = RD:CreatePriority(false),    -- Radiant Light
 
         -- Speaker Shadowcrown
         [426735] = RD:CreatePriority(0),        -- Burning Shadows (Magic)
@@ -1731,7 +1779,9 @@ local debuffs = {
         [440238] = RD:CreatePriority(2),        -- Ice Sickles (Magic)
 
         -- The Coaglamation
+
         -- Izo, the Grand Splicer
+        [439341] = RD:CreatePriority(),         -- Splice
     },
 
     -- Nerub-ar Palace

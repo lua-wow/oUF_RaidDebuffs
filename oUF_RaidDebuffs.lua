@@ -235,7 +235,7 @@ end
 
 local function FilterAura(element, unit, data)
 	-- ignore black listed ones
-	if blacklist[data.spellId] then return false end
+	if blacklist[data.spellId] or blacklist[data.name] then return false end
 	if data.enabled == false then return false end
 	
 	-- ignore debuffs applied by the unit itself
