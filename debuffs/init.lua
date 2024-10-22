@@ -4,9 +4,7 @@ local oUF = ns.oUF
 local RD = {}
 
 function RD:CreatePriority(arg1, arg2)
-    local enabled = true
-    local priority = 0
-    local stackThreshold = 0
+    local enabled, priority, stackThreshold = true, 0, 0
 
     if type(arg1) == "boolean" then
         enabled = arg1
