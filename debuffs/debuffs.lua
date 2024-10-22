@@ -1721,7 +1721,7 @@ local debuffs = {
         [428161] = RD:CreatePriority(false),    -- Molten Metal (Slow)
 
         -- Void Speaker Eirich
-        [427329] = RD:CreatePriority(false),    -- Void Corruption
+        [427329] = RD:CreatePriority(0),        -- Void Corruption
     },
     -- Ara-Kara, City of Echoes
     [2660] = {
