@@ -234,9 +234,7 @@ local function Update(element, unit, data)
 end
 
 local function FilterAura(element, unit, data)
-	-- ignore black listed ones
-	if blacklist[data.spellId] or blacklist[data.name] then return false end
-	if data.enabled == false then return false end
+	if not data.enabled then return false end
 	
 	-- ignore debuffs applied by the unit itself
 	if data.sourceUnit and UnitIsUnit(unit, data.sourceUnit) then return false end
@@ -303,12 +301,12 @@ local function ProcessData(element, unit, data)
 		data.stackThreshold = 0
 	end
 
+	if blacklist[data.spellId] or blacklist[data.name] then
+		data.enabled = false
+	end
+
 	-- increment priority based on dispel type
 	data.priority = data.priority + (dispelPriority[data.dispelName or "none"] or 0)
-
-	if data.name == "Void Essence" and FilterAura(element, unit, data) then
-		print(data.name, data.spellId, "enabled", data.enabled)
-	end
 
 	--[[ Callback: RaidDebuffs:PostProcessAuraData(unit, data)
 	Called after the aura data has been processed.

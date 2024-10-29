@@ -7,6 +7,9 @@ if not oUF.isRetail then return end
 local _, class = UnitClass("player")
 
 local blacklist = {
+    -- Events
+    [44185] = true,                     -- Jack-o'-Lanterned!
+
     -- Mythic+
     [206151] = (oUF.isRetail == true),  -- Challenger's Burden
 
@@ -24,27 +27,28 @@ local blacklist = {
     -- Others
     [306600] = true,                    -- Experience Eliminated
     
-    -- Riding Along
-    [388501] = true,
-    [390106] = true,
-    [390107] = true,
-    [390108] = true,
-    [390109] = true,
-    [390110] = true,
-    [417771] = true,
-    [422797] = true,
-    [423827] = true,
-    [423828] = true,
-    [423829] = true,
-    [427495] = true,
-    [427496] = true,
-    [428018] = true,
-    [428020] = true,
-    [428080] = true,
-    [440744] = true,
-    [440752] = true,
-    [440774] = true,
-    [456869] = true,
+    [388501] = true,                    -- Riding Along
+    [390106] = true,                    -- Riding Along
+    [390107] = true,                    -- Riding Along
+    [390108] = true,                    -- Riding Along
+    [390109] = true,                    -- Riding Along
+    [390110] = true,                    -- Riding Along
+    [417771] = true,                    -- Riding Along
+    [422797] = true,                    -- Riding Along
+    [423827] = true,                    -- Riding Along
+    [423828] = true,                    -- Riding Along
+    [423829] = true,                    -- Riding Along
+    [427495] = true,                    -- Riding Along
+    [427496] = true,                    -- Riding Along
+    [428018] = true,                    -- Riding Along
+    [428020] = true,                    -- Riding Along
+    [428080] = true,                    -- Riding Along
+    [440744] = true,                    -- Riding Along
+    [440752] = true,                    -- Riding Along
+    [440774] = true,                    -- Riding Along
+    [456869] = true,                    -- Riding Along
+
+    
 
     --------------------------------------------------
     -- Classes
