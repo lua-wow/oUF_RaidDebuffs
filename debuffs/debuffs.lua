@@ -424,7 +424,7 @@ local debuffs = {
     ----------------------------------------------------------
     -- Shado-pan Monastery
     [959] = {
-        [106774] = RD:CreatePriority(false),    -- Honarable Combat
+        [106774] = RD:CreatePriority(false), -- Honarable Combat
     },
     -- Temple of the Jade Serpent
     [960] = {
@@ -444,9 +444,9 @@ local debuffs = {
     -- Mogu'shan Vaults
     [1008] = {
         -- Will of the Emperor
-        [116779] = RD:CreatePriority(false),    -- Titan Gas
-        [116782] = RD:CreatePriority(false),    -- Titan Gas
-        [116803] = RD:CreatePriority(false),    -- Titan Gas
+        [116779] = RD:CreatePriority(false), -- Titan Gas
+        [116782] = RD:CreatePriority(false), -- Titan Gas
+        [116803] = RD:CreatePriority(false), -- Titan Gas
     },
 
     ----------------------------------------------------------
@@ -1660,18 +1660,18 @@ local debuffs = {
     [2648] = {
         -- Kyrioss
         -- Stormguard Gorren
-        [426160] = RD:CreatePriority(false),    -- Dark Gravity
+        [426160] = RD:CreatePriority(false), -- Dark Gravity
 
         -- Voidstone Monstosity
     },
     -- Priory of the Sacred Frame
     [2649] = {
         -- Trash
-        [451764] = RD:CreatePriority(false),    -- Radiant Flame
-        [435148] = RD:CreatePriority(2),        -- Blazing Stike (Magic)
+        [451764] = RD:CreatePriority(false), -- Radiant Flame
+        [435148] = RD:CreatePriority(2), -- Blazing Stike (Magic)
         
         -- Captain Dailcry
-        [447272] = RD:CreatePriority(0),        -- Hurl Spear
+        [447272] = RD:CreatePriority(0), -- Hurl Spear
 
         -- Baron Braunpyke
         -- Prioress Murrpray
@@ -1679,60 +1679,60 @@ local debuffs = {
     -- Darkflame Cleft
     [2651] = {
         -- Trash
-        [426277] = RD:CreatePriority(8),        -- One-Hand Headlock (Immobilize)
-        [427929] = RD:CreatePriority(0),        -- Nasty Nibble (Disease)
-        [428019] = RD:CreatePriority(0),        -- Flashpoint (Magic)
-        [423501] = RD:CreatePriority(0),        -- Wild Wallop
+        [426277] = RD:CreatePriority(8), -- One-Hand Headlock (Immobilize)
+        [427929] = RD:CreatePriority(0), -- Nasty Nibble (Disease)
+        [428019] = RD:CreatePriority(0), -- Flashpoint (Magic)
+        [423501] = RD:CreatePriority(0), -- Wild Wallop
 
         -- Ol'Waxbeard
-        [423693] = RD:CreatePriority(0, 5),     -- Luring Candleflame
+        [423693] = RD:CreatePriority(0, 5), -- Luring Candleflame
 
         -- Blazikon
-        [422648] = RD:CreatePriority(0),        -- Wicklighter Barrage
+        [422648] = RD:CreatePriority(0), -- Wicklighter Barrage
 
         -- The Candle King
-        [422648] = RD:CreatePriority(5),        -- Darkflame Pickaxe
+        [422648] = RD:CreatePriority(5), -- Darkflame Pickaxe
 
         -- The Darkness
-        [422806] = RD:CreatePriority(false),    -- Smothering Shadows
-        [422807] = RD:CreatePriority(false),    -- Candlelight
-        [426943] = RD:CreatePriority(false),    -- Rising Gloom
-        [427015] = RD:CreatePriority(0),        -- Shadowblast
+        [422806] = RD:CreatePriority(false), -- Smothering Shadows
+        [422807] = RD:CreatePriority(false), -- Candlelight
+        [426943] = RD:CreatePriority(false), -- Rising Gloom
+        [427015] = RD:CreatePriority(0), -- Shadowblast
     },
     -- The Stonevault
     [2652] = {
         -- Trash
-        [426308] = RD:CreatePriority(0),        -- Void Infection (Curse)
-        [426771] = RD:CreatePriority(),         -- Void Outburst
-        [427382] = RD:CreatePriority(0),        -- Concussive Smash (Magic / Slow)
-        [428887] = RD:CreatePriority(0, 5),     -- Smashed
-        [429545] = RD:CreatePriority(10),       -- Censoring Gear (Magic / Silence)
-        [445207] = RD:CreatePriority(5),        -- Piercing Wail (Magic or Enrage ??)
-        [449129] = RD:CreatePriority(5),        -- Lava Canon
-        [449154] = RD:CreatePriority(0),        -- Molten Mortar
-        [449455] = RD:CreatePriority(10),       -- Howling Fear (Magic / Fear)
+        [426308] = RD:CreatePriority(0), -- Void Infection (Curse)
+        [426771] = RD:CreatePriority(), -- Void Outburst
+        [427382] = RD:CreatePriority(0), -- Concussive Smash (Magic / Slow)
+        [428887] = RD:CreatePriority(0, 5), -- Smashed
+        [429545] = RD:CreatePriority(10), -- Censoring Gear (Magic / Silence)
+        [445207] = RD:CreatePriority(5), -- Piercing Wail (Magic or Enrage ??)
+        [449129] = RD:CreatePriority(5), -- Lava Canon
+        [449154] = RD:CreatePriority(0), -- Molten Mortar
+        [449455] = RD:CreatePriority(10), -- Howling Fear (Magic / Fear)
         
         -- E.D.N.A
-        [424889] = RD:CreatePriority(10),       -- Seismic Reverberation (Magic)
-        [424893] = RD:CreatePriority(5),        -- Stone Shield
-        [443494] = RD:CreatePriority(0),        -- Crystalline Eruption
+        [424889] = RD:CreatePriority(10), -- Seismic Reverberation (Magic)
+        [424893] = RD:CreatePriority(5), -- Stone Shield
+        [443494] = RD:CreatePriority(0), -- Crystalline Eruption
 
         -- Skarmorak
-        [443494] = RD:CreatePriority(0),        -- Crystalline Eruption
+        [443494] = RD:CreatePriority(0), -- Crystalline Eruption
         
         -- Master Machinists
-        [428161] = RD:CreatePriority(false),    -- Molten Metal (Slow)
+        [428161] = RD:CreatePriority(false), -- Molten Metal (Slow)
 
         -- Void Speaker Eirich
-        [427329] = RD:CreatePriority(0),        -- Void Corruption
+        [427329] = RD:CreatePriority(0), -- Void Corruption
     },
     -- Ara-Kara, City of Echoes
     [2660] = {
         -- Trash
-        [438599] = RD:CreatePriority(1),        -- Bleeding Jab
+        [438599] = RD:CreatePriority(1), -- Bleeding Jab
 
         -- Avanoxx
-        [439070] = RD:CreatePriority(0),        -- Hunger (Fixate)
+        [439070] = RD:CreatePriority(0), -- Hunger (Fixate)
         
         -- Anub'zekt
         -- Ki'katal the Harvest
@@ -1740,33 +1740,33 @@ local debuffs = {
     -- Cinderbrew Meadery
     [2661] = {
         -- Trash
-        [441179] = RD:CreatePriority(0),        -- Oozing Honey
-        [435810] = RD:CreatePriority(1),        -- Explosive Brew
-        [437956] = RD:CreatePriority(3),        -- Erupting Inferno
+        [441179] = RD:CreatePriority(0), -- Oozing Honey
+        [435810] = RD:CreatePriority(1), -- Explosive Brew
+        [437956] = RD:CreatePriority(3), -- Erupting Inferno
         
         -- Brew Master Aldryr
-        [431897] = RD:CreatePriority(false),    -- Rowdy Yell
+        [431897] = RD:CreatePriority(false), -- Rowdy Yell
         
         -- I'pa
-        [439325] = RD:CreatePriority(1),        -- Burning Fermentation (Magic)
+        [439325] = RD:CreatePriority(1), -- Burning Fermentation (Magic)
         
         -- Benk Buzzbee
-        [438975] = RD:CreatePriority(2),        -- Shredding Sting
-        [442995] = RD:CreatePriority(0),        -- Swarming Surprise
+        [438975] = RD:CreatePriority(2), -- Shredding Sting
+        [442995] = RD:CreatePriority(0), -- Swarming Surprise
 
         -- Goldie Baronbottom
-        [436640] = RD:CreatePriority(0),        -- Burning Ricochet (Magic)
-        [439468] = RD:CreatePriority(0),        -- Downward Trend
+        [436640] = RD:CreatePriority(0), -- Burning Ricochet (Magic)
+        [439468] = RD:CreatePriority(0), -- Downward Trend
     },
     -- The Dawnbreaker
     [2662] = {
         -- Trash
-        [431491] = RD:CreatePriority(0),        -- Tainted Slash
-        [432448] = RD:CreatePriority(2),        -- Stygian Seed (Magic)
-        [449042] = RD:CreatePriority(false),    -- Radiant Light
+        [431491] = RD:CreatePriority(0), -- Tainted Slash
+        [432448] = RD:CreatePriority(2), -- Stygian Seed (Magic)
+        [449042] = RD:CreatePriority(false), -- Radiant Light
 
         -- Speaker Shadowcrown
-        [426735] = RD:CreatePriority(0),        -- Burning Shadows (Magic)
+        [426735] = RD:CreatePriority(0), -- Burning Shadows (Magic)
         
         -- Anub'ikkaj
         -- Rasha'nan
@@ -1793,82 +1793,82 @@ local debuffs = {
         -- Ulgrax the Devourer
 
         -- The Bloodbound Horror
-        [443305] = RD:CreatePriority(),         -- Crimson Rain
-        [442604] = RD:CreatePriority(),         -- Goresplatter
-        [443612] = RD:CreatePriority(),         -- Gruesome Disgorge
-        [445570] = RD:CreatePriority(false),    -- Unseeming Blight
+        [443305] = RD:CreatePriority(), -- Crimson Rain
+        [442604] = RD:CreatePriority(), -- Goresplatter
+        [443612] = RD:CreatePriority(), -- Gruesome Disgorge
+        [445570] = RD:CreatePriority(false), -- Unseeming Blight
         
         -- Sikran, Captain of the Sureki
-        [434860] = RD:CreatePriority(),         -- Phase Blade
+        [434860] = RD:CreatePriority(), -- Phase Blade
 
         -- Rasha'nan
-        [458067] = RD:CreatePriority(),         -- Savage Wound
-        [440193] = RD:CreatePriority(1, 7),     -- Lingering Erosion
+        [458067] = RD:CreatePriority(), -- Savage Wound
+        [440193] = RD:CreatePriority(1, 7), -- Lingering Erosion
 
         -- Broodtwister Ovi'nax
-        [441362] = RD:CreatePriority(8),        -- Volatile Concoction (Tank)
-        [441368] = RD:CreatePriority(6),        -- Volatile Concoction (Tank)
-        [442250] = RD:CreatePriority(),         -- Fixate
-        [442257] = RD:CreatePriority(1),        -- Infest
-        [442260] = RD:CreatePriority(1),        -- Experimental Dosage
-        [442437] = RD:CreatePriority(false),    -- Ingest Black Blood
-        [443274] = RD:CreatePriority(false),    -- Unstable Infusion
-        [450661] = RD:CreatePriority(false),    -- Caustic Reaction
+        [441362] = RD:CreatePriority(8), -- Volatile Concoction (Tank)
+        [441368] = RD:CreatePriority(6), -- Volatile Concoction (Tank)
+        [442250] = RD:CreatePriority(), -- Fixate
+        [442257] = RD:CreatePriority(1), -- Infest
+        [442260] = RD:CreatePriority(1), -- Experimental Dosage
+        [442437] = RD:CreatePriority(false), -- Ingest Black Blood
+        [443274] = RD:CreatePriority(false), -- Unstable Infusion
+        [450661] = RD:CreatePriority(false), -- Caustic Reaction
         
         -- Nexus-Princess Ky'veza
-        [437343] = RD:CreatePriority(0),        -- Queensbane
+        [437343] = RD:CreatePriority(0), -- Queensbane
         
         -- The Silken Court
-        [438200] = RD:CreatePriority(),         -- Poison Bold
-        [438218] = RD:CreatePriority(),         -- Piercing Strike
-        [438656] = RD:CreatePriority(false),    -- Venomous Rain
-        [438749] = RD:CreatePriority(1),        -- Scarab Fixation
-        [438773] = RD:CreatePriority(1, 3),     -- Shattered Shell (5% each)
-        [460600] = RD:CreatePriority(false),    -- Entropic Barrage
-        [451086] = RD:CreatePriority(),         -- Entropic Web
-        [463461] = RD:CreatePriority(1),        -- Entropic Vulnerability
+        [438200] = RD:CreatePriority(), -- Poison Bold
+        [438218] = RD:CreatePriority(), -- Piercing Strike
+        [438656] = RD:CreatePriority(false), -- Venomous Rain
+        [438749] = RD:CreatePriority(1), -- Scarab Fixation
+        [438773] = RD:CreatePriority(1, 3), -- Shattered Shell (5% each)
+        [460600] = RD:CreatePriority(false), -- Entropic Barrage
+        [451086] = RD:CreatePriority(), -- Entropic Web
+        [463461] = RD:CreatePriority(1), -- Entropic Vulnerability
         
-        [438708] = RD:CreatePriority(10),       -- Stinging Swarm
-        [441772] = RD:CreatePriority(8),        -- Void Bolt
+        [438708] = RD:CreatePriority(10), -- Stinging Swarm
+        [441772] = RD:CreatePriority(8), -- Void Bolt
 
         -- Queen Ansurek
             -- Stage One
-            [436800] = RD:CreatePriority(8),        -- Liquefy (Tank)
-            [437078] = RD:CreatePriority(false),    -- Acid
-            [437586] = RD:CreatePriority(5),        -- Reactive Toxin
-            [438804] = RD:CreatePriority(false),    -- Venom Nova
-            [439825] = RD:CreatePriority(),         -- Silken Tomb
-            [439829] = RD:CreatePriority(),         -- Silken Tomb
-            [441958] = RD:CreatePriority(),         -- Grasping Silk
-            [447532] = RD:CreatePriority(false),    -- Paralyzing Venom
-            [449236] = RD:CreatePriority(),         -- Caustic Fangs
-            [451278] = RD:CreatePriority(1),        -- Concentrated Toxin
-            [455404] = RD:CreatePriority(1),        -- Feast
-            [464628] = RD:CreatePriority(),         -- Reaction Trauma
-            [464638] = RD:CreatePriority(1, 3),     -- Frothy Toxin
-            [464643] = RD:CreatePriority(false),    -- Lingering Toxin (Mythic)
-            -- [??????] = RD:CreatePriority(false),    -- Toxin Reaction (Mythic)
+            [436800] = RD:CreatePriority(8), -- Liquefy (Tank)
+            [437078] = RD:CreatePriority(false), -- Acid
+            [437586] = RD:CreatePriority(5), -- Reactive Toxin
+            [438804] = RD:CreatePriority(false), -- Venom Nova
+            [439825] = RD:CreatePriority(), -- Silken Tomb
+            [439829] = RD:CreatePriority(), -- Silken Tomb
+            [441958] = RD:CreatePriority(), -- Grasping Silk
+            [447532] = RD:CreatePriority(false), -- Paralyzing Venom
+            [449236] = RD:CreatePriority(), -- Caustic Fangs
+            [451278] = RD:CreatePriority(1), -- Concentrated Toxin
+            [455404] = RD:CreatePriority(1), -- Feast
+            [464628] = RD:CreatePriority(), -- Reaction Trauma
+            [464638] = RD:CreatePriority(1, 3), -- Frothy Toxin
+            [464643] = RD:CreatePriority(false), -- Lingering Toxin (Mythic)
+            -- [??????] = RD:CreatePriority(false), -- Toxin Reaction (Mythic)
             
             -- Intermission
-            [447170] = RD:CreatePriority(false),    -- Predation Threads
+            [447170] = RD:CreatePriority(false), -- Predation Threads
             
             -- Stage Two
-            [443403] = RD:CreatePriority(),         -- Gloom
-            [447967] = RD:CreatePriority(),         -- Gloom Touch
-            [448660] = RD:CreatePriority(),         -- Acid Bolt
+            [443403] = RD:CreatePriority(), -- Gloom
+            [447967] = RD:CreatePriority(), -- Gloom Touch
+            [448660] = RD:CreatePriority(), -- Acid Bolt
             
             -- Stage Three
-            [438974] = RD:CreatePriority(),         -- Royal Condemnation
-            [439536] = RD:CreatePriority(),         -- Web Blades
-            [441865] = RD:CreatePriority(),         -- Royal Shackles
-            [443342] = RD:CreatePriority(8),        -- Gorge
-            [443656] = RD:CreatePriority(6),        -- Infest
-            [443903] = RD:CreatePriority(),         -- Abyssal Infusion
-            [445152] = RD:CreatePriority(),         -- Acolyte's Essence
-            [445623] = RD:CreatePriority(false),    -- Glutton Threads
-            [445818] = RD:CreatePriority(),         -- Frothing Gluttony
-            [446012] = RD:CreatePriority(),         -- Essence Scarred
-            [455387] = RD:CreatePriority(),         -- Abyssal Reverberation
+            [438974] = RD:CreatePriority(), -- Royal Condemnation
+            [439536] = RD:CreatePriority(), -- Web Blades
+            [441865] = RD:CreatePriority(), -- Royal Shackles
+            [443342] = RD:CreatePriority(8), -- Gorge
+            [443656] = RD:CreatePriority(6), -- Infest
+            [443903] = RD:CreatePriority(), -- Abyssal Infusion
+            [445152] = RD:CreatePriority(), -- Acolyte's Essence
+            [445623] = RD:CreatePriority(false), -- Glutton Threads
+            [445818] = RD:CreatePriority(), -- Frothing Gluttony
+            [446012] = RD:CreatePriority(), -- Essence Scarred
+            [455387] = RD:CreatePriority(), -- Abyssal Reverberation
     },
 }
 
@@ -2135,13 +2135,17 @@ end
 
 RD.debuffs = debuffs
 
-function RD:ValidateDebuffs()
-    for zoneID, data in next, debuffs do
-		for spellID, value in next, data do
+local validated = {}
+
+function RD:ValidateDebuffs(instanceID)
+    if debuffs[instanceID] and not validated[instanceID] then
+		for spellID, value in next, debuffs[instanceID] do
 			local name = GetSpellName(spellID)
 			if not name then
-				self:print("[" .. zoneID .. "] Spell " .. spellID .. " do not exists.")
+				self:print("[" .. instanceID .. "] Spell " .. spellID .. " do not exists.")
 			end
 		end
+
+        validated[instanceID] = true
 	end
 end

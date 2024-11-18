@@ -60,9 +60,6 @@ assert(LibDispel, "Filger requires LibDispel")
 
 local RD = ns.oUF_RaidDebuffs
 
--- Constants
-local _, class = UnitClass("player")
-
 -- Lua
 local format, floor = format, floor
 local type, pairs, wipe = type, pairs, wipe
@@ -79,10 +76,13 @@ local UnitCanAttack = _G.UnitCanAttack
 local UnitIsCharmed = _G.UnitIsCharmed
 local UnitIsOwnerOrControllerOfUnit = _G.UnitIsOwnerOrControllerOfUnit
 local UnitIsUnit = _G.UnitIsUnit
+local UnitClass = _G.UnitClass
 
 -- Mine
 local debuffs = {}
 local blacklist = RD.blacklist or {}
+
+local _, class = UnitClass("player")
 
 --------------------------------------------------
 -- Loader
@@ -94,7 +94,6 @@ loader:SetScript("OnEvent", function (self, event, ...)
 end)
 
 function loader:PLAYER_LOGIN()
-	RD:ValidateDebuffs()
 	self:UnregisterEvent("PLAYER_LOGIN")
 end
 
@@ -108,6 +107,7 @@ function loader:Update()
 	if (isInInstance and (instanceType == "raid" or instanceType == "party" or isDelve)) then
 		-- local difficultyName, groupType, isHeroic, isChallengeMode, displayHeroic, displayMythic, _ = GetDifficultyInfo(difficultyID)
 		-- local isMythicKey = isHeroic and isChallengeMode
+		RD:ValidateDebuffs(instanceID)
 
 		-- insert instance specific debuffs
 		debuffs = Mixin(debuffs, RD.debuffs[instanceID] or {})
@@ -116,14 +116,19 @@ function loader:Update()
 		debuffs = Mixin(debuffs, RD.debuffs["Affixes"] or {})
 	else
 		-- insert general debuffs, like world bosses
+		RD:ValidateDebuffs("General")
 		debuffs = Mixin(debuffs, RD.debuffs["General"] or {})
 		
 		-- insert classes debuffs
+		RD:ValidateDebuffs("PvP")
 		debuffs = Mixin(debuffs, RD.debuffs["PvP"] or {})
+		
 	end
 
-	-- insert delves auras, because delves do not trigger PLAYER_ENTERING_WORLD
-	debuffs = Mixin(debuffs, RD.debuffs["Delves"] or {})
+	if oUF.isRetail then
+		-- insert delves auras, because delves do not trigger PLAYER_ENTERING_WORLD
+		debuffs = Mixin(debuffs, RD.debuffs["Delves"] or {})
+	end
 end
 
 function loader:PLAYER_ENTERING_WORLD(isLogin, isReload)
