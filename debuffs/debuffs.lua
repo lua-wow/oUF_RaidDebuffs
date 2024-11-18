@@ -453,7 +453,10 @@ local debuffs = {
     -- Cataclysm
     ----------------------------------------------------------
     -- Grim Batol
-    [670] = {},
+    [670] = {
+        -- Trash
+        [451395] = RD:CreatePriority(10), -- Corrupt
+    },
 
     ----------------------------------------------------------
     -- Warlords of Draenor
@@ -1771,17 +1774,18 @@ local debuffs = {
     -- City of Threads
     [2669] = {
         -- Trash
-        [443509] = RD:CreatePriority(false),    -- Ravenous Swarm
-        [443437] = RD:CreatePriority(0),        -- Shadows of Doubt (Magic)
+        [443509] = RD:CreatePriority(), -- Ravenous Swarm
+        [443437] = RD:CreatePriority(), -- Shadows of Doubt (Magic)
+        [448305] = RD:CreatePriority(false), -- Stolen Power
 
         -- Orator Krix'vizk
         -- Fangs of the Queen
-        [440238] = RD:CreatePriority(2),        -- Ice Sickles (Magic)
+        [440238] = RD:CreatePriority(2), -- Ice Sickles (Magic)
 
         -- The Coaglamation
 
         -- Izo, the Grand Splicer
-        [439341] = RD:CreatePriority(),         -- Splice
+        [439341] = RD:CreatePriority(), -- Splice
     },
 
     -- Nerub-ar Palace
