@@ -557,43 +557,43 @@ local debuffs = {
     },
     [1651] = {
         -- Return to Karazhan: Upper
-        [229248] = RD:CreatePriority(), -- Fel Beam
-        [227592] = RD:CreatePriority(6), -- Frostbite
-        [228252] = RD:CreatePriority(), -- Shadow Rend
+        [227465] = RD:CreatePriority(), -- Power Discharge
         [227502] = RD:CreatePriority(), -- Unstable Mana
+        [227592] = RD:CreatePriority(6), -- Frostbite
+        [228249] = RD:CreatePriority(5), -- Inferno Bolt 1
+        [228252] = RD:CreatePriority(), -- Shadow Rend
         [228261] = RD:CreatePriority(6), -- Flame Wreath
+        [228958] = RD:CreatePriority(5), -- Inferno Bolt 2
+        [229083] = RD:CreatePriority(), -- Burning Blast (Stacking)
+        [229159] = RD:CreatePriority(), -- Chaotic Shadows
         [229241] = RD:CreatePriority(), -- Acquiring Target
+        [229248] = RD:CreatePriority(), -- Fel Beam
         [230083] = RD:CreatePriority(6), -- Nullification
         [230221] = RD:CreatePriority(), -- Absorbed Mana
-        [228249] = RD:CreatePriority(5), -- Inferno Bolt 1
-        [228958] = RD:CreatePriority(5), -- Inferno Bolt 2
-        [229159] = RD:CreatePriority(), -- Chaotic Shadows
-        [227465] = RD:CreatePriority(), -- Power Discharge
-        [229083] = RD:CreatePriority(), -- Burning Blast (Stacking)
         
         -- Return to Karazhan: Lower
+        [29574] = RD:CreatePriority(), -- Rend
+        [29690] = RD:CreatePriority(), -- Drunken Skull Crack
+        [32752] = RD:CreatePriority(), -- Summoning Disorientation
+        [227404] = RD:CreatePriority(6), -- Intangible Presence
+        [227493] = RD:CreatePriority(), -- Mortal Strike
+        [227508] = RD:CreatePriority(), -- Mass Repentance
+        [227742] = RD:CreatePriority(), -- Garrote (Stacking)
+        [227832] = RD:CreatePriority(), -- Coat Check 2
+        [227848] = RD:CreatePriority(), -- Sacred Ground (Stacking)
+        [227851] = RD:CreatePriority(), -- Coat Check 1
         [227917] = RD:CreatePriority(), -- Poetry Slam
         [228164] = RD:CreatePriority(), -- Hammer Down
         [228215] = RD:CreatePriority(), -- Severe Dusting 1
         [228221] = RD:CreatePriority(), -- Severe Dusting 2
-        [29690]  = RD:CreatePriority(), -- Drunken Skull Crack
-        [227493] = RD:CreatePriority(), -- Mortal Strike
         [228280] = RD:CreatePriority(), -- Oath of Fealty
-        [29574]  = RD:CreatePriority(), -- Rend
-        [230297] = RD:CreatePriority(), -- Brittle Bones
         [228526] = RD:CreatePriority(), -- Flirt
-        [227851] = RD:CreatePriority(), -- Coat Check 1
-        [227832] = RD:CreatePriority(), -- Coat Check 2
-        [32752]  = RD:CreatePriority(), -- Summoning Disorientation
         [228559] = RD:CreatePriority(), -- Charming Perfume
-        [227508] = RD:CreatePriority(), -- Mass Repentance
-        [241774] = RD:CreatePriority(), -- Shield Smash
-        [227742] = RD:CreatePriority(), -- Garrote (Stacking)
-        [238606] = RD:CreatePriority(), -- Arcane Eruption
-        [227848] = RD:CreatePriority(), -- Sacred Ground (Stacking)
-        [227404] = RD:CreatePriority(6), -- Intangible Presence
-        [228610] = RD:CreatePriority(), -- Burning Brand
         [228576] = RD:CreatePriority(), -- Allured
+        [228610] = RD:CreatePriority(), -- Burning Brand
+        [230297] = RD:CreatePriority(), -- Brittle Bones
+        [238606] = RD:CreatePriority(), -- Arcane Eruption
+        [241774] = RD:CreatePriority(), -- Shield Smash
     },
 
     ----------------------------------------------------------
@@ -1897,236 +1897,236 @@ if oUF.isRetail then
         [233395] = RD:CreatePriority(1), -- Frozen Center
 
         -- DEMON HUNTER
-        [207685]	= RD:CreatePriority(4), -- Sigil of Misery
-        [217832]	= RD:CreatePriority(3), -- Imprison
-        [221527]	= RD:CreatePriority(5), -- Imprison (Banished version)
-        [204490]	= RD:CreatePriority(2), -- Sigil of Silence
-        [179057]	= RD:CreatePriority(3), -- Chaos Nova
-        [211881]	= RD:CreatePriority(4), -- Fel Eruption
-        [205630]	= RD:CreatePriority(3), -- Illidan's Grasp
-        [208618]	= RD:CreatePriority(3), -- Illidan's Grasp (Afterward)
-        [213491]	= RD:CreatePriority(4), -- Demonic Trample 1
-        [208645]	= RD:CreatePriority(4), -- Demonic Trample 2
+        [207685] = RD:CreatePriority(4), -- Sigil of Misery
+        [217832] = RD:CreatePriority(3), -- Imprison
+        [221527] = RD:CreatePriority(5), -- Imprison (Banished version)
+        [204490] = RD:CreatePriority(2), -- Sigil of Silence
+        [179057] = RD:CreatePriority(3), -- Chaos Nova
+        [211881] = RD:CreatePriority(4), -- Fel Eruption
+        [205630] = RD:CreatePriority(3), -- Illidan's Grasp
+        [208618] = RD:CreatePriority(3), -- Illidan's Grasp (Afterward)
+        [213491] = RD:CreatePriority(4), -- Demonic Trample 1
+        [208645] = RD:CreatePriority(4), -- Demonic Trample 2
 
         -- DRUID
-        [99]		= RD:CreatePriority(4), -- Incapacitating Roar
-        [339]		= RD:CreatePriority(1), -- Entangling Roots
-        [2637]		= RD:CreatePriority(1), -- Hibernate
-        [5211]		= RD:CreatePriority(4), -- Mighty Bash
-        [33786]		= RD:CreatePriority(5), -- Cyclone
-        [45334]		= RD:CreatePriority(1), -- Immobilized
-        [81261]		= RD:CreatePriority(2), -- Solar Beam
-        [102359]	= RD:CreatePriority(1), -- Mass Entanglement
-        [102793]	= RD:CreatePriority(1), -- Ursol's Vortex
-        [163505]	= RD:CreatePriority(4), -- Rake
-        [202244]	= RD:CreatePriority(4), -- Overrun
-        [203123]	= RD:CreatePriority(4), -- Maim
+        [99] = RD:CreatePriority(4), -- Incapacitating Roar
+        [339] = RD:CreatePriority(1), -- Entangling Roots
+        [2637] = RD:CreatePriority(1), -- Hibernate
+        [5211] = RD:CreatePriority(4), -- Mighty Bash
+        [33786] = RD:CreatePriority(5), -- Cyclone
+        [45334] = RD:CreatePriority(1), -- Immobilized
+        [81261] = RD:CreatePriority(2), -- Solar Beam
+        [102359] = RD:CreatePriority(1), -- Mass Entanglement
+        [102793] = RD:CreatePriority(1), -- Ursol's Vortex
+        [163505] = RD:CreatePriority(4), -- Rake
+        [202244] = RD:CreatePriority(4), -- Overrun
+        [203123] = RD:CreatePriority(4), -- Maim
 
         -- HUNTER
-        [3355]		= RD:CreatePriority(3), -- Freezing Trap
-        [19386]		= RD:CreatePriority(3), -- Wyvern Sting
-        [24394]		= RD:CreatePriority(4), -- Intimidation
-        [202933]	= RD:CreatePriority(2), -- Spider Sting 1
-        [233022]	= RD:CreatePriority(2), -- Spider Sting 2
-        [213691]	= RD:CreatePriority(4), -- Scatter Shot
-        [203337]	= RD:CreatePriority(5), -- Freezing Trap (PvP Talent)
-        [209790]	= RD:CreatePriority(3), -- Freezing Arrow
-        [117526]	= RD:CreatePriority(4), -- Binding Shot
-        [190927]	= RD:CreatePriority(1), -- Harpoon
-        [201158]	= RD:CreatePriority(1), -- Super Sticky Tar
-        [162480]	= RD:CreatePriority(1), -- Steel Trap
-        [212638]	= RD:CreatePriority(1), -- Tracker's Net
-        [200108]	= RD:CreatePriority(1), -- Ranger's Net
+        [3355] = RD:CreatePriority(3), -- Freezing Trap
+        [19386] = RD:CreatePriority(3), -- Wyvern Sting
+        [24394] = RD:CreatePriority(4), -- Intimidation
+        [202933] = RD:CreatePriority(2), -- Spider Sting 1
+        [233022] = RD:CreatePriority(2), -- Spider Sting 2
+        [213691] = RD:CreatePriority(4), -- Scatter Shot
+        [203337] = RD:CreatePriority(5), -- Freezing Trap (PvP Talent)
+        [209790] = RD:CreatePriority(3), -- Freezing Arrow
+        [117526] = RD:CreatePriority(4), -- Binding Shot
+        [190927] = RD:CreatePriority(1), -- Harpoon
+        [201158] = RD:CreatePriority(1), -- Super Sticky Tar
+        [162480] = RD:CreatePriority(1), -- Steel Trap
+        [212638] = RD:CreatePriority(1), -- Tracker's Net
+        [200108] = RD:CreatePriority(1), -- Ranger's Net
 
         -- MAGE
-        [61721]		= RD:CreatePriority(3), -- Rabbit
-        [61305]		= RD:CreatePriority(3), -- Black Cat
-        [28272]		= RD:CreatePriority(3), -- Pig
-        [28271]		= RD:CreatePriority(3), -- Turtle
-        [126819]	= RD:CreatePriority(3), -- Porcupine
-        [161354]	= RD:CreatePriority(3), -- Monkey
-        [161353]	= RD:CreatePriority(3), -- Polar Bear
-        [61780]		= RD:CreatePriority(3), -- Turkey
-        [161355]	= RD:CreatePriority(3), -- Penguin
-        [161372]	= RD:CreatePriority(3), -- Peacock
-        [277787]	= RD:CreatePriority(3), -- Direhorn
-        [277792]	= RD:CreatePriority(3), -- Bumblebee
-        [118]		= RD:CreatePriority(3), -- Polymorph
-        [82691]		= RD:CreatePriority(3), -- Ring of Frost
-        [31661]		= RD:CreatePriority(3), -- Dragon's Breath
-        [122]		= RD:CreatePriority(1), -- Frost Nova
-        [33395]		= RD:CreatePriority(1), -- Freeze
-        [157997]	= RD:CreatePriority(1), -- Ice Nova
-        [228600]	= RD:CreatePriority(1), -- Glacial Spike
-        [198121]	= RD:CreatePriority(1), -- Frostbite
+        [118] = RD:CreatePriority(3), -- Polymorph
+        [122] = RD:CreatePriority(1), -- Frost Nova
+        [28271] = RD:CreatePriority(3), -- Turtle
+        [28272] = RD:CreatePriority(3), -- Pig
+        [31661] = RD:CreatePriority(3), -- Dragon's Breath
+        [33395] = RD:CreatePriority(1), -- Freeze
+        [61305] = RD:CreatePriority(3), -- Black Cat
+        [61721] = RD:CreatePriority(3), -- Rabbit
+        [61780] = RD:CreatePriority(3), -- Turkey
+        [82691] = RD:CreatePriority(3), -- Ring of Frost
+        [126819] = RD:CreatePriority(3), -- Porcupine
+        [157997] = RD:CreatePriority(1), -- Ice Nova
+        [161353] = RD:CreatePriority(3), -- Polar Bear
+        [161354] = RD:CreatePriority(3), -- Monkey
+        [161355] = RD:CreatePriority(3), -- Penguin
+        [161372] = RD:CreatePriority(3), -- Peacock
+        [198121] = RD:CreatePriority(1), -- Frostbite
+        [228600] = RD:CreatePriority(1), -- Glacial Spike
+        [277787] = RD:CreatePriority(3), -- Direhorn
+        [277792] = RD:CreatePriority(3), -- Bumblebee
 
         -- MONK
-        [119381]	= RD:CreatePriority(4), -- Leg Sweep
-        [202346]	= RD:CreatePriority(4), -- Double Barrel
-        [115078]	= RD:CreatePriority(4), -- Paralysis
-        [198909]	= RD:CreatePriority(3), -- Song of Chi-Ji
-        [202274]	= RD:CreatePriority(3), -- Incendiary Brew
-        [233759]	= RD:CreatePriority(2), -- Grapple Weapon
-        [123407]	= RD:CreatePriority(1), -- Spinning Fire Blossom
-        [116706]	= RD:CreatePriority(1), -- Disable
-        [232055]	= RD:CreatePriority(4), -- Fists of Fury
+        [119381] = RD:CreatePriority(4), -- Leg Sweep
+        [202346] = RD:CreatePriority(4), -- Double Barrel
+        [115078] = RD:CreatePriority(4), -- Paralysis
+        [198909] = RD:CreatePriority(3), -- Song of Chi-Ji
+        [202274] = RD:CreatePriority(3), -- Incendiary Brew
+        [233759] = RD:CreatePriority(2), -- Grapple Weapon
+        [123407] = RD:CreatePriority(1), -- Spinning Fire Blossom
+        [116706] = RD:CreatePriority(1), -- Disable
+        [232055] = RD:CreatePriority(4), -- Fists of Fury
 
         -- PALADIN
-        [853]		= RD:CreatePriority(3), -- Hammer of Justice
-        [20066]		= RD:CreatePriority(3), -- Repentance
-        [105421]	= RD:CreatePriority(3), -- Blinding Light
-        [31935]		= RD:CreatePriority(2), -- Avenger's Shield
-        [217824]	= RD:CreatePriority(2), -- Shield of Virtue
-        [205290]	= RD:CreatePriority(3), -- Wake of Ashes
+        [853] = RD:CreatePriority(3), -- Hammer of Justice
+        [20066] = RD:CreatePriority(3), -- Repentance
+        [31935] = RD:CreatePriority(2), -- Avenger's Shield
+        [105421] = RD:CreatePriority(3), -- Blinding Light
+        [205290] = RD:CreatePriority(3), -- Wake of Ashes
+        [217824] = RD:CreatePriority(2), -- Shield of Virtue
 
         -- PRIEST
-        [9484]		= RD:CreatePriority(3), -- Shackle Undead
-        [200196]	= RD:CreatePriority(4), -- Holy Word: Chastise
-        [200200]	= RD:CreatePriority(4), -- Holy Word: Chastise
-        [605]		= RD:CreatePriority(5), -- Mind Control
-        [8122]		= RD:CreatePriority(3), -- Psychic Scream
-        [15487]		= RD:CreatePriority(2), -- Silence
-        [64044]		= RD:CreatePriority(1), -- Psychic Horror
-        [453]		= RD:CreatePriority(5), -- Mind Soothe
+        [453] = RD:CreatePriority(5), -- Mind Soothe
+        [605] = RD:CreatePriority(5), -- Mind Control
+        [8122] = RD:CreatePriority(3), -- Psychic Scream
+        [9484] = RD:CreatePriority(3), -- Shackle Undead
+        [15487] = RD:CreatePriority(2), -- Silence
+        [64044] = RD:CreatePriority(1), -- Psychic Horror
+        [200196] = RD:CreatePriority(4), -- Holy Word: Chastise
+        [200200] = RD:CreatePriority(4), -- Holy Word: Chastise
 
         -- ROGUE
-        [2094]		= RD:CreatePriority(4), -- Blind
-        [6770]		= RD:CreatePriority(4), -- Sap
-        [1776]		= RD:CreatePriority(4), -- Gouge
-        [1330]		= RD:CreatePriority(2), -- Garrote - Silence
-        [207777]	= RD:CreatePriority(2), -- Dismantle
-        [408]		= RD:CreatePriority(4), -- Kidney Shot
-        [1833]		= RD:CreatePriority(4), -- Cheap Shot
-        [207736]	= RD:CreatePriority(5), -- Shadowy Duel (Smoke effect)
-        [212182]	= RD:CreatePriority(5), -- Smoke Bomb
+        [408] = RD:CreatePriority(4), -- Kidney Shot
+        [1330] = RD:CreatePriority(2), -- Garrote - Silence
+        [1776] = RD:CreatePriority(4), -- Gouge
+        [1833] = RD:CreatePriority(4), -- Cheap Shot
+        [2094] = RD:CreatePriority(4), -- Blind
+        [6770] = RD:CreatePriority(4), -- Sap
+        [207736] = RD:CreatePriority(5), -- Shadowy Duel (Smoke effect)
+        [207777] = RD:CreatePriority(2), -- Dismantle
+        [212182] = RD:CreatePriority(5), -- Smoke Bomb
 
         -- SHAMAN
-        [51514]		= RD:CreatePriority(3), -- Hex
-        [211015]	= RD:CreatePriority(3), -- Hex (Cockroach)
-        [211010]	= RD:CreatePriority(3), -- Hex (Snake)
-        [211004]	= RD:CreatePriority(3), -- Hex (Spider)
-        [210873]	= RD:CreatePriority(3), -- Hex (Compy)
-        [196942]	= RD:CreatePriority(3), -- Hex (Voodoo Totem)
-        [269352]	= RD:CreatePriority(3), -- Hex (Skeletal Hatchling)
-        [277778]	= RD:CreatePriority(3), -- Hex (Zandalari Tendonripper)
-        [277784]	= RD:CreatePriority(3), -- Hex (Wicker Mongrel)
-        [118905]	= RD:CreatePriority(3), -- Static Charge
-        [77505]		= RD:CreatePriority(4), -- Earthquake (Knocking down)
-        [118345]	= RD:CreatePriority(4), -- Pulverize (Pet)
-        [204399]	= RD:CreatePriority(3), -- Earthfury
-        [204437]	= RD:CreatePriority(3), -- Lightning Lasso
-        [157375]	= RD:CreatePriority(4), -- Gale Force
-        [64695]		= RD:CreatePriority(1), -- Earthgrab
+        [51514] = RD:CreatePriority(3), -- Hex
+        [64695] = RD:CreatePriority(1), -- Earthgrab
+        [77505] = RD:CreatePriority(4), -- Earthquake (Knocking down)
+        [118345] = RD:CreatePriority(4), -- Pulverize (Pet)
+        [118905] = RD:CreatePriority(3), -- Static Charge
+        [157375] = RD:CreatePriority(4), -- Gale Force
+        [196942] = RD:CreatePriority(3), -- Hex (Voodoo Totem)
+        [204399] = RD:CreatePriority(3), -- Earthfury
+        [204437] = RD:CreatePriority(3), -- Lightning Lasso
+        [210873] = RD:CreatePriority(3), -- Hex (Compy)
+        [211004] = RD:CreatePriority(3), -- Hex (Spider)
+        [211010] = RD:CreatePriority(3), -- Hex (Snake)
+        [211015] = RD:CreatePriority(3), -- Hex (Cockroach)
+        [269352] = RD:CreatePriority(3), -- Hex (Skeletal Hatchling)
+        [277778] = RD:CreatePriority(3), -- Hex (Zandalari Tendonripper)
+        [277784] = RD:CreatePriority(3), -- Hex (Wicker Mongrel)
 
         -- WARLOCK
-        [710]		= RD:CreatePriority(5), -- Banish
-        [6789]		= RD:CreatePriority(3), -- Mortal Coil
-        [118699]	= RD:CreatePriority(3), -- Fear
-        [6358]		= RD:CreatePriority(3), -- Seduction (Succub)
-        [171017]	= RD:CreatePriority(4), -- Meteor Strike (Infernal)
-        [22703]		= RD:CreatePriority(4), -- Infernal Awakening (Infernal CD)
-        [30283]		= RD:CreatePriority(3), -- Shadowfury
-        [89766]		= RD:CreatePriority(4), -- Axe Toss
-        [233582]	= RD:CreatePriority(1), -- Entrenched in Flame
+        [710] = RD:CreatePriority(5), -- Banish
+        [6358] = RD:CreatePriority(3), -- Seduction (Succub)
+        [6789] = RD:CreatePriority(3), -- Mortal Coil
+        [22703] = RD:CreatePriority(4), -- Infernal Awakening (Infernal CD)
+        [30283] = RD:CreatePriority(3), -- Shadowfury
+        [89766] = RD:CreatePriority(4), -- Axe Toss
+        [118699] = RD:CreatePriority(3), -- Fear
+        [171017] = RD:CreatePriority(4), -- Meteor Strike (Infernal)
+        [233582] = RD:CreatePriority(1), -- Entrenched in Flame
 
         -- WARRIOR
-        [5246]		= RD:CreatePriority(4), -- Intimidating Shout
-        [132169]	= RD:CreatePriority(4), -- Storm Bolt
-        [132168]	= RD:CreatePriority(4), -- Shockwave
-        [199085]	= RD:CreatePriority(4), -- Warpath
-        [105771]	= RD:CreatePriority(1), -- Charge
-        [199042]	= RD:CreatePriority(1), -- Thunderstruck
-        [236077]	= RD:CreatePriority(2), -- Disarm
+        [5246] = RD:CreatePriority(4), -- Intimidating Shout
+        [105771] = RD:CreatePriority(1), -- Charge
+        [132168] = RD:CreatePriority(4), -- Shockwave
+        [132169] = RD:CreatePriority(4), -- Storm Bolt
+        [199042] = RD:CreatePriority(1), -- Thunderstruck
+        [199085] = RD:CreatePriority(4), -- Warpath
+        [236077] = RD:CreatePriority(2), -- Disarm
 
         -- RACIAL
-        [20549]		= RD:CreatePriority(4), -- War Stomp
-        [107079]	= RD:CreatePriority(4), -- Quaking Palm
+        [20549] = RD:CreatePriority(4), -- War Stomp
+        [107079] = RD:CreatePriority(4), -- Quaking Palm
     }
 else
     debuffs["PvP"] = {
         -- DRUID
-        [5211] = RD:CreatePriority(3), -- Bash
-        [16922] = RD:CreatePriority(3), -- Celestial Focus
-        [33786] = RD:CreatePriority(3), -- Cyclone
         [339] = RD:CreatePriority(2), -- Entangling Roots
-        [19975] = RD:CreatePriority(2), -- Entangling Roots (Nature's Grasp)
-        [45334] = RD:CreatePriority(2), -- Feral Charge Effect
         [2637] = RD:CreatePriority(3), -- Hibernate
-        [22570] = RD:CreatePriority(3), -- Maim
+        [5211] = RD:CreatePriority(3), -- Bash
         [9005] = RD:CreatePriority(3), -- Pounce
+        [16922] = RD:CreatePriority(3), -- Celestial Focus
+        [19975] = RD:CreatePriority(2), -- Entangling Roots (Nature's Grasp)
+        [22570] = RD:CreatePriority(3), -- Maim
+        [33786] = RD:CreatePriority(3), -- Cyclone
+        [45334] = RD:CreatePriority(2), -- Feral Charge Effect
         
         -- HUNTER
-        [19306] = RD:CreatePriority(2), -- Counterattack
-        [19185] = RD:CreatePriority(2), -- Entrapment
         [3355] = RD:CreatePriority(3), -- Freezing Trap
-        [19410] = RD:CreatePriority(3), -- Improved Concussive Shot
-        [19229] = RD:CreatePriority(2), -- Improved Wing Clip
-        [24394] = RD:CreatePriority(3), -- Intimidation
-        [19503] = RD:CreatePriority(3), -- Scatter Shot
-        [34490] = RD:CreatePriority(3), -- Silencing Shot
         [4167] = RD:CreatePriority(2), -- Web (Pet)
+        [19185] = RD:CreatePriority(2), -- Entrapment
+        [19229] = RD:CreatePriority(2), -- Improved Wing Clip
+        [19306] = RD:CreatePriority(2), -- Counterattack
         [19386] = RD:CreatePriority(3), -- Wyvern Sting
+        [19410] = RD:CreatePriority(3), -- Improved Concussive Shot
+        [19503] = RD:CreatePriority(3), -- Scatter Shot
+        [24394] = RD:CreatePriority(3), -- Intimidation
+        [34490] = RD:CreatePriority(3), -- Silencing Shot
 
         -- MAGE
-        [31661] = RD:CreatePriority(3), -- Dragon's Breath
-        [33395] = RD:CreatePriority(2), -- Freeze (Water Elemental)
-        [12494] = RD:CreatePriority(2), -- Frostbite
+        [118] = RD:CreatePriority(3), -- Polymorph
         [122] = RD:CreatePriority(2), -- Frost Nova
         [12355] = RD:CreatePriority(3), -- Impact
-        [118] = RD:CreatePriority(3), -- Polymorph
-        [28272] = RD:CreatePriority(3), -- Polymorph: Pig
-        [28271] = RD:CreatePriority(3), -- Polymorph: Turtle
+        [12494] = RD:CreatePriority(2), -- Frostbite
         [18469] = RD:CreatePriority(3), -- Silenced - Improved Counterspell
+        [28271] = RD:CreatePriority(3), -- Polymorph: Turtle
+        [28272] = RD:CreatePriority(3), -- Polymorph: Pig
+        [31661] = RD:CreatePriority(3), -- Dragon's Breath
+        [33395] = RD:CreatePriority(2), -- Freeze (Water Elemental)
         
         -- PALADIN
         [853] = RD:CreatePriority(3), -- Hammer of Justice
+        [2878] = RD:CreatePriority(3), -- Turn Undead
+        [10326] = RD:CreatePriority(3), -- Turn Evil
         [20066] = RD:CreatePriority(3), -- Repentance
         [20170] = RD:CreatePriority(3), -- Stun (Seal of Justice Proc)
-        [10326] = RD:CreatePriority(3), -- Turn Evil
-        [2878] = RD:CreatePriority(3), -- Turn Undead
         
         -- PRIEST
-        [15269] = RD:CreatePriority(3), -- Blackout
-        [44041] = RD:CreatePriority(3), -- Chastise
         [605] = RD:CreatePriority(3), -- Mind Control
         [8122] = RD:CreatePriority(3), -- Psychic Scream
         [9484] = RD:CreatePriority(3), -- Shackle Undead
+        [15269] = RD:CreatePriority(3), -- Blackout
         [15487] = RD:CreatePriority(3), -- Silence
+        [44041] = RD:CreatePriority(3), -- Chastise
         
         -- ROGUE
-        [2094] = RD:CreatePriority(3), -- Blind
-        [1833] = RD:CreatePriority(3), -- Cheap Shot
-        [32747] = RD:CreatePriority(3), -- Deadly Throw Interrupt
+        [408] = RD:CreatePriority(3), -- Kidney Shot
         [1330] = RD:CreatePriority(3), -- Garrote - Silence
         [1776] = RD:CreatePriority(3), -- Gouge
-        [408] = RD:CreatePriority(3), -- Kidney Shot
-        [14251] = RD:CreatePriority(3), -- Riposte
+        [1833] = RD:CreatePriority(3), -- Cheap Shot
+        [2094] = RD:CreatePriority(3), -- Blind
         [6770] = RD:CreatePriority(3), -- Sap
+        [14251] = RD:CreatePriority(3), -- Riposte
         [18425] = RD:CreatePriority(3), -- Silenced - Improved Kick
+        [32747] = RD:CreatePriority(3), -- Deadly Throw Interrupt
         
         -- WARLOCK
-        [6789] = RD:CreatePriority(3), -- Death Coil
-        [5782] = RD:CreatePriority(3), -- Fear
         [5484] = RD:CreatePriority(3), -- Howl of Terror
-        [30153] = RD:CreatePriority(3), -- Intercept Stun (Felguard)
-        [18093] = RD:CreatePriority(3), -- Pyroclasm
+        [5782] = RD:CreatePriority(3), -- Fear
         [6358] = RD:CreatePriority(3), -- Seduction (Succubus)
-        [30283] = RD:CreatePriority(3), -- Shadowfury
+        [6789] = RD:CreatePriority(3), -- Death Coil
+        [18093] = RD:CreatePriority(3), -- Pyroclasm
         [24259] = RD:CreatePriority(3), -- Spell Lock (Felhunter)
+        [30153] = RD:CreatePriority(3), -- Intercept Stun (Felguard)
+        [30283] = RD:CreatePriority(3), -- Shadowfury
         
         -- WARRIOR
-        [7922] = RD:CreatePriority(3), -- Charge Stun
-        [12809] = RD:CreatePriority(3), -- Concussion Blow
         [676] = RD:CreatePriority(3), -- Disarm
-        [23694] = RD:CreatePriority(2), -- Improved Hamstring
         [5246] = RD:CreatePriority(3), -- Intimidating Shout
-        [20253] = RD:CreatePriority(3), -- Intercept Stun
+        [7922] = RD:CreatePriority(3), -- Charge Stun
         [12798] = RD:CreatePriority(3), -- Revenge Stun
+        [12809] = RD:CreatePriority(3), -- Concussion Blow
         [18498] = RD:CreatePriority(3), -- Shield Bash - Silenced
+        [20253] = RD:CreatePriority(3), -- Intercept Stun
+        [23694] = RD:CreatePriority(2), -- Improved Hamstring
         
         -- RACIAL
-        [28730]  = RD:CreatePriority(3), -- Arcane Torrent
         [20549] = RD:CreatePriority(3), -- War Stomp
+        [28730] = RD:CreatePriority(3), -- Arcane Torrent
         
         -- OTHERS
         [5530] = RD:CreatePriority(3), -- Mace Specialization

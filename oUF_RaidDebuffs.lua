@@ -102,7 +102,7 @@ function loader:Update()
 
 	local isInInstance, instanceType = IsInInstance()
 	local instanceName, _, difficultyID, difficultyName, _, _, _, instanceID, _, _ = GetInstanceInfo()
-	local isDelve = C_DelvesUI.HasActiveDelve(instanceID)
+	local isDelve = C_DelvesUI and C_DelvesUI.HasActiveDelve(instanceID) or false
 	
 	if (isInInstance and (instanceType == "raid" or instanceType == "party" or isDelve)) then
 		-- local difficultyName, groupType, isHeroic, isChallengeMode, displayHeroic, displayMythic, _ = GetDifficultyInfo(difficultyID)
@@ -111,9 +111,11 @@ function loader:Update()
 
 		-- insert instance specific debuffs
 		debuffs = Mixin(debuffs, RD.debuffs[instanceID] or {})
-		
-		-- insert affixes debuffs
-		debuffs = Mixin(debuffs, RD.debuffs["Affixes"] or {})
+	
+		if oUF.isRetail then
+			-- insert affixes debuffs
+			debuffs = Mixin(debuffs, RD.debuffs["Affixes"] or {})
+		end
 	else
 		-- insert general debuffs, like world bosses
 		RD:ValidateDebuffs("General")
