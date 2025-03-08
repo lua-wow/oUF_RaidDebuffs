@@ -124,7 +124,6 @@ function loader:Update()
 		-- insert classes debuffs
 		RD:ValidateDebuffs("PvP")
 		debuffs = Mixin(debuffs, RD.debuffs["PvP"] or {})
-		
 	end
 
 	if oUF.isRetail then

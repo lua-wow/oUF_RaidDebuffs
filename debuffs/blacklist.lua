@@ -2,14 +2,10 @@ local _, ns = ...
 local oUF = ns.oUF
 local RD = ns.oUF_RaidDebuffs
 
-if not oUF.isRetail then return end
-
+-- Mine
 local _, class = UnitClass("player")
 
 local blacklist = {
-    -- Events
-    [44185] = true,                     -- Jack-o'-Lanterned!
-
     -- Mythic+
     [206151] = (oUF.isRetail == true),  -- Challenger's Burden
 
@@ -27,6 +23,7 @@ local blacklist = {
     -- Others
     [306600] = true,                    -- Experience Eliminated
     
+    ["Riding Along"] = true,
     [388501] = true,                    -- Riding Along
     [390106] = true,                    -- Riding Along
     [390107] = true,                    -- Riding Along
@@ -47,8 +44,15 @@ local blacklist = {
     [440752] = true,                    -- Riding Along
     [440774] = true,                    -- Riding Along
     [456869] = true,                    -- Riding Along
-
     
+    --------------------------------------------------
+    -- Events
+    --------------------------------------------------
+    -- Christimas
+    [26218] = true,                     -- Mistletoe
+
+    -- Hallowen
+    [44185] = true,                     -- Jack-o'-Lanterned!
 
     --------------------------------------------------
     -- Classes
