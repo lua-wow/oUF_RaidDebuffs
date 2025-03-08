@@ -1,6 +1,6 @@
 ## Interface: 11506, 110100
 ## Author: Luaerror
-## Version: 1.4.4
+## Version: 1.4.5
 ## Title: oUF RaidDebuffs
 ## Notes: Raid Debuffs tracker support for oUF layouts.
 ## RequiredDeps: oUF
