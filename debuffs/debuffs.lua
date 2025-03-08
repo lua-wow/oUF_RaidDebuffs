@@ -7,87 +7,14 @@ local GetSpellName = C_Spell and C_Spell.GetSpellName or _G.GetSpellInfo
 
 -- Mine
 local debuffs = {
-    ["Affixes"] = {
-        ----------------------------------------------------------
-        -- Mythic+ Affixes
-        ----------------------------------------------------------
-        [206151] = RD:CreatePriority(false), -- Challenger's Burden
-
-        -- General
-        [209858] = RD:CreatePriority(), -- Necrotic
-        [226512] = RD:CreatePriority(), -- Sanguine
-        [240443] = RD:CreatePriority(), -- Bursting
-        [240559] = RD:CreatePriority(), -- Grievous
-
-        -- Shadowlands: Season 4
-        [373364] = RD:CreatePriority(), -- Vampiric Claws
-        [373370] = RD:CreatePriority(), -- Nightmare Cloud
-        [373391] = RD:CreatePriority(), -- Nightmare
-        [373429] = RD:CreatePriority(), -- Carrion Swarm
-        [373509] = RD:CreatePriority(), -- Shadow Claws (Stacking)
-        [373570] = RD:CreatePriority(), -- Hypnosis
-        [373607] = RD:CreatePriority(), -- Shadowy Barrier (Hypnosis)
-
-        -- Dragonflight: Season 1
-        [396364] = RD:CreatePriority(), -- Mark of Wind
-        [396369] = RD:CreatePriority(), -- Mark of Lightning
-
-        -- Dragonflight: Season 2
-        [408556] = RD:CreatePriority(), -- Entangled
-        [408805] = RD:CreatePriority(), -- Destabilize
-        [409492] = RD:CreatePriority(1), -- Afflicted Cry (Afflicted)
-
-        -- The War Within: Season 1
-        [440313] = RD:CreatePriority(3), -- Void Rift
-        [461910] = RD:CreatePriority(false), -- Cosmic Ascension
-        [462661] = RD:CreatePriority(false), -- Blessing from Beyond (Xal'atath Bargain: Voidbound)
-        [463767] = RD:CreatePriority(false), -- Void Essence
-        [465136] = RD:CreatePriority(false), -- Lingering Void
-    },
-    ["Delves"] = {
-        -- The War Within: Delves
-        [433622] = RD:CreatePriority(false), -- Emergency Supplies
-    },
-    ["General"] = {
-        ----------------------------------------------------------
-        -- Dragonflight
-        ----------------------------------------------------------
-        -- World Bosses
-            -- Strunraan, The Sky's Misery
-
-            -- Basrikron, The Scale Wind
-
-            -- Liskanoth, The Futurebane
-
-            -- Bazual, THe Dreaded Flame
-
-            -- The Zaqali Elders (Vakan & Gholna)
-            [402824] = RD:CreatePriority(1), -- Searing Touch
-            [403779] = RD:CreatePriority(), -- Burning Shadows
-
-        ----------------------------------------------------------
-        -- The War Within: Khaz Algar
-        ----------------------------------------------------------
-        -- World Bosses
-            -- Kordac, the Dormant Protector
-            [458695] = RD:CreatePriority(1), -- Overcharged Lasers
-            [458799] = RD:CreatePriority(), -- Overcharged Earth
-            [458844] = RD:CreatePriority(2), -- Supression Burst (Magic)
-            [458838] = RD:CreatePriority(), -- Supression Burst
-            [459281] = RD:CreatePriority(0, 3), -- Empowering Coalescence
-
-            -- Aggregation of Horrors
-
-            -- Shurrai, Atrocity of the Undersea
-
-            -- Orta, the Broken Mountain
-            [450454] = RD:CreatePriority(false), -- Tectonic Roar
-            [450863] = RD:CreatePriority(8), -- Rupturing Runes (Magic / Stun)
-    },
-
     ----------------------------------------------------------
     -- Classic
     ----------------------------------------------------------
+    -- Blackfathom Deeps
+    [48] = {
+        [8733] = RD:CreatePriority(false), -- Blessing of Blackfathom
+    },
+
     -- Onyxia's Lair
     [249] = {
         [18431] = RD:CreatePriority(2), -- Bellowing Roar
@@ -2052,8 +1979,8 @@ else
         [16922] = RD:CreatePriority(3), -- Celestial Focus
         [19975] = RD:CreatePriority(2), -- Entangling Roots (Nature's Grasp)
         [22570] = RD:CreatePriority(3), -- Maim
-        [33786] = RD:CreatePriority(3), -- Cyclone
-        [45334] = RD:CreatePriority(2), -- Feral Charge Effect
+        [33786] = (not oUF.isClassic) and RD:CreatePriority(3) or nil, -- Cyclone
+        [45334] = (not oUF.isClassic) and RD:CreatePriority(2) or nil, -- Feral Charge Effect
         
         -- HUNTER
         [3355] = RD:CreatePriority(3), -- Freezing Trap
@@ -2065,7 +1992,7 @@ else
         [19410] = RD:CreatePriority(3), -- Improved Concussive Shot
         [19503] = RD:CreatePriority(3), -- Scatter Shot
         [24394] = RD:CreatePriority(3), -- Intimidation
-        [34490] = RD:CreatePriority(3), -- Silencing Shot
+        [34490] = (not oUF.isClassic) and RD:CreatePriority(3) or nil, -- Silencing Shot
 
         -- MAGE
         [118] = RD:CreatePriority(3), -- Polymorph
@@ -2075,8 +2002,8 @@ else
         [18469] = RD:CreatePriority(3), -- Silenced - Improved Counterspell
         [28271] = RD:CreatePriority(3), -- Polymorph: Turtle
         [28272] = RD:CreatePriority(3), -- Polymorph: Pig
-        [31661] = RD:CreatePriority(3), -- Dragon's Breath
-        [33395] = RD:CreatePriority(2), -- Freeze (Water Elemental)
+        [31661] = (not oUF.isClassic) and RD:CreatePriority(3) or nil, -- Dragon's Breath
+        [33395] = (not oUF.isClassic) and RD:CreatePriority(2) or nil, -- Freeze (Water Elemental)
         
         -- PALADIN
         [853] = RD:CreatePriority(3), -- Hammer of Justice
@@ -2091,7 +2018,7 @@ else
         [9484] = RD:CreatePriority(3), -- Shackle Undead
         [15269] = RD:CreatePriority(3), -- Blackout
         [15487] = RD:CreatePriority(3), -- Silence
-        [44041] = RD:CreatePriority(3), -- Chastise
+        [44041] = (not oUF.isClassic) and RD:CreatePriority(3) or nil, -- Chastise
         
         -- ROGUE
         [408] = RD:CreatePriority(3), -- Kidney Shot
@@ -2102,7 +2029,7 @@ else
         [6770] = RD:CreatePriority(3), -- Sap
         [14251] = RD:CreatePriority(3), -- Riposte
         [18425] = RD:CreatePriority(3), -- Silenced - Improved Kick
-        [32747] = RD:CreatePriority(3), -- Deadly Throw Interrupt
+        [32747] = (not oUF.isClassic) and RD:CreatePriority(3) or nil, -- Deadly Throw Interrupt
         
         -- WARLOCK
         [5484] = RD:CreatePriority(3), -- Howl of Terror
@@ -2111,8 +2038,8 @@ else
         [6789] = RD:CreatePriority(3), -- Death Coil
         [18093] = RD:CreatePriority(3), -- Pyroclasm
         [24259] = RD:CreatePriority(3), -- Spell Lock (Felhunter)
-        [30153] = RD:CreatePriority(3), -- Intercept Stun (Felguard)
-        [30283] = RD:CreatePriority(3), -- Shadowfury
+        [30153] = (not oUF.isClassic) and RD:CreatePriority(3) or nil, -- Intercept Stun (Felguard)
+        [30283] = (not oUF.isClassic) and RD:CreatePriority(3) or nil, -- Shadowfury
         
         -- WARRIOR
         [676] = RD:CreatePriority(3), -- Disarm
@@ -2126,11 +2053,15 @@ else
         
         -- RACIAL
         [20549] = RD:CreatePriority(3), -- War Stomp
-        [28730] = RD:CreatePriority(3), -- Arcane Torrent
+        [28730]  = (not oUF.isClassic) and RD:CreatePriority(3) or nil, -- Arcane Torrent
         
         -- OTHERS
         [5530] = RD:CreatePriority(3), -- Mace Specialization
     }
+end
+
+if oUF.isClassic then
+    debuffs["General"] = {}
 end
 
 RD.debuffs = debuffs

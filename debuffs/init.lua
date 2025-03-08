@@ -1,5 +1,6 @@
 local _, ns = ...
 local oUF = ns.oUF
+assert(oUF, "oUF RaidDebuffs was unable to locate oUF install.")
 
 local RD = {}
 
