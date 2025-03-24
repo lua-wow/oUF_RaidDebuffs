@@ -59,6 +59,9 @@ if oUF.isRetail then
             -- Orta, the Broken Mountain
             [450454] = RD:CreatePriority(false), -- Tectonic Roar
             [450863] = RD:CreatePriority(8), -- Rupturing Runes (Magic / Stun)
+
+            -- The Gobfather
+            [1216656] = RD:CreatePriority(false), -- Excessive Pollutants
     }
 
     affixes = {
@@ -97,6 +100,10 @@ if oUF.isRetail then
         [462661] = RD:CreatePriority(false), -- Blessing from Beyond (Xal'atath Bargain: Voidbound)
         [463767] = RD:CreatePriority(false), -- Void Essence
         [465136] = RD:CreatePriority(false), -- Lingering Void
+
+        -- The War Within: Season 1
+        [1216943] = RD:CreatePriority(false), -- Void Pulsar
+        [1216858] = RD:CreatePriority(false), -- Void Pulsar
     }
 
     delves = {

@@ -347,6 +347,11 @@ local debuffs = {
     },
 
     ----------------------------------------------------------
+    -- Cataclysm
+    ----------------------------------------------------------
+    -- [657] The Vortex Pinnacle
+
+    ----------------------------------------------------------
     -- Mists of Pandaria
     ----------------------------------------------------------
     -- Shado-pan Monastery
@@ -526,6 +531,10 @@ local debuffs = {
     ----------------------------------------------------------
     -- Battle for Azeroth
     ----------------------------------------------------------
+    -- The MOTHERLODE!!
+    [1594] = {
+        [263215] = RD:CreatePriority(), -- Tectonic Barrier
+    },
     -- Freehold
     [1754] = {
         [256106] = RD:CreatePriority(), -- Azerite Powder Shot
@@ -548,7 +557,7 @@ local debuffs = {
         [276061] = RD:CreatePriority(), -- Boulder Throw
         [413131] = RD:CreatePriority(), -- Whirling Dagger
         [413136] = RD:CreatePriority(), -- Whirling Dagger
-        -- [657] The Vortex Pinnacle
+        
         [410870] = RD:CreatePriority(), -- Cyclone
         [410997] = RD:CreatePriority(), -- Rushing Wind
         [411003] = RD:CreatePriority(), -- Turbulence
@@ -595,12 +604,9 @@ local debuffs = {
     },
     -- Operation: Mechagon
     [2097] = {
-        [291928] = RD:CreatePriority(), -- Giga-Zap
-        [292267] = RD:CreatePriority(), -- Giga-Zap
         [302274] = RD:CreatePriority(), -- Fulminating Zap
         [298669] = RD:CreatePriority(), -- Taze
         [295445] = RD:CreatePriority(), -- Wreck
-        [294929] = RD:CreatePriority(), -- Blazing Chomp
         [297257] = RD:CreatePriority(), -- Electrical Charge
         [294855] = RD:CreatePriority(), -- Blossom Blast
         [291972] = RD:CreatePriority(), -- Explosive Leap
@@ -612,13 +618,27 @@ local debuffs = {
         [297283] = RD:CreatePriority(), -- Cave In
         [291914] = RD:CreatePriority(), -- Cutting Beam
         [302384] = RD:CreatePriority(), -- Static Discharge
-        [294195] = RD:CreatePriority(), -- Arcing Zap
+        [294195] = RD:CreatePriority(), -- Arcing Zap (Magic)
         [299572] = RD:CreatePriority(), -- Shrink
         [300659] = RD:CreatePriority(), -- Consuming Slime
         [300650] = RD:CreatePriority(), -- Suffocating Smog
         [301712] = RD:CreatePriority(), -- Pounce
         [299475] = RD:CreatePriority(), -- B.O.R.K
         [293670] = RD:CreatePriority(), -- Chain Blade
+
+        [1215415] = RD:CreatePriority(), -- Sticky Sludge (Disease)
+        [1217821] = RD:CreatePriority(), -- Fiery Jaws (Magic)
+        
+        -- Tussle Tonk
+        -- K.U.-J.0.
+        [294929] = RD:CreatePriority(), -- Blazing Chomp (Magic)
+
+        -- Mechanist's Garden
+        [285460] = RD:CreatePriority(10), -- Discom-BOMB-ulator (Magic)
+
+        -- King Mechagon
+        [291928] = RD:CreatePriority(), -- Giga-Zap
+        [292267] = RD:CreatePriority(), -- Giga-Zap
     },
 
     ----------------------------------------------------------
@@ -781,6 +801,13 @@ local debuffs = {
         [319626] = RD:CreatePriority(), -- Phantasmal Parasite
         [324449] = RD:CreatePriority(), -- Manifest Death
         [341949] = RD:CreatePriority(), -- Withering Blight
+
+        -- Trash
+
+        -- Boss 1
+        [1215600] = RD:CreatePriority(10), -- Withering Touch (Magic)
+
+        -- Boss
     },
     -- Tazavesh, the Veiled Market
     [2441] = {
@@ -1585,17 +1612,25 @@ local debuffs = {
     ----------------------------------------------------------
     -- The Rookery
     [2648] = {
+        -- Trash
+        [430179] = RD:CreatePriority(2), -- Seeping Corruption (Curse)
+
         -- Kyrioss
         -- Stormguard Gorren
         [426160] = RD:CreatePriority(false), -- Dark Gravity
+        [424739] = RD:CreatePriority(10), -- Chaotic Corruption
+        [424797] = RD:CreatePriority(10), -- Chaotic Vulnerability
 
         -- Voidstone Monstosity
+        [429493] = RD:CreatePriority(10), -- Unstable Corruption (Magic)
     },
     -- Priory of the Sacred Frame
     [2649] = {
         -- Trash
         [451764] = RD:CreatePriority(false), -- Radiant Flame
         [435148] = RD:CreatePriority(2), -- Blazing Stike (Magic)
+        [453461] = RD:CreatePriority(0), -- Caltrops (Bleed)
+        [427635] = RD:CreatePriority(0), -- Griveous Rip (Bleed)
         
         -- Captain Dailcry
         [447272] = RD:CreatePriority(0), -- Hurl Spear
@@ -1606,10 +1641,12 @@ local debuffs = {
     -- Darkflame Cleft
     [2651] = {
         -- Trash
+        [423501] = RD:CreatePriority(0), -- Wild Wallop
+        [424322] = RD:CreatePriority(false), -- Explosive Flame
         [426277] = RD:CreatePriority(8), -- One-Hand Headlock (Immobilize)
+        [426295] = RD:CreatePriority(10), -- Flaming Tether
         [427929] = RD:CreatePriority(0), -- Nasty Nibble (Disease)
         [428019] = RD:CreatePriority(0), -- Flashpoint (Magic)
-        [423501] = RD:CreatePriority(0), -- Wild Wallop
 
         -- Ol'Waxbeard
         [423693] = RD:CreatePriority(0, 5), -- Luring Candleflame
@@ -1619,6 +1656,7 @@ local debuffs = {
 
         -- The Candle King
         [422648] = RD:CreatePriority(5), -- Darkflame Pickaxe
+        [426145] = RD:CreatePriority(10), -- Paranoid Mind (Magic + Fear)
 
         -- The Darkness
         [422806] = RD:CreatePriority(false), -- Smothering Shadows
@@ -1670,6 +1708,8 @@ local debuffs = {
         [441179] = RD:CreatePriority(0), -- Oozing Honey
         [435810] = RD:CreatePriority(1), -- Explosive Brew
         [437956] = RD:CreatePriority(3), -- Erupting Inferno
+        [442589] = RD:CreatePriority(10), -- Beeswax
+        [441397] = RD:CreatePriority(8, 3), -- Bee Venom
         
         -- Brew Master Aldryr
         [431897] = RD:CreatePriority(false), -- Rowdy Yell
@@ -1713,6 +1753,24 @@ local debuffs = {
 
         -- Izo, the Grand Splicer
         [439341] = RD:CreatePriority(), -- Splice
+    },
+    -- Operation: Floodgate
+    [2773] = {
+        -- Trash
+        [462737] = RD:CreatePriority(), -- Black Blood Wound (Magic)        
+        [465813] = RD:CreatePriority(), -- Lethargic Venom (Poison)
+        [465820] = RD:CreatePriority(), -- Vicious Chomp (Blood + Reduce Healing)
+        [469799] = RD:CreatePriority(), -- Overcharge (Magic)
+
+        -- Big M.O.M.M.A
+        
+        -- Demolition Duo
+        [473690] = RD:CreatePriority(10), -- Kinetic Explosive Gel (Magic)
+
+        -- Swampface
+        [469478] = RD:CreatePriority(10), -- Sludge Claws
+
+        -- Geezle Gigazap
     },
 
     -- Nerub-ar Palace
@@ -1796,6 +1854,10 @@ local debuffs = {
             [445818] = RD:CreatePriority(), -- Frothing Gluttony
             [446012] = RD:CreatePriority(), -- Essence Scarred
             [455387] = RD:CreatePriority(), -- Abyssal Reverberation
+    },
+    -- Operation: Undermine
+    [2769] = {
+
     },
 }
 
