@@ -1,4 +1,4 @@
-## Interface: 11506, 110100
+## Interface: 11506, 110105
 ## Author: Luaerror
 ## Version: 1.4.5
 ## Title: oUF RaidDebuffs
