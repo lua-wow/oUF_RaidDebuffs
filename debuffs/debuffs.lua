@@ -363,15 +363,15 @@ local debuffs = {
         [106113] = RD:CreatePriority(), -- Touch of Nothingness
         [106823] = RD:CreatePriority(), -- Serpent Strike
         [110125] = RD:CreatePriority(), -- Shattered Resolve
-        [374037] = RD:CreatePriority(), -- Overwhelming Rage
-        [395859] = RD:CreatePriority(), -- Haunting Scream
-        [396093] = RD:CreatePriority(), -- Savage Leap
-        [396150] = RD:CreatePriority(), -- Feeling of Superiority
-        [396152] = RD:CreatePriority(), -- Feeling of Inferiority
-        [397878] = RD:CreatePriority(), -- Tainted Ripple
-        [397904] = RD:CreatePriority(), -- Setting Sun Kick
-        [397911] = RD:CreatePriority(), -- Touch of Ruin
-        [397914] = RD:CreatePriority(), -- Defiling Mist
+        [374037] = oUF.isRetail and RD:CreatePriority() or nil, -- Overwhelming Rage
+        [395859] = oUF.isRetail and RD:CreatePriority() or nil, -- Haunting Scream
+        [396093] = oUF.isRetail and RD:CreatePriority() or nil, -- Savage Leap
+        [396150] = oUF.isRetail and RD:CreatePriority() or nil, -- Feeling of Superiority
+        [396152] = oUF.isRetail and RD:CreatePriority() or nil, -- Feeling of Inferiority
+        [397878] = oUF.isRetail and RD:CreatePriority() or nil, -- Tainted Ripple
+        [397904] = oUF.isRetail and RD:CreatePriority() or nil, -- Setting Sun Kick
+        [397911] = oUF.isRetail and RD:CreatePriority() or nil, -- Touch of Ruin
+        [397914] = oUF.isRetail and RD:CreatePriority() or nil, -- Defiling Mist
     },
     -- Mogu'shan Vaults
     [1008] = {
@@ -2030,6 +2030,10 @@ if oUF.isRetail then
         -- RACIAL
         [20549] = RD:CreatePriority(4), -- War Stomp
         [107079] = RD:CreatePriority(4), -- Quaking Palm
+    }
+elseif oUF.isMoP then
+    debuffs["PvP"] = {
+
     }
 else
     debuffs["PvP"] = {
