@@ -88,13 +88,15 @@ local _, class = UnitClass("player")
 -- Loader
 --------------------------------------------------
 local loader = CreateFrame("Frame")
-loader:RegisterEvent("PLAYER_LOGIN")
+loader:RegisterEvent("PLAYER_ENTERING_WORLD")
 loader:SetScript("OnEvent", function (self, event, ...)
-	self[event](self, ...)
+	if self[event] then
+		self[event](self, event, ...)
+	end
 end)
 
-function loader:PLAYER_LOGIN()
-	self:UnregisterEvent("PLAYER_LOGIN")
+function loader:PLAYER_ENTERING_WORLD(isLogin, isReload)
+	self:Update()
 end
 
 function loader:Update()
@@ -110,30 +112,34 @@ function loader:Update()
 		RD:ValidateDebuffs(instanceID)
 
 		-- insert instance specific debuffs
-		debuffs = Mixin(debuffs, RD.debuffs[instanceID] or {})
+		debuffs = self:merge(debuffs, RD.debuffs[instanceID] or {})
 	
 		if oUF.isRetail then
 			-- insert affixes debuffs
-			debuffs = Mixin(debuffs, RD.debuffs["Affixes"] or {})
+			debuffs = self:merge(debuffs, RD.debuffs["Affixes"] or {})
 		end
 	else
 		-- insert general debuffs, like world bosses
 		RD:ValidateDebuffs("General")
-		debuffs = Mixin(debuffs, RD.debuffs["General"] or {})
+		debuffs = self:merge(debuffs, RD.debuffs["General"] or {})
 		
 		-- insert classes debuffs
 		RD:ValidateDebuffs("PvP")
-		debuffs = Mixin(debuffs, RD.debuffs["PvP"] or {})
+		debuffs = self:merge(debuffs, RD.debuffs["PvP"] or {})
 	end
 
 	if oUF.isRetail then
 		-- insert delves auras, because delves do not trigger PLAYER_ENTERING_WORLD
-		debuffs = Mixin(debuffs, RD.debuffs["Delves"] or {})
+		debuffs = self:merge(debuffs, RD.debuffs["Delves"] or {})
 	end
 end
 
-function loader:PLAYER_ENTERING_WORLD(isLogin, isReload)
-	self:Update()
+function loader:merge(dest, source)
+	if not source or not dest then return end
+	for k, v in next, source do
+		dest[k] = v
+	end
+	return dest
 end
 
 --------------------------------------------------
@@ -437,10 +443,6 @@ local function Enable(self)
 		element.__owner = self
 		element.ForceUpdate = ForceUpdate
 
-		if (loader and not loader:IsEventRegistered("PLAYER_ENTERING_WORLD")) then
-			loader:RegisterEvent("PLAYER_ENTERING_WORLD")
-		end
-
 		self:RegisterEvent("UNIT_AURA", UpdateAuras)
 
 		return true
@@ -451,10 +453,6 @@ local function Disable(self)
 	local element = self.RaidDebuffs
 	if (element) then
 		
-		if (loader and loader:IsEventRegistered("PLAYER_ENTERING_WORLD")) then
-			loader:UnregisterEvent("PLAYER_ENTERING_WORLD")
-		end
-
 		self:UnregisterEvent("UNIT_AURA", UpdateAuras)
 
 		element:Hide()
