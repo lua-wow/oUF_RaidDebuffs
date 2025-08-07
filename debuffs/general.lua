@@ -62,6 +62,13 @@ if oUF.isRetail then
 
             -- The Gobfather
             [1216656] = RD:CreatePriority(false), -- Excessive Pollutants
+
+            -- Rashanor, The Untethered
+            [454725] = RD:CreatePriority(), -- Gravity Shatter
+            [1226398] = RD:CreatePriority(8), -- Errant Zap (Stunned)
+            [1227209] = RD:CreatePriority(), -- Null Rupture
+            [1237893] = RD:CreatePriority(false), -- Veilshatter Roar
+            [1237906] = RD:CreatePriority(1), -- Void Corruption
     }
 
     affixes = {

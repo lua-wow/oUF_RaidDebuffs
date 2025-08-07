@@ -721,12 +721,31 @@ local debuffs = {
         [329321] = RD:CreatePriority(), -- Jagged Swipe 1
         [344993] = RD:CreatePriority(), -- Jagged Swipe 2
         [319603] = RD:CreatePriority(), -- Curse of Stone
-        [319611] = RD:CreatePriority(), -- Turned to Stone
-        [325876] = RD:CreatePriority(), -- Curse of Obliteration
         [326632] = RD:CreatePriority(), -- Stony Veins
         [323650] = RD:CreatePriority(), -- Haunting Fixation
         [326874] = RD:CreatePriority(), -- Ankle Bites
         [340446] = RD:CreatePriority(), -- Mark of Envy
+        
+        -- Trash
+        [1235766] = RD:CreatePriority(10), -- Mortal Strike (Healing Reduced 50%)
+        [1235245] = RD:CreatePriority(), -- Ankle Bite (Bleed)
+        [1235060] = RD:CreatePriority(), -- Anima Tainted Armor
+        [319611] = RD:CreatePriority(), -- Turned to Stone (Magic)
+        [325876] = RD:CreatePriority(), -- Mark of Obliteration (Magic)
+        [325701] = RD:CreatePriority(), -- Siphon Life (Magic)
+
+        -- Halkias
+        [322977] = RD:CreatePriority(8), -- Sinlight Visions (Fear)
+        [339235] = RD:CreatePriority(5), -- Light of Atonement
+
+        -- Echelon
+        [319703] = RD:CreatePriority(7), -- Blood Torrent
+
+        -- High Adjudicator Aleez
+        [1236513] = RD:CreatePriority(8), -- Unstable Anime (Magic)
+        [1236514] = RD:CreatePriority(8), -- Unstable Anime (Magic)
+
+        -- Lord Chamberlain
     },
     -- Plaguefall
     [2289] = {
@@ -811,27 +830,55 @@ local debuffs = {
     },
     -- Tazavesh, the Veiled Market
     [2441] = {
-        [350804] = RD:CreatePriority(), -- Collapsing Energy
-        [350885] = RD:CreatePriority(), -- Hyperlight Jolt
-        [351101] = RD:CreatePriority(), -- Energy Fragmentation
-        [346828] = RD:CreatePriority(), -- Sanitizing Field
-        [355641] = RD:CreatePriority(), -- Scintillate
-        [355451] = RD:CreatePriority(), -- Undertow
-        [355581] = RD:CreatePriority(), -- Crackle
-        [349999] = RD:CreatePriority(), -- Anima Detonation
-        [346961] = RD:CreatePriority(), -- Purging Field
-        [351956] = RD:CreatePriority(), -- High-Value Target
-        [346297] = RD:CreatePriority(), -- Unstable Explosion
-        [347728] = RD:CreatePriority(), -- Flock!
-        [356408] = RD:CreatePriority(), -- Ground Stomp
-        [347744] = RD:CreatePriority(), -- Quickblade
-        [347481] = RD:CreatePriority(), -- Shuri
-        [355915] = RD:CreatePriority(), -- Glyph of Restraint
-        [350134] = RD:CreatePriority(), -- Infinite Breath
-        [350013] = RD:CreatePriority(), -- Gluttonous Feast
-        [355465] = RD:CreatePriority(), -- Boulder Throw
-        [346116] = RD:CreatePriority(), -- Shearing Swings
-        [356011] = RD:CreatePriority(), -- Beam Splicer
+        -- Streets of Wonder
+            [346297] = RD:CreatePriority(), -- Unstable Explosion
+            [347728] = RD:CreatePriority(10), -- Flock! (Stun)
+            [347744] = RD:CreatePriority(), -- Quickblade
+            [351956] = RD:CreatePriority(), -- High-Value Target
+            [355641] = RD:CreatePriority(), -- Sintillate (Magic)
+            [355832] = RD:CreatePriority(), -- Quickblade (Bleed)
+            [355915] = RD:CreatePriority(), -- Glyph of Restraint (Magic)
+            [356407] = RD:CreatePriority(7), -- Ancient Dread (Curse)
+            [356408] = RD:CreatePriority(), -- Ground Stomp (Stun)
+            [356943] = RD:CreatePriority(10), -- Lockdown (Magic)
+            [357029] = RD:CreatePriority(), -- Hyperlight Bomb (Magic)
+            
+            -- Zo'phex the Sentinel
+            
+            -- The Grand Menagerie
+            [349954] = RD:CreatePriority(8), -- Purification Protocol
+            [349999] = RD:CreatePriority(), -- Anima Detonation
+            [350013] = RD:CreatePriority(), -- Gluttonous Feast
+            
+            -- Mailroom Mayhem
+            [346844] = RD:CreatePriority(8), -- Alchemical Residue (Magic)
+            
+            -- Myza's Oasis
+            
+            -- So'azmi
+            [347481] = RD:CreatePriority(), -- Shuri
+            [1245669] = RD:CreatePriority(10), -- Double Technique (Magic)
+            
+        -- So'leah's Gambit
+            [347149] = RD:CreatePriority(10), -- Infinite Breath (Magic / Stun)
+            [355451] = RD:CreatePriority(), -- Undertow
+            [355465] = RD:CreatePriority(), -- Boulder Throw
+            [355581] = RD:CreatePriority(), -- Crackle
+            [356011] = RD:CreatePriority(), -- Beam Splicer
+            [1240097] = RD:CreatePriority(8), -- Time Bomb (Magic)
+            
+            -- Hylbrande
+            [346116] = RD:CreatePriority(), -- Shearing Swings
+            [346828] = RD:CreatePriority(), -- Sanitizing Field
+            [346961] = RD:CreatePriority(), -- Purging Field
+
+            -- Timecap'n Hooktail
+            [350134] = RD:CreatePriority(10), -- Infinite Breath
+
+            -- So'leah
+            [350804] = RD:CreatePriority(), -- Collapsing Energy
+            [350885] = RD:CreatePriority(), -- Hyperlight Jolt
+            [351101] = RD:CreatePriority(), -- Energy Fragmentation
     },
 
     -- Castle Nathria
@@ -1771,6 +1818,20 @@ local debuffs = {
         [469478] = RD:CreatePriority(10), -- Sludge Claws
 
         -- Geezle Gigazap
+    },
+    -- Eco'Dome Al'dani
+    [2830] = {
+        -- Azhicaar
+        [1217241] = RD:CreatePriority(8), -- Feast
+        [1217247] = RD:CreatePriority(8), -- Feast
+        
+        -- Taah'bat and A'wazj
+        [1220384] = RD:CreatePriority(7), -- Wrap Strike
+        [1219482] = RD:CreatePriority(7), -- Rift Claws
+
+        -- Soul-Scribe
+        [1225218] = RD:CreatePriority(7), -- Dread of the Unknown
+        [1226444] = RD:CreatePriority(), -- Wounded Fate
     },
 
     -- Nerub-ar Palace
