@@ -350,6 +350,11 @@ local debuffs = {
     -- Cataclysm
     ----------------------------------------------------------
     -- [657] The Vortex Pinnacle
+    -- Grim Batol
+    [670] = {
+        -- Trash
+        [451395] = RD:CreatePriority(10), -- Corrupt
+    },
 
     ----------------------------------------------------------
     -- Mists of Pandaria
@@ -363,6 +368,7 @@ local debuffs = {
         [106113] = RD:CreatePriority(), -- Touch of Nothingness
         [106823] = RD:CreatePriority(), -- Serpent Strike
         [110125] = RD:CreatePriority(), -- Shattered Resolve
+        [118714] = RD:CreatePriority(false), -- Purified Water
         [374037] = oUF.isRetail and RD:CreatePriority() or nil, -- Overwhelming Rage
         [395859] = oUF.isRetail and RD:CreatePriority() or nil, -- Haunting Scream
         [396093] = oUF.isRetail and RD:CreatePriority() or nil, -- Savage Leap
@@ -373,21 +379,234 @@ local debuffs = {
         [397911] = oUF.isRetail and RD:CreatePriority() or nil, -- Touch of Ruin
         [397914] = oUF.isRetail and RD:CreatePriority() or nil, -- Defiling Mist
     },
+    -- Stormstout Brewery
+    [961] = {},
+    -- Gate of the Setting Sun
+    [962] = {},
+    -- Mogu'shan Palace
+    [994 ] = {},
+    -- Scarlet Halls
+    [1001] = {},
+    -- Scarlet Monastery
+    [1004] = {},
+    -- Scholomance
+    [1007] = {},
+    -- Siege of Niuzao Temple
+    [1011] = {
+        -- Vizier Jin'bak
+        [119941] = RD:CreatePriority(), -- Sap Residue
+
+        -- Commander Vo'jak
+        -- General Pa'valak
+        [119354] = RD:CreatePriority(), -- Sik'thik Strike
+        [119703] = RD:CreatePriority(), -- Detonate
+        [119840] = RD:CreatePriority(), -- Serrated Blade
+        [119875] = RD:CreatePriority(10), -- Tempest
+        [131971] = RD:CreatePriority(), -- Wind's Grace
+
+        -- Wing Leader Ner'onok
+        [121443] = RD:CreatePriority(), -- Caustic Pitch
+        [121447] = RD:CreatePriority(), -- Quick-Dry Resin
+    },
+
+    -- Terrace of Endless Spring
+    [996] = {},
     -- Mogu'shan Vaults
     [1008] = {
+        -- Trash
+        [125091] = RD:CreatePriority(), -- Fully Petrified
+        [125092] = RD:CreatePriority(), -- Petrification
+        [116990] = RD:CreatePriority(8), -- Focused Assault (Fixate)
+
+        -- The Stone Guard
+        [116008] = RD:CreatePriority(), -- Jade Petrification
+        [116038] = RD:CreatePriority(), -- Jasper Petrification
+        [116281] = RD:CreatePriority(), -- Cobalt Mine Blast
+        [125206] = RD:CreatePriority(), -- Rend Flesh
+        [130774] = RD:CreatePriority(), -- Amethyst Pool
+
+        -- Feng the Accursed
+        [116942] = RD:CreatePriority(8), -- Flaming Spear (Tank)
+        [116784] = RD:CreatePriority(), -- Wildfire Spark
+
+        -- Gara'jal the Spiritbinder
+        [122151] = RD:CreatePriority(), -- Voodoo Doll
+
+        -- The Spirit Kings
+        [117708] = RD:CreatePriority(), -- Maddening Shout
+        [118135] = RD:CreatePriority(10), -- Pinned Down
+        [118303] = RD:CreatePriority(8), -- Fixate
+
+        -- Elegon
+        [117878] = RD:CreatePriority(), -- Overcharged
+        [117949] = RD:CreatePriority(8), -- Closed Circuit
+        [132275] = RD:CreatePriority(), -- Obliteration
+
         -- Will of the Emperor
         [116779] = RD:CreatePriority(false), -- Titan Gas
         [116782] = RD:CreatePriority(false), -- Titan Gas
         [116803] = RD:CreatePriority(false), -- Titan Gas
+        [116525] = RD:CreatePriority(), -- Focused Assault
+        [116550] = RD:CreatePriority(), -- Energizing Smash
+        [116778] = RD:CreatePriority(), -- Focused Defense
+        [116829] = RD:CreatePriority(), -- Focused Energy
     },
-
-    ----------------------------------------------------------
-    -- Cataclysm
-    ----------------------------------------------------------
-    -- Grim Batol
-    [670] = {
+    -- Heart of Fear
+    [1009] = {
         -- Trash
-        [451395] = RD:CreatePriority(10), -- Corrupt
+        -- Imperial Vizier Zor'lok
+        [123812] = RD:CreatePriority(), -- Pheromones of Zeal
+        -- [123790] = RD:CreatePriority(), -- Song of the Empress
+
+        -- Blade Lord Ta'yak
+        [123017] = RD:CreatePriority(8), -- Unseen Strike
+        [123180] = RD:CreatePriority(5), -- Wind Step
+        [123474] = RD:CreatePriority(10), -- Overwhelming Assault (Tank)
+
+        -- Garalon
+        [123235] = RD:CreatePriority(false), -- Weak Points
+        [123423] = RD:CreatePriority(false), -- Weak Points
+        [123426] = RD:CreatePriority(false), -- Weak Points
+        [123428] = RD:CreatePriority(false), -- Weak Points
+        [122774] = RD:CreatePriority(), -- Crush
+        [122835] = RD:CreatePriority(8), -- Pheromones
+        [123081] = RD:CreatePriority(8), -- Pungency
+        [123092] = RD:CreatePriority(8), -- Pheromones
+        [123120] = RD:CreatePriority(), -- Pheromone Trail
+
+        -- Wind Lord Mel'jarak
+        [122064] = RD:CreatePriority(), -- Corrosive Resin
+
+        -- Amber-Shaper Un'sok
+        [121949] = RD:CreatePriority(), -- Parasitic Growth
+        [122370] = RD:CreatePriority(), -- Reshape Life
+        [122784] = RD:CreatePriority(), -- Reshape Life
+        [125502] = RD:CreatePriority(), -- Amber Beacon
+
+        -- Grand Empress Shek'zeer
+        [123184] = RD:CreatePriority(), -- Dissonance Field
+        [123707] = RD:CreatePriority(), -- Eyes of the Empress
+        [123788] = RD:CreatePriority(8), -- Cry of Terror
+        [126122] = RD:CreatePriority(), -- Corrupted Dissonance Field
+    },
+    -- Throne of Thunder
+    [1098] = {
+        -- Trash
+        [139485] = RD:CreatePriority(false), -- Dark Winds
+        [140618] = RD:CreatePriority(), -- Crush Armor
+        [134415] = RD:CreatePriority(), -- Devoured
+
+        -- Jin'rokh the Breaker
+        [137162] = RD:CreatePriority(), -- Static Burst
+        [137371] = RD:CreatePriority(10), -- Thundering Throw
+        [137422] = RD:CreatePriority(8), -- Focused Lightning (Fixate)
+        [138349] = RD:CreatePriority(), -- Static Wound
+
+        -- Horridon
+        [136767] = RD:CreatePriority(8), -- Triple Puncture (Tank)
+        [140946] = RD:CreatePriority(10), -- Dire Fixation
+
+        -- Council of Elders
+        [136857] = RD:CreatePriority(8), -- Entrapped (Magic)
+        [136860] = RD:CreatePriority(), -- Quicksand
+        [136878] = RD:CreatePriority(), -- Ensnared
+        [136903] = RD:CreatePriority(10), -- Frigid Assault (Stun)
+        [136922] = RD:CreatePriority(), -- Frostbite
+        [136937] = RD:CreatePriority(), -- Frostbite
+
+        -- Tortos
+        [134030] = RD:CreatePriority(), -- Kick Shell
+        [134920] = RD:CreatePriority(), -- Quake Stomp (Stunned)
+
+        -- Megaera
+        [139840] = RD:CreatePriority(), -- Rot Armor
+        [139843] = RD:CreatePriority(), -- Arctic Freeze
+        [139822] = RD:CreatePriority(), -- Cinders
+        [139993] = RD:CreatePriority(), -- Diffusion
+        [137731] = RD:CreatePriority(), -- Ignite Flesh
+
+        -- Ji-Kun
+        [112879] = RD:CreatePriority(), -- Primal Nutriment
+        [134366] = RD:CreatePriority(10), -- Talon Rake (Tank)
+        [138309] = RD:CreatePriority(), -- Slimed
+        [138319] = RD:CreatePriority(), -- Feed Pool
+        [140092] = RD:CreatePriority(), -- Infected Talons
+        [140741] = RD:CreatePriority(), -- Primal Nutriment
+
+        -- Durumu the Forgotten
+        [133675] = RD:CreatePriority(), -- Blue Rays
+        [133677] = RD:CreatePriority(), -- Blue Rays
+        [133732] = RD:CreatePriority(), -- Infrared Light
+        [133737] = RD:CreatePriority(), -- Bright Light
+        [133738] = RD:CreatePriority(), -- Bright Light
+        [133767] = RD:CreatePriority(10), -- Serious Wound (Tank)
+        [133768] = RD:CreatePriority(5), -- Arterial Cut
+        [134626] = RD:CreatePriority(), -- Lingering Gaze
+
+        -- Primordius
+        [136050] = RD:CreatePriority(8), -- Malformed Blood (Tank)
+        [140546] = RD:CreatePriority(), -- Fully Mutated
+
+        [136180] = RD:CreatePriority(false), -- Keen Eyesight (Magic)
+        [136181] = RD:CreatePriority(false), -- Impaired Eyesight (Magic)
+        [136182] = RD:CreatePriority(false), -- Improved Synapses (Magic)
+        [136183] = RD:CreatePriority(false), -- Dulled Synapses (Magic)
+        [136184] = RD:CreatePriority(false), -- Thick Bones (Magic)
+        [136185] = RD:CreatePriority(false), -- Fragile Bones (Magic)
+        [136186] = RD:CreatePriority(false), -- Clear Mind (Magic)
+        [136187] = RD:CreatePriority(false), -- Clouded Mind (Magic)
+
+        -- Dark Animus
+        [136962] = RD:CreatePriority(10), -- Anima Ring
+        [138659] = RD:CreatePriority(), -- Touch of the Animus
+        [138691] = RD:CreatePriority(), -- Anima Font
+
+        -- Iron Qon
+        [134691] = RD:CreatePriority(8), -- Impale
+        [136192] = RD:CreatePriority(10), -- Lightning Storm
+        [137669] = RD:CreatePriority(), -- Storm Cloud
+        [135145] = RD:CreatePriority(), -- Freeze
+        [136615] = RD:CreatePriority(), -- Electrified (Magic + Stun)
+        [137664] = RD:CreatePriority(), -- Frozen Blood
+        [134647] = RD:CreatePriority(), -- Scorched
+        [135147] = RD:CreatePriority(), -- Dead Zone
+
+        -- Twin Empyreans
+        [138264] = RD:CreatePriority(), -- Invoke Tiger Spirit
+
+        -- Lei Shen
+        [134821] = RD:CreatePriority(), -- Discharged Energy
+        [137446] = RD:CreatePriority(), -- Discharged Energy
+        [135153] = RD:CreatePriority(), -- Crashing Thunder
+        [134912] = RD:CreatePriority(), -- Decapitate
+        [134916] = RD:CreatePriority(), -- Decapitate
+        [139011] = RD:CreatePriority(), -- Helm of Command
+        [137176] = RD:CreatePriority(), -- Overloaded Circuits
+        [136914] = RD:CreatePriority(), -- Electrical Shock
+
+        -- Ra-den
+        [138329] = RD:CreatePriority(), -- Unleashed Anima
+        [138288] = RD:CreatePriority(), -- Unstable Anima
+    },
+    -- Siege of Orgrimmar
+    [1136] = {
+        -- Immerseus
+        [143437] = RD:CreatePriority(), -- Corrosive Blast (Tank)
+        [143436] = RD:CreatePriority() -- Corrosive Blast (Tank)
+
+        -- The Fallen Protectors
+        -- Norushen
+        -- Sha of Pride
+        -- Galakras
+        -- Iron Juggernaut
+        -- Kor'kron Dark Shaman
+        -- General Nazgrim
+        -- Malkorok
+        -- Spoils of Pandaria
+        -- Thok the Bloodthirsty
+        -- Siegecrafter Blackfuse
+        -- Paragons of the Klaxxi
+        -- Garrosh Hellscreen
     },
 
     ----------------------------------------------------------
