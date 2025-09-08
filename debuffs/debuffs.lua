@@ -362,6 +362,7 @@ local debuffs = {
     -- Shado-pan Monastery
     [959] = {
         [106774] = RD:CreatePriority(false), -- Honarable Combat
+        [113020] = RD:CreatePriority(1), -- Black Cleave (Magic)
     },
     -- Temple of the Jade Serpent
     [960] = {
@@ -386,17 +387,24 @@ local debuffs = {
     -- Mogu'shan Palace
     [994 ] = {},
     -- Scarlet Halls
-    [1001] = {},
+    [1001] = {
+        [114011] = RD:CreatePriority(8), -- Slash Armor
+    },
     -- Scarlet Monastery
     [1004] = {},
     -- Scholomance
-    [1007] = {},
+    [1007] = {
+        [113996] = RD:CreatePriority(1), -- Bone Armor
+    },
     -- Siege of Niuzao Temple
     [1011] = {
         -- Vizier Jin'bak
         [119941] = RD:CreatePriority(), -- Sap Residue
+        [120938] = RD:CreatePriority(), -- Residue
 
         -- Commander Vo'jak
+        [120778] = RD:CreatePriority(7), -- Caustic Tar (Magic)
+
         -- General Pa'valak
         [119354] = RD:CreatePriority(), -- Sik'thik Strike
         [119703] = RD:CreatePriority(), -- Detonate
@@ -470,8 +478,8 @@ local debuffs = {
         [123428] = RD:CreatePriority(false), -- Weak Points
         [122774] = RD:CreatePriority(), -- Crush
         [122835] = RD:CreatePriority(8), -- Pheromones
-        [123081] = RD:CreatePriority(8), -- Pungency
         [123092] = RD:CreatePriority(8), -- Pheromones
+        [123081] = RD:CreatePriority(5), -- Pungency
         [123120] = RD:CreatePriority(), -- Pheromone Trail
 
         -- Wind Lord Mel'jarak
@@ -1073,6 +1081,11 @@ local debuffs = {
             [346844] = RD:CreatePriority(8), -- Alchemical Residue (Magic)
             
             -- Myza's Oasis
+            [350654] = RD:CreatePriority(false), -- Guitar
+            [350655] = RD:CreatePriority(false), -- Trumpeter
+            [350656] = RD:CreatePriority(false), -- Saxophonist
+            [350657] = RD:CreatePriority(false), -- Drummer
+            [350658] = RD:CreatePriority(false), -- Horn
             
             -- So'azmi
             [347481] = RD:CreatePriority(), -- Shuri

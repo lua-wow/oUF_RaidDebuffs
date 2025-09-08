@@ -105,7 +105,7 @@ function loader:Update()
 	local isInInstance, instanceType = IsInInstance()
 	local instanceName, _, difficultyID, difficultyName, _, _, _, instanceID, _, _ = GetInstanceInfo()
 	local isDelve = C_DelvesUI and C_DelvesUI.HasActiveDelve(instanceID) or false
-	
+
 	if (isInInstance and (instanceType == "raid" or instanceType == "party" or isDelve)) then
 		-- local difficultyName, groupType, isHeroic, isChallengeMode, displayHeroic, displayMythic, _ = GetDifficultyInfo(difficultyID)
 		-- local isMythicKey = isHeroic and isChallengeMode
