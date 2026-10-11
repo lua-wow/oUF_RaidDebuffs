@@ -6,15 +6,6 @@ local RD = ns.oUF_RaidDebuffs
 local LE_EXPANSION_LEVEL_CURRENT = _G.LE_EXPANSION_LEVEL_CURRENT
 local LE_EXPANSION_CLASSIC = _G.LE_EXPANSION_CLASSIC or 0
 local LE_EXPANSION_BURNING_CRUSADE = _G.LE_EXPANSION_BURNING_CRUSADE or 1
-local LE_EXPANSION_WRATH_OF_THE_LICH_KING = _G.LE_EXPANSION_WRATH_OF_THE_LICH_KING or 2
-local LE_EXPANSION_CATACLYSM = _G.LE_EXPANSION_CATACLYSM or 3
-local LE_EXPANSION_MISTS_OF_PANDARIA = _G.LE_EXPANSION_MISTS_OF_PANDARIA or 4
-local LE_EXPANSION_WARLORDS_OF_DRAENOR = _G.LE_EXPANSION_WARLORDS_OF_DRAENOR or 5
-local LE_EXPANSION_LEGION = _G.LE_EXPANSION_LEGION or 6
-local LE_EXPANSION_BATTLE_FOR_AZEROTH = _G.LE_EXPANSION_BATTLE_FOR_AZEROTH or 7
-local LE_EXPANSION_SHADOWLANDS = _G.LE_EXPANSION_SHADOWLANDS or 8
-local LE_EXPANSION_DRAGONFLIGHT = _G.LE_EXPANSION_DRAGONFLIGHT or 9
-local LE_EXPANSION_WAR_WITHIN = _G.LE_EXPANSION_WAR_WITHIN or 10
 
 -- Mine
 local spells = {}
@@ -201,7 +192,7 @@ elseif LE_EXPANSION_LEVEL_CURRENT >= LE_EXPANSION_CLASSIC then
         [16922] = RD:CreatePriority(3), -- Celestial Focus
         [19975] = RD:CreatePriority(2), -- Entangling Roots (Nature's Grasp)
         [22570] = RD:CreatePriority(3), -- Maim
-        
+
         -- HUNTER
         [3355] = RD:CreatePriority(3), -- Freezing Trap
         [4167] = RD:CreatePriority(2), -- Web (Pet)
@@ -221,21 +212,21 @@ elseif LE_EXPANSION_LEVEL_CURRENT >= LE_EXPANSION_CLASSIC then
         [18469] = RD:CreatePriority(3), -- Silenced - Improved Counterspell
         [28271] = RD:CreatePriority(3), -- Polymorph: Turtle
         [28272] = RD:CreatePriority(3), -- Polymorph: Pig
-        
+
         -- PALADIN
         [853] = RD:CreatePriority(3), -- Hammer of Justice
         [2878] = RD:CreatePriority(3), -- Turn Undead
         [10326] = RD:CreatePriority(3), -- Turn Evil
         [20066] = RD:CreatePriority(3), -- Repentance
         [20170] = RD:CreatePriority(3), -- Stun (Seal of Justice Proc)
-        
+
         -- PRIEST
         [605] = RD:CreatePriority(3), -- Mind Control
         [8122] = RD:CreatePriority(3), -- Psychic Scream
         [9484] = RD:CreatePriority(3), -- Shackle Undead
         [15269] = RD:CreatePriority(3), -- Blackout
         [15487] = RD:CreatePriority(3), -- Silence
-        
+
         -- ROGUE
         [408] = RD:CreatePriority(3), -- Kidney Shot
         [1330] = RD:CreatePriority(3), -- Garrote - Silence
@@ -245,7 +236,7 @@ elseif LE_EXPANSION_LEVEL_CURRENT >= LE_EXPANSION_CLASSIC then
         [6770] = RD:CreatePriority(3), -- Sap
         [14251] = RD:CreatePriority(3), -- Riposte
         [18425] = RD:CreatePriority(3), -- Silenced - Improved Kick
-        
+
         -- WARLOCK
         [5484] = RD:CreatePriority(3), -- Howl of Terror
         [5782] = RD:CreatePriority(3), -- Fear
@@ -253,7 +244,7 @@ elseif LE_EXPANSION_LEVEL_CURRENT >= LE_EXPANSION_CLASSIC then
         [6789] = RD:CreatePriority(3), -- Death Coil
         [18093] = RD:CreatePriority(3), -- Pyroclasm
         [24259] = RD:CreatePriority(3), -- Spell Lock (Felhunter)
-        
+
         -- WARRIOR
         [676] = RD:CreatePriority(3), -- Disarm
         [5246] = RD:CreatePriority(3), -- Intimidating Shout
@@ -263,10 +254,10 @@ elseif LE_EXPANSION_LEVEL_CURRENT >= LE_EXPANSION_CLASSIC then
         [18498] = RD:CreatePriority(3), -- Shield Bash - Silenced
         [20253] = RD:CreatePriority(3), -- Intercept Stun
         [23694] = RD:CreatePriority(2), -- Improved Hamstring
-        
+
         -- RACIAL
         [20549] = RD:CreatePriority(3), -- War Stomp
-        
+
         -- OTHERS
         [5530] = RD:CreatePriority(3), -- Mace Specialization
     })
@@ -277,24 +268,24 @@ elseif LE_EXPANSION_LEVEL_CURRENT >= LE_EXPANSION_BURNING_CRUSADE then
         -- DRUID
         [33786] = RD:CreatePriority(3), -- Cyclone
         [45334] = RD:CreatePriority(2), -- Feral Charge Effect
-        
+
         -- HUNTER
         [34490] = RD:CreatePriority(3), -- Silencing Shot
 
         -- MAGE
         [31661] = RD:CreatePriority(3), -- Dragon's Breath
         [33395] = RD:CreatePriority(2), -- Freeze (Water Elemental)
-        
+
         -- PRIEST
         [44041] = RD:CreatePriority(3), -- Chastise
-        
+
         -- ROGUE
         [32747] = RD:CreatePriority(3), -- Deadly Throw Interrupt
-        
+
         -- WARLOCK
         [30153] = RD:CreatePriority(3), -- Intercept Stun (Felguard)
         [30283] = RD:CreatePriority(3), -- Shadowfury
-        
+
         -- WARRIOR
 
         -- RACIAL

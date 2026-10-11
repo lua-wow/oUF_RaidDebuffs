@@ -12,7 +12,7 @@ function RD:CreatePriority(arg1, arg2)
     elseif type(arg1) == "number" then
         priority = arg1
     end
-    
+
     if type(arg2) == "number" then
         stackThreshold = arg2
     end

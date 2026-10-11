@@ -4,16 +4,16 @@
 	Handles the visibility and updating of an icon based on raid units debuffs.
 
 	## Widgets
-	
+
 	RaidDebuffs		- A `Frame` to hold a `Button`s representing debuffs.
-	
+
 	## Sub-Widgets
 
 	Icon			- A `Texture` to represent spell icon.
 	Cooldown		- A `Cooldown` to represent spell duration. 
 	Time			- A `FontString` to represent spell duration.
 	Count			- A `FontString` to represent spell duration.
-	
+
 	## Example
 
 		-- Position and size
@@ -61,28 +61,18 @@ assert(LibDispel, "Filger requires LibDispel")
 local RD = ns.oUF_RaidDebuffs
 
 -- Lua
-local format, floor = format, floor
-local type, pairs, wipe = type, pairs, wipe
+local format = format
 
 -- Blizzard
-local GetActiveSpecGroup = _G.GetActiveSpecGroup
-local GetSpecialization = _G.GetSpecialization
-local GetSpellName = C_Spell and C_Spell.GetSpellName or _G.GetSpellInfo
 local GetTime = _G.GetTime
-local IsSpellKnown = _G.IsSpellKnown
-local UnitAura = _G.UnitAura
-local UnitCanAssist = _G.UnitCanAssist
 local UnitCanAttack = _G.UnitCanAttack
 local UnitIsCharmed = _G.UnitIsCharmed
 local UnitIsOwnerOrControllerOfUnit = _G.UnitIsOwnerOrControllerOfUnit
 local UnitIsUnit = _G.UnitIsUnit
-local UnitClass = _G.UnitClass
 
 -- Mine
 local debuffs = {}
 local blacklist = RD.blacklist or {}
-
-local _, class = UnitClass("player")
 
 --------------------------------------------------
 -- Loader
@@ -95,7 +85,7 @@ loader:SetScript("OnEvent", function (self, event, ...)
 	end
 end)
 
-function loader:PLAYER_ENTERING_WORLD(isLogin, isReload)
+function loader:PLAYER_ENTERING_WORLD()
 	self:Update()
 end
 
@@ -103,7 +93,7 @@ function loader:Update()
 	debuffs = table.wipe(debuffs or {})
 
 	local isInInstance, instanceType = IsInInstance()
-	local instanceName, _, difficultyID, difficultyName, _, _, _, instanceID, _, _ = GetInstanceInfo()
+	local _, _, _, _, _, _, _, instanceID = GetInstanceInfo()
 	local isDelve = C_DelvesUI and C_DelvesUI.HasActiveDelve(instanceID) or false
 
 	if (isInInstance and (instanceType == "raid" or instanceType == "party" or isDelve)) then
@@ -113,7 +103,7 @@ function loader:Update()
 
 		-- insert instance specific debuffs
 		debuffs = self:merge(debuffs, RD.debuffs[instanceID] or {})
-	
+
 		if oUF.isRetail then
 			-- insert affixes debuffs
 			debuffs = self:merge(debuffs, RD.debuffs["Affixes"] or {})
@@ -122,7 +112,7 @@ function loader:Update()
 		-- insert general debuffs, like world bosses
 		RD:ValidateDebuffs("General")
 		debuffs = self:merge(debuffs, RD.debuffs["General"] or {})
-		
+
 		-- insert classes debuffs
 		RD:ValidateDebuffs("PvP")
 		debuffs = self:merge(debuffs, RD.debuffs["PvP"] or {})
@@ -157,7 +147,7 @@ local dispelPriority = {
 -- Raid Debuffs
 --------------------------------------------------
 local function FormatTime(s)
-	if (s == Infinity) then return end
+	if (s == math.huge) then return end
 
 	local day, hour, minute = 86400, 3600, 60
 
@@ -192,7 +182,7 @@ local function Update(element, unit, data)
 		element.duration = data.duration or 0
 		element.expirationTime = data.expirationTime
 
-		local color = oUF.colors.debuff[data.dispelName or "none"]
+		local color = (oUF.colors.debuff or oUF.colors.dispel)[data.dispelName or "none"]
 		if (element.Backdrop) then
 			if (color) then
 				element.Backdrop:SetBackdropBorderColor(color.r, color.g, color.b)
@@ -247,10 +237,10 @@ end
 
 local function FilterAura(element, unit, data)
 	if not data.enabled then return false end
-	
+
 	-- ignore debuffs applied by the unit itself
 	if data.sourceUnit and UnitIsUnit(unit, data.sourceUnit) then return false end
-	
+
 	-- store if the unit its charmed, mind controlled units (Imperial Vizier Zor'lok: Convert)
 	local isCharmed = UnitIsCharmed(unit)
 
@@ -262,7 +252,7 @@ local function FilterAura(element, unit, data)
 
 	-- always display auras applied by the boss
 	if (data.isBossAura) then return true end
-	
+
 	-- show aura only when stacks are high enough
 	if (data.applications < data.stackThreshold) then return false end
 
@@ -301,7 +291,7 @@ local function ProcessData(element, unit, data)
 
 	-- whether or not this aura is dispelable by the player class/spec
 	data.isDispelable = LibDispel:IsDispelable(unit, data.spellId, data.dispelName, data.isHarmful)
-	
+
 	local debuff = debuffs[data.spellId]
 	if debuff then
 		data.enabled = debuff.enabled or false
@@ -339,7 +329,7 @@ local function ProcessData(element, unit, data)
 end
 
 local function UpdateAuras(self, event, unit, updateInfo)
-	if (self.unit ~= unit) then return end
+	if ((self.__unit or self.unit) ~= unit) then return end
 
 	local element = self.RaidDebuffs
 	if (not element) then return end
@@ -419,22 +409,13 @@ local function UpdateAuras(self, event, unit, updateInfo)
 end
 
 local function Path(self, event, unit, info)
-	if (self.unit ~= unit) then return end
+	if ((self.__unit or self.unit) ~= unit) then return end
 
 	UpdateAuras(self, event, unit, info)
-
-	-- Assume no event means someone wants to re-anchor things. This is usually
-	-- done by UpdateAllElements and :ForceUpdate.
-	if (not event or event == "ForceUpdate") then
-		local element = self.RaidDebuffs
-		if (element) then
-			(element.SetPosition or SetPosition)(element, 1, element.createdButtons)
-		end
-	end
 end
 
 local function ForceUpdate(element)
-	return Path(element.__owner, "ForceUpdate", element.__owner.unit)
+	return Path(element.__owner, "ForceUpdate", element.__owner.__unit or element.__owner.unit)
 end
 
 local function Enable(self)
@@ -452,7 +433,7 @@ end
 local function Disable(self)
 	local element = self.RaidDebuffs
 	if (element) then
-		
+
 		self:UnregisterEvent("UNIT_AURA", UpdateAuras)
 
 		element:Hide()

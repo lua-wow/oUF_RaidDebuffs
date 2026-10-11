@@ -104,35 +104,35 @@ local debuffs = {
         [29684] = RD:CreatePriority(5), -- Shield Slam
         [29300] = RD:CreatePriority(5), -- Sonic Blast
         [29900] = RD:CreatePriority(5), -- Unstable Magic (Good Debuff)
-        
+
         -- Attumen the Huntsman
         [29833] = RD:CreatePriority(3), -- Intangible Presence
         [29711] = RD:CreatePriority(4), -- Knockdown
-        
+
         -- Moroes
         [34694] = RD:CreatePriority(4), -- Blind
         [37066] = RD:CreatePriority(5), -- Garrote
         [29425] = RD:CreatePriority(4), -- Gouge
         [13005] = RD:CreatePriority(3), -- Hammer of Justice (Baron Rafe Dreuger)
         [29572] = RD:CreatePriority(3), -- Mortal Strike (Lord Robin Daris)
-        
+
         -- Maiden of Virtue
         [29522] = RD:CreatePriority(3), -- Holy Fire
         [29511] = RD:CreatePriority(4), -- Repentance
-        
+
         -- Animal Bosses
-        
+
         -- Hyakiss the Lurker
         [29901] = RD:CreatePriority(3), -- Acidic Fang
         [29896] = RD:CreatePriority(4), -- Hyakiss' Web
-        
+
         -- Rokad the Ravager
         [29906] = RD:CreatePriority(3), -- Ravage
-        
+
         -- Shadikith the Glider
         [29903] = RD:CreatePriority(4), -- Dive
         [29904] = RD:CreatePriority(3), -- Sonic Burst
-        
+
         -- Opera Event (Wizard of Oz)
         [31042] = RD:CreatePriority(5), -- Shred Armor
         [31046] = RD:CreatePriority(4), -- Brain Bash
@@ -148,22 +148,22 @@ local debuffs = {
         [30889] = RD:CreatePriority(5), -- Powerful Attraction
 
         -- The Curator
-        
+
         -- Shade of Aran
         [29991] = RD:CreatePriority(5), -- Chains of Ice
         [29954] = RD:CreatePriority(3), -- Frostbolt
         [30035] = RD:CreatePriority(4), -- Mass Slow
         [29990] = RD:CreatePriority(5), -- Slow
-        
+
         -- Terestian Illhoof
         [30053] = RD:CreatePriority(3), -- Amplify Flames
         [30115] = RD:CreatePriority(4), -- Sacrifice
-        
+
         -- Netherspite
         [37063] = RD:CreatePriority(3), -- Void Zone
-        
+
         -- Chess Event
-        
+
         -- Prince Malchezaar
         [39095] = RD:CreatePriority(3), -- Amplify Damage
         [30843] = RD:CreatePriority(5), -- Enfeeble
@@ -186,30 +186,30 @@ local debuffs = {
         [34437] = RD:CreatePriority(4), -- Death Coil
         [34435] = RD:CreatePriority(3), -- Rain of Fire
         [34439] = RD:CreatePriority(5), -- Unstable Affliction
-        
+
         -- Magtheridon
         [30410] = RD:CreatePriority(3), -- Shadow Grasp
     },
     -- Gruul's Lair
     [565] = {
         -- High King Maulgar
-        
+
         -- Blindeye the Seer
-        
+
         -- Kiggler the Crazed
         [33175] = RD:CreatePriority(3), -- Arcane Shock
         [33173] = RD:CreatePriority(5), -- Greater Polymorph
-        
+
         -- Krosh Firehand
         [33061] = RD:CreatePriority(3), -- Blast Wave
-        
+
         -- Olm the Summoner
         [33129] = RD:CreatePriority(4), -- Dark Decay
         [33130] = RD:CreatePriority(5), -- Death Coil
-        
+
         -- High King Maulgar
         [16508] = RD:CreatePriority(5), -- Intimidating Roar
-        
+
         -- Gruul the Dragonkiller
         [36240] = RD:CreatePriority(4), -- Cave In
     },
@@ -224,27 +224,27 @@ local debuffs = {
         [39044] = RD:CreatePriority(4), -- Serpentshrine Parasite
         [38591] = RD:CreatePriority(4), -- Shatter Armor
         [38491] = RD:CreatePriority(3), -- Silence
-        
+
         -- Hydross the Unstable
         [38246] = RD:CreatePriority(3), -- Vile Sludge
         [38235] = RD:CreatePriority(4), -- Water Tomb
-        
+
         -- The Lurker Below
-        
+
         -- Morogrim Tidewalker
         [38049] = RD:CreatePriority(4), -- Watery Grave
         [37850] = RD:CreatePriority(4), -- Watery Grave
-        
+
         -- Fathom-Lord Karathress
         [39261] = RD:CreatePriority(3), -- Gusting Winds
         [29436] = RD:CreatePriority(4), -- Leeching Throw
-        
+
         -- Leotheras the Blind
         [37675] = RD:CreatePriority(3), -- Chaos Blast
         [37749] = RD:CreatePriority(5), -- Consuming Madness
         [37676] = RD:CreatePriority(4), -- Insidious Whisper
         [37641] = RD:CreatePriority(3), -- Whirlwind
-        
+
         -- Lady Vashj
         [38316] = RD:CreatePriority(3), -- Entangle
         [38280] = RD:CreatePriority(5), -- Static Charge
@@ -262,16 +262,16 @@ local debuffs = {
         [37123] = RD:CreatePriority(4), -- Saw Blade
         [37118] = RD:CreatePriority(5), -- Shell Shock
         [37160] = RD:CreatePriority(3), -- Silence
-        
+
         -- Al'ar
         [35410] = RD:CreatePriority(4), -- Melt Armor
-        
+
         -- Void Reaver
-        
+
         -- High Astromancer Solarian
         [34322] = RD:CreatePriority(4), -- Psychic Scream
         [42783] = RD:CreatePriority(5), -- Wrath of the Astromancer (Patch 2.2.0)
-       
+
         -- Kael'thas Sunstrider
         [36965] = RD:CreatePriority(4), -- Rend
         [30225] = RD:CreatePriority(4), -- Silence
@@ -302,7 +302,7 @@ local debuffs = {
         -- Illidan Stormrage
     },
     -- Zul'Aman
-    [568] = {     
+    [568] = {
         -- Nalorakk
         -- Jan'alai
         -- Akil'zon
@@ -321,7 +321,7 @@ local debuffs = {
         -- M'uru
         -- Kil'Jaeden
     },
-    
+
     ----------------------------------------------------------
     -- Wrath of the Lich King
     ----------------------------------------------------------
@@ -729,7 +729,7 @@ local debuffs = {
         [229248] = RD:CreatePriority(), -- Fel Beam
         [230083] = RD:CreatePriority(6), -- Nullification
         [230221] = RD:CreatePriority(), -- Absorbed Mana
-        
+
         -- Return to Karazhan: Lower
         [29574] = RD:CreatePriority(), -- Rend
         [29690] = RD:CreatePriority(), -- Drunken Skull Crack
@@ -784,7 +784,7 @@ local debuffs = {
         [276061] = RD:CreatePriority(), -- Boulder Throw
         [413131] = RD:CreatePriority(), -- Whirling Dagger
         [413136] = RD:CreatePriority(), -- Whirling Dagger
-        
+
         [410870] = RD:CreatePriority(), -- Cyclone
         [410997] = RD:CreatePriority(), -- Rushing Wind
         [411003] = RD:CreatePriority(), -- Turbulence
@@ -816,7 +816,6 @@ local debuffs = {
     -- The Underrot
     [1841] = {
         [259718] = RD:CreatePriority(), -- Upheaval
-        [260455] = RD:CreatePriority(), -- Serrated Fangs
         [260455] = RD:CreatePriority(), -- Serrated Fangs
         [260685] = RD:CreatePriority(), -- Taint of G'huun
         [265019] = RD:CreatePriority(), -- Savage Cleave
@@ -855,7 +854,7 @@ local debuffs = {
 
         [1215415] = RD:CreatePriority(), -- Sticky Sludge (Disease)
         [1217821] = RD:CreatePriority(), -- Fiery Jaws (Magic)
-        
+
         -- Tussle Tonk
         -- K.U.-J.0.
         [294929] = RD:CreatePriority(), -- Blazing Chomp (Magic)
@@ -913,7 +912,6 @@ local debuffs = {
         [327396] = RD:CreatePriority(), -- Grim Fate
         [328181] = RD:CreatePriority(), -- Frigid Cold
         [328664] = RD:CreatePriority(), -- Chilled (Magic)
-        [333485] = RD:CreatePriority(), -- Disease Cloud
         [333485] = RD:CreatePriority(false), -- Disease Cloud
         [334748] = RD:CreatePriority(), -- Drain Fluids
         [338353] = RD:CreatePriority(), -- Goresplatter (Disease)
@@ -922,21 +920,21 @@ local debuffs = {
         [343504] = RD:CreatePriority(), -- Dark Grasp
         [343556] = RD:CreatePriority(5), -- Morbid Fixation 1
         [345625] = RD:CreatePriority(), -- Death Burst
-        
+
         -- Blightbone
         [320717] = RD:CreatePriority(), -- Blood Hunger
         [320646] = RD:CreatePriority(), -- Fetid Gas (Silence)
-        
+
         -- Amarth <The Harvester>
         [320170] = RD:CreatePriority(), -- Necrotic Bolt
         [333489] = RD:CreatePriority(), -- Necrotic Breath
         [333492] = RD:CreatePriority(), -- Necrotic Ichor
-        
+
         -- Surgeon Stitchflesh
         [320200] = RD:CreatePriority(1), -- Stitchneedle
         [320366] = RD:CreatePriority(), -- Embalming Ichor
         [322681] = RD:CreatePriority(3), -- Meat Hook
-        
+
         -- Nalthor the Rimebinder
         [320784] = RD:CreatePriority(), -- Comet Storm
         [320788] = RD:CreatePriority(5), -- Frozen Binds (Magic)
@@ -952,7 +950,7 @@ local debuffs = {
         [323650] = RD:CreatePriority(), -- Haunting Fixation
         [326874] = RD:CreatePriority(), -- Ankle Bites
         [340446] = RD:CreatePriority(), -- Mark of Envy
-        
+
         -- Trash
         [1235766] = RD:CreatePriority(10), -- Mortal Strike (Healing Reduced 50%)
         [1235245] = RD:CreatePriority(), -- Ankle Bite (Bleed)
@@ -1069,28 +1067,28 @@ local debuffs = {
             [356408] = RD:CreatePriority(), -- Ground Stomp (Stun)
             [356943] = RD:CreatePriority(10), -- Lockdown (Magic)
             [357029] = RD:CreatePriority(), -- Hyperlight Bomb (Magic)
-            
+
             -- Zo'phex the Sentinel
-            
+
             -- The Grand Menagerie
             [349954] = RD:CreatePriority(8), -- Purification Protocol
             [349999] = RD:CreatePriority(), -- Anima Detonation
             [350013] = RD:CreatePriority(), -- Gluttonous Feast
-            
+
             -- Mailroom Mayhem
             [346844] = RD:CreatePriority(8), -- Alchemical Residue (Magic)
-            
+
             -- Myza's Oasis
             [350654] = RD:CreatePriority(false), -- Guitar
             [350655] = RD:CreatePriority(false), -- Trumpeter
             [350656] = RD:CreatePriority(false), -- Saxophonist
             [350657] = RD:CreatePriority(false), -- Drummer
             [350658] = RD:CreatePriority(false), -- Horn
-            
+
             -- So'azmi
             [347481] = RD:CreatePriority(), -- Shuri
             [1245669] = RD:CreatePriority(10), -- Double Technique (Magic)
-            
+
         -- So'leah's Gambit
             [347149] = RD:CreatePriority(10), -- Infinite Breath (Magic / Stun)
             [355451] = RD:CreatePriority(), -- Undertow
@@ -1098,7 +1096,7 @@ local debuffs = {
             [355581] = RD:CreatePriority(), -- Crackle
             [356011] = RD:CreatePriority(), -- Beam Splicer
             [1240097] = RD:CreatePriority(8), -- Time Bomb (Magic)
-            
+
             -- Hylbrande
             [346116] = RD:CreatePriority(), -- Shearing Swings
             [346828] = RD:CreatePriority(), -- Sanitizing Field
@@ -1122,7 +1120,7 @@ local debuffs = {
         -- [336494] = RD:CreatePriority(), -- Echo Screech
         [346301] = RD:CreatePriority(), -- Bloodlight
         [342077] = RD:CreatePriority(), -- Echolocation
-        
+
         -- Huntsman Altimor
         [335304] = RD:CreatePriority(), -- Sinseeker
         [334971] = RD:CreatePriority(), -- Jagged Claws
@@ -1132,11 +1130,11 @@ local debuffs = {
         [334945] = RD:CreatePriority(), -- Vicious Lunge
         [334852] = RD:CreatePriority(), -- Petrifying Howl
         [334695] = RD:CreatePriority(), -- Destabilize
-        
+
         -- Hungering Destroyer
         [334228] = RD:CreatePriority(), -- Volatile Ejection
         [329298] = RD:CreatePriority(), -- Gluttonous Miasma
-        
+
         -- Lady Inerva Darkvein
         [325936] = RD:CreatePriority(), -- Shared Cognition
         [335396] = RD:CreatePriority(), -- Hidden Desire
@@ -1144,7 +1142,7 @@ local debuffs = {
         [324982] = RD:CreatePriority(), -- Shared Suffering (Partner)
         [332664] = RD:CreatePriority(), -- Concentrate Anima
         [325382] = RD:CreatePriority(), -- Warped Desires
-        
+
         -- Sun King's Salvation
         [333002] = RD:CreatePriority(), -- Vulgar Brand
         [326078] = RD:CreatePriority(), -- Infuser's Boon
@@ -1153,7 +1151,7 @@ local debuffs = {
         [341473] = RD:CreatePriority(), -- Crimson Flurry Teleport
         [328479] = RD:CreatePriority(), -- Eyes on Target
         [328889] = RD:CreatePriority(), -- Greater Castigation
-        
+
         -- Artificer Xy'mox
         [327902] = RD:CreatePriority(), -- Fixate
         [326302] = RD:CreatePriority(), -- Stasis Trap
@@ -1162,7 +1160,7 @@ local debuffs = {
         [328468] = RD:CreatePriority(), -- Dimensional Tear 1
         [328448] = RD:CreatePriority(), -- Dimensional Tear 2
         [340860] = RD:CreatePriority(), -- Withering Touch
-        
+
         -- The Council of Blood
         [327052] = RD:CreatePriority(), -- Drain Essence 1
         [327773] = RD:CreatePriority(), -- Drain Essence 2
@@ -1172,7 +1170,7 @@ local debuffs = {
         [331706] = RD:CreatePriority(), -- Scarlet Letter
         [331636] = RD:CreatePriority(), -- Dark Recital 1
         [331637] = RD:CreatePriority(), -- Dark Recital 2
-        
+
         -- Sludgefist
         [335470] = RD:CreatePriority(), -- Chain Slam
         [339181] = RD:CreatePriority(), -- Chain Slam (Root)
@@ -1183,7 +1181,7 @@ local debuffs = {
         [342420] = RD:CreatePriority(), -- Chain Them! 2
         [335295] = RD:CreatePriority(), -- Shattering Chain
         [332572] = RD:CreatePriority(), -- Falling Rubble
-        
+
         -- Stone Legion Generals
         [334498] = RD:CreatePriority(), -- Seismic Upheaval
         [337643] = RD:CreatePriority(), -- Unstable Footing
@@ -1196,7 +1194,7 @@ local debuffs = {
         [342655] = RD:CreatePriority(), -- Volatile Anima Infusion
         [342698] = RD:CreatePriority(), -- Volatile Anima Infection
         [343881] = RD:CreatePriority(), -- Serrated Tear
-        
+
         -- Sire Denathrius
         [326851] = RD:CreatePriority(), -- Blood Price
         [327796] = RD:CreatePriority(), -- Night Hunter
@@ -1218,7 +1216,7 @@ local debuffs = {
         [346986] = RD:CreatePriority(3), -- Crushed Armor
         [347269] = RD:CreatePriority(6), -- Chains of Eternity
         [346985] = RD:CreatePriority(3), -- Overpower
-        
+
         -- Eye of the Jailer
         [350606] = RD:CreatePriority(4), -- Hopeless Lethargy
         [355240] = RD:CreatePriority(5), -- Scorn
@@ -1228,7 +1226,7 @@ local debuffs = {
         [351827] = RD:CreatePriority(6), -- Spreading Misery
         [355143] = RD:CreatePriority(6), -- Deathlink
         [350763] = RD:CreatePriority(6), -- Annihilating Glare
-        
+
         -- The Nine
         [350287] = RD:CreatePriority(2), -- Song of Dissolution
         [350542] = RD:CreatePriority(6), -- Fragments of Destiny
@@ -1240,7 +1238,7 @@ local debuffs = {
         [350039] = RD:CreatePriority(5), -- Arthura's Crushing Gaze
         [350184] = RD:CreatePriority(5), -- Daschla's Mighty Impact
         [350374] = RD:CreatePriority(5), -- Wings of Rage
-        
+
         -- Remnant of Ner'zhul
         [350073] = RD:CreatePriority(2), -- Torment
         [349890] = RD:CreatePriority(5), -- Suffering
@@ -1248,7 +1246,7 @@ local debuffs = {
         [354634] = RD:CreatePriority(6), -- Spite 1
         [354479] = RD:CreatePriority(6), -- Spite 2
         [354534] = RD:CreatePriority(6), -- Spite 3
-        
+
         -- Soulrender Dormazain
         [353429] = RD:CreatePriority(2), -- Tormented
         [353023] = RD:CreatePriority(3), -- Torment
@@ -1259,7 +1257,7 @@ local debuffs = {
         [354231] = RD:CreatePriority(6), -- Soul Manacles
         [348987] = RD:CreatePriority(6), -- Warmonger Shackle 1
         [350927] = RD:CreatePriority(6), -- Warmonger Shackle 2
-        
+
         -- Painsmith Raznal
         [356472] = RD:CreatePriority(5), -- Lingering Flames
         [355505] = RD:CreatePriority(6), -- Shadowsteel Chains 1
@@ -1269,7 +1267,7 @@ local debuffs = {
         [355568] = RD:CreatePriority(6), -- Cruciform Axe
         [355786] = RD:CreatePriority(5), -- Blackened Armor
         [355526] = RD:CreatePriority(6), -- Spiked
-        
+
         -- Guardian of the First Ones
         [352394] = RD:CreatePriority(5), -- Radiant Energy
         [350496] = RD:CreatePriority(6), -- Threat Neutralization
@@ -1277,7 +1275,7 @@ local debuffs = {
         [355357] = RD:CreatePriority(6), -- Obliterate
         [350732] = RD:CreatePriority(5), -- Sunder
         [352833] = RD:CreatePriority(6), -- Disintegration
-        
+
         -- Fatescribe Roh-Kalo
         [354365] = RD:CreatePriority(5), -- Grim Portent
         [350568] = RD:CreatePriority(5), -- Call of Eternity
@@ -1287,7 +1285,7 @@ local debuffs = {
         [353693] = RD:CreatePriority(6), -- Unstable Accretion
         [350355] = RD:CreatePriority(6), -- Fated Conjunction
         [353931] = RD:CreatePriority(2), -- Twist Fate
-        
+
         -- Kel'Thuzad
         [346530] = RD:CreatePriority(2), -- Frozen Destruction
         [354289] = RD:CreatePriority(2), -- Sinister Miasma
@@ -1300,7 +1298,7 @@ local debuffs = {
         [355137] = RD:CreatePriority(5), -- Shadow Pool
         [348638] = RD:CreatePriority(4), -- Return of the Damned
         [348760] = RD:CreatePriority(6), -- Frost Blast
-        
+
         -- Sylvanas Windrunner
         [349458] = RD:CreatePriority(2), -- Domination Chains
         [347704] = RD:CreatePriority(2), -- Veil of Darkness
@@ -1323,14 +1321,14 @@ local debuffs = {
         [360415] = RD:CreatePriority(5), -- Defenseless
         [360412] = RD:CreatePriority(4), -- Exposed Core
         [366393] = RD:CreatePriority(5), -- Searing Ablation
-        
+
         -- Skolex, the Insatiable Ravener
         [364522] = RD:CreatePriority(2), -- Devouring Blood
         [359976] = RD:CreatePriority(2), -- Riftmaw
         [359981] = RD:CreatePriority(2), -- Rend
         [360098] = RD:CreatePriority(3), -- Warp Sickness
         [366070] = RD:CreatePriority(3), -- Volatile Residue
-        
+
         -- Artificer Xy'mox
         [364030] = RD:CreatePriority(3), -- Debilitating Ray
         [365681] = RD:CreatePriority(2), -- System Shock
@@ -1339,7 +1337,7 @@ local debuffs = {
         [362615] = RD:CreatePriority(6), -- Interdimensional Wormhole Player 1
         [362614] = RD:CreatePriority(6), -- Interdimensional Wormhole Player 2
         [362803] = RD:CreatePriority(5), -- Glyph of Relocation
-        
+
         -- Dausegne, The Fallen Oracle
         [361751] = RD:CreatePriority(2), -- Disintegration Halo
         [364289] = RD:CreatePriority(2), -- Staggering Barrage
@@ -1347,7 +1345,7 @@ local debuffs = {
         [360960] = RD:CreatePriority(2), -- Staggering Barrage Mythic 2
         [361225] = RD:CreatePriority(2), -- Encroaching Dominion
         [361966] = RD:CreatePriority(2), -- Infused Strikes
-        
+
         -- Prototype Pantheon
         [365306] = RD:CreatePriority(2), -- Invigorating Bloom
         [361689] = RD:CreatePriority(3), -- Wracking Pain
@@ -1356,7 +1354,7 @@ local debuffs = {
         [360259] = RD:CreatePriority(5), -- Gloom Bolt
         [362383] = RD:CreatePriority(5), -- Anima Bolt
         [362352] = RD:CreatePriority(6), -- Pinned
-        
+
         -- Lihuvim, Principle Architect
         [360159] = RD:CreatePriority(5), -- Unstable Protoform Energy
         [363681] = RD:CreatePriority(3), -- Deconstructing Blast
@@ -1368,7 +1366,7 @@ local debuffs = {
         [361309] = RD:CreatePriority(3), -- Lightshatter Beam
         [361002] = RD:CreatePriority(4), -- Ephemeral Fissure
         [360114] = RD:CreatePriority(4), -- Ephemeral Fissure II
-        
+
         -- Anduin Wrynn
         [365293] = RD:CreatePriority(2), -- Befouled Barrier
         [363020] = RD:CreatePriority(3), -- Necrotic Claws
@@ -1377,13 +1375,13 @@ local debuffs = {
         [365445] = RD:CreatePriority(3), -- Scarred Soul
         [365008] = RD:CreatePriority(4), -- Psychic Terror
         [366849] = RD:CreatePriority(6), -- Domination Word: Pain
-        
+
         -- Lords of Dread
         [360148] = RD:CreatePriority(5), -- Bursting Dread
         [360012] = RD:CreatePriority(4), -- Cloud of Carrion
         [360146] = RD:CreatePriority(4), -- Fearful Trepidation
         [360241] = RD:CreatePriority(6), -- Unsettling Dreams
-        
+
         -- Rygelon
         [362206] = RD:CreatePriority(6), -- Event Horizon
         [362137] = RD:CreatePriority(4), -- Corrupted Wound
@@ -1419,18 +1417,18 @@ local debuffs = {
         -- [385409] = RD:CreatePriority(), -- Ouch, ouch, ouch!
         -- [386640] = RD:CreatePriority(), -- Tear Flesh
         -- [388777] = RD:CreatePriority(), -- Oppressive Miasma
-        
+
         -- Leymor
         [374567] = RD:CreatePriority(false), -- Explosive Brand
         [374789] = RD:CreatePriority(5), -- Infused Strike
-        
+
         -- Azureblade
-        
+
         -- Telash Greywing
         [386881] = RD:CreatePriority(1), -- Frost Bomb
         -- [387150] = RD:CreatePriority(), -- Frozen Ground
         -- [387151] = RD:CreatePriority(), -- Icy Devastator
-        
+
         -- Umbrelskul
         [384978] = RD:CreatePriority(1), -- Dragon Strike
         [385331] = RD:CreatePriority(), -- Fracture
@@ -1451,16 +1449,16 @@ local debuffs = {
         -- [395035] = RD:CreatePriority(), -- Shatter Soul
         -- [395669] = RD:CreatePriority(), -- Aftershock
         -- [376634] = RD:CreatePriority(), -- Iron Spear
-        
+
         -- Granyth
-        
+
         -- The Raging Tempest
         [382628] = RD:CreatePriority(false), -- Surge of Power
         -- [376899] = RD:CreatePriority(), -- Crackling Cloud
-        
+
         -- Teera and Maruuk
         [386063] = RD:CreatePriority(2), -- Frightful Roar
-        
+
         -- Balakar Khan
         [375937] = RD:CreatePriority(1), -- Rending Strike
         [376730] = RD:CreatePriority(false), -- Stormwinds
@@ -1496,11 +1494,11 @@ local debuffs = {
         -- [387059] = RD:CreatePriority(), -- Burning Chain
         -- [389059] = RD:CreatePriority(), -- Slag Eruption
         -- [396332] = RD:CreatePriority(), -- Fiery Focus
-        
+
         -- Chargath, Bane of Scales
-        
+
         -- Forgemaster Gorek
-        
+
         -- Magmatusk
         [375890] = RD:CreatePriority(), -- Magma Eruption
 
@@ -1542,7 +1540,7 @@ local debuffs = {
         [381379] = RD:CreatePriority(10), -- Decayed Senses
         [378020] = RD:CreatePriority(2), -- Gash Frenzy
         [378229] = RD:CreatePriority(1), -- Marked for Butchery
-        
+
         -- Treemouth
         [377222] = RD:CreatePriority(1), -- Consume
 
@@ -1574,11 +1572,11 @@ local debuffs = {
 
         -- Melidrussa Chillworn
         [372682] = RD:CreatePriority(3), -- Primal Chill
-        
+
         -- Kokia Blazehoof
         [372811] = RD:CreatePriority(4), -- Molten Bolder
         [372860] = RD:CreatePriority(3), -- Searing Wounds
-        
+
         -- Kyrakka and Erkhart Stormvein
         [381862] = RD:CreatePriority(5), -- Infernocore
     },
@@ -1601,11 +1599,11 @@ local debuffs = {
 
         -- Overgrown Ancient
         [389033] = RD:CreatePriority(5), -- Lasher Toxin
-        
+
         -- Crawth
         [377008] = RD:CreatePriority(5), -- Deafening Screech
         [397210] = RD:CreatePriority(0, 3), -- Sonic Vulnerability
-        
+
         -- Echo of Doragosa
         [389011] = RD:CreatePriority(0, 2), -- Overwhelming Power
     },
@@ -1621,22 +1619,22 @@ local debuffs = {
         -- [374706] = RD:CreatePriority(), -- Pyretic Burst
         -- [383935] = RD:CreatePriority(), -- Spark Volley
         -- [385168] = RD:CreatePriority(), -- Thunderstorm
-        
+
         -- Watcher Irideous
         [384524] = RD:CreatePriority(1), -- Titanic Fist
         [389179] = RD:CreatePriority(2), -- Power Overload
         [389443] = RD:CreatePriority(), -- Purifying Blast
         [389446] = RD:CreatePriority(1), -- Nullifying Pulse
         -- [389181] = RD:CreatePriority(), -- Power Field
-        
+
         -- Gulping Goliath
         [385555] = RD:CreatePriority(5), -- Gulp
         [374389] = RD:CreatePriority(10), -- Gulp Swog Toxin
-        
+
         -- Khajin the Unyielding
         [386743] = RD:CreatePriority(false), -- Polar Winds
         -- [385963] = RD:CreatePriority(), -- Frost Shock
-        
+
         -- Primal Tsunami
         [383204] = RD:CreatePriority(), -- Crashing Tsunami
         -- [387571] = RD:CreatePriority(), -- Focused Deluge
@@ -1659,18 +1657,18 @@ local debuffs = {
         -- [377825] = RD:CreatePriority(), -- Burning Pitch
         -- [382071] = RD:CreatePriority(), -- Resonating Orb
         -- [382576] = RD:CreatePriority(), -- Scorn of Tyr
-        
+
         -- The Lost Dwarves
-        
+
         -- Bromach
-        
+
         -- Sentinel Talondas
         [372718] = RD:CreatePriority(3), -- Earthen Shards
-        
+
         -- Emberon
         [369006] = RD:CreatePriority(1), -- Burning Heat
         -- [369110] = RD:CreatePriority(), -- Unstable Embers
-        
+
         -- Chrono-Lord Deios
         [377405] = RD:CreatePriority(2), -- Time Sink
         -- [376333] = RD:CreatePriority(false), -- Temporal Zone
@@ -1684,7 +1682,7 @@ local debuffs = {
         [370648] = RD:CreatePriority(5), -- Primal Flow
         [390715] = RD:CreatePriority(6), -- Primal Rifts
         [370597] = RD:CreatePriority(6), -- Kill Order
-        
+
         -- Terros
         [382776] = RD:CreatePriority(5), -- Awakened Earth 1
         [381253] = RD:CreatePriority(5), -- Awakened Earth 2
@@ -1695,7 +1693,7 @@ local debuffs = {
         [371624] = RD:CreatePriority(5), -- Conductive Mark
         [372027] = RD:CreatePriority(4), -- Slashing Blaze
         [374039] = RD:CreatePriority(4), -- Meteor Axe
-        
+
         -- Sennarth, the Cold Breath
         [371976] = RD:CreatePriority(4), -- Chilling Blast
         [372082] = RD:CreatePriority(5), -- Enveloping Webs
@@ -1706,10 +1704,10 @@ local debuffs = {
 
         -- Dathea, Ascended
         [391686] = RD:CreatePriority(5), -- Conductive Mark
-        
+
         -- [378277] = RD:CreatePriority(2), -- Elemental Equilbrium
         [388290] = RD:CreatePriority(4), -- Cyclone
-        
+
         -- Kurog Grimtotem
         [377780] = RD:CreatePriority(5), -- Skeletal Fractures
         [372514] = RD:CreatePriority(5), -- Frost Bite
@@ -1719,7 +1717,7 @@ local debuffs = {
         [374427] = RD:CreatePriority(6), -- Ground Shatter
         [390920] = RD:CreatePriority(5), -- Shocking Burst
         [372458] = RD:CreatePriority(6), -- Below Zero
-        
+
         -- Broodkeeper Diurna
         [390569] = RD:CreatePriority(false),
         [388920] = RD:CreatePriority(6), -- Frozen Shroud
@@ -1728,32 +1726,29 @@ local debuffs = {
         [375620] = RD:CreatePriority(6), -- Ionizing Charge
         [375578] = RD:CreatePriority(4), -- Flame Sentry
         [390561] = RD:CreatePriority(false), -- Diurna's Gaze
-        
+
         -- Raszageth the Storm-Eater
         [381251] = RD:CreatePriority(false), -- Electric Lash
     },
     -- Aberrus, the Shadowed Crucible
     [2569] = {
         -- Trash
-        [406183] = RD:CreatePriority(), -- Time Slash
-        [406288] = RD:CreatePriority(1), -- Dream Burst
         [220540] = RD:CreatePriority(), -- Fear
         [411437] = RD:CreatePriority(), -- Brutal Lacerations
         [411439] = RD:CreatePriority(), -- Sundering Strike
-        
+
         -- Kazzara, the Hellforged
         -- [403655] = RD:CreatePriority(), -- Wings of Extinction
         [402253] = RD:CreatePriority(), -- Ray of Anguish
         [402299] = RD:CreatePriority(), -- Ray of Anguish
         [402420] = RD:CreatePriority(), -- Molten Scar
         [404743] = RD:CreatePriority(), -- Terror Claws
-        [406288] = RD:CreatePriority(), -- Dream Burst
         [406525] = RD:CreatePriority(), -- Dread Rift
         [406530] = RD:CreatePriority(), -- Riftburn
         [406728] = RD:CreatePriority(), -- Blazing Heat
         [406729] = RD:CreatePriority(), -- Corrupting Shadow
         [412625] = RD:CreatePriority(), -- Shadowflame Spill
-        
+
         -- The Amalgamation Chamber
         -- [401809] = RD:CreatePriority(), -- Corrupting Shadow
         -- [401854] = RD:CreatePriority(), -- Corrupting Shadow
@@ -1774,11 +1769,10 @@ local debuffs = {
         [412488] = RD:CreatePriority(), -- Arcane Burst
         [412498] = RD:CreatePriority(), -- Stagnating Pool
         [413597] = RD:CreatePriority(), -- Withering Vulnerability
-        
+
         -- The Forgotten Experiments
         [405392] = RD:CreatePriority(), -- Disintegrate
         [405423] = RD:CreatePriority(), -- Disintegrate
-        [405850] = RD:CreatePriority(), -- Devastation
         [406233] = RD:CreatePriority(), -- Deep Breath
         [406313] = RD:CreatePriority(), -- Infused Strikes
         [406365] = RD:CreatePriority(), -- Rending Charge
@@ -1792,7 +1786,7 @@ local debuffs = {
         [410981] = RD:CreatePriority(), -- Iron Jaws
         [411223] = RD:CreatePriority(), -- Molten Cinders
         [411730] = RD:CreatePriority(), -- Searing Fangs
-        
+
         -- Assault of the Zaqali
         [401407] = RD:CreatePriority(), -- Blazing Spear
         [401452] = RD:CreatePriority(), -- Blazing Spear
@@ -1800,7 +1794,7 @@ local debuffs = {
         [408873] = RD:CreatePriority(), -- Heavy Cudgel
         [409275] = RD:CreatePriority(), -- Magma Flow
         [410353] = RD:CreatePriority(), -- Flaming Cudgel
-        
+
         -- Rashok, the Elder
         [403543] = RD:CreatePriority(), -- Lava Wave
         [405819] = RD:CreatePriority(), -- Searing Slam
@@ -1810,7 +1804,7 @@ local debuffs = {
         [407597] = RD:CreatePriority(), -- Earthen Crush
         [408204] = RD:CreatePriority(), -- Scorched Flesh
         [408857] = RD:CreatePriority(), -- Doom Flames
-        
+
         -- The Vigilant Steward, Zskarn
         [371313] = RD:CreatePriority(), -- Fireball
         [403978] = RD:CreatePriority(), -- Blast Wave
@@ -1822,7 +1816,7 @@ local debuffs = {
         [405592] = RD:CreatePriority(), -- Salvage Parts
         [409437] = RD:CreatePriority(), -- Searing Ichor
         [417229] = RD:CreatePriority(), -- Dragonfire Traps
-        
+
         -- Magmorax
         -- [403747] = RD:CreatePriority(), -- Igniting Roar
         [402994] = RD:CreatePriority(), -- Molten Spittle
@@ -1833,7 +1827,7 @@ local debuffs = {
         [408955] = RD:CreatePriority(5), -- Incinerating Maws
         [409724] = RD:CreatePriority(), -- Earthen Grasp
         [413367] = RD:CreatePriority(), -- Lava Ejection
-        
+
         -- Echo of Neltharion
         [132951] = RD:CreatePriority(), -- Flare
         [401998] = RD:CreatePriority(5), -- Calamitous Strike
@@ -1847,7 +1841,7 @@ local debuffs = {
         [408160] = RD:CreatePriority(), -- Shadow Strike
         [409058] = RD:CreatePriority(), -- Seeping Lava
         [410972] = RD:CreatePriority(1), -- Corruption
-        
+
         -- Scalecommander Sarkareth
         [401330] = RD:CreatePriority(), -- Burning Claws
         [401383] = RD:CreatePriority(), -- Oppressing Howl
@@ -1885,7 +1879,7 @@ local debuffs = {
 
         -- Fyrakk the Blazing
     },
-    
+
     ----------------------------------------------------------
     -- The War Within
     ----------------------------------------------------------
@@ -1910,7 +1904,7 @@ local debuffs = {
         [435148] = RD:CreatePriority(2), -- Blazing Stike (Magic)
         [453461] = RD:CreatePriority(0), -- Caltrops (Bleed)
         [427635] = RD:CreatePriority(0), -- Griveous Rip (Bleed)
-        
+
         -- Captain Dailcry
         [447272] = RD:CreatePriority(0), -- Hurl Spear
 
@@ -1931,7 +1925,6 @@ local debuffs = {
         [423693] = RD:CreatePriority(0, 5), -- Luring Candleflame
 
         -- Blazikon
-        [422648] = RD:CreatePriority(0), -- Wicklighter Barrage
 
         -- The Candle King
         [422648] = RD:CreatePriority(5), -- Darkflame Pickaxe
@@ -1955,15 +1948,14 @@ local debuffs = {
         [449129] = RD:CreatePriority(5), -- Lava Canon
         [449154] = RD:CreatePriority(0), -- Molten Mortar
         [449455] = RD:CreatePriority(10), -- Howling Fear (Magic / Fear)
-        
+
         -- E.D.N.A
         [424889] = RD:CreatePriority(10), -- Seismic Reverberation (Magic)
         [424893] = RD:CreatePriority(5), -- Stone Shield
-        [443494] = RD:CreatePriority(0), -- Crystalline Eruption
 
         -- Skarmorak
         [443494] = RD:CreatePriority(0), -- Crystalline Eruption
-        
+
         -- Master Machinists
         [428161] = RD:CreatePriority(false), -- Molten Metal (Slow)
 
@@ -1977,7 +1969,7 @@ local debuffs = {
 
         -- Avanoxx
         [439070] = RD:CreatePriority(0), -- Hunger (Fixate)
-        
+
         -- Anub'zekt
         -- Ki'katal the Harvest
     },
@@ -1989,13 +1981,13 @@ local debuffs = {
         [437956] = RD:CreatePriority(3), -- Erupting Inferno
         [442589] = RD:CreatePriority(10), -- Beeswax
         [441397] = RD:CreatePriority(8, 3), -- Bee Venom
-        
+
         -- Brew Master Aldryr
         [431897] = RD:CreatePriority(false), -- Rowdy Yell
-        
+
         -- I'pa
         [439325] = RD:CreatePriority(1), -- Burning Fermentation (Magic)
-        
+
         -- Benk Buzzbee
         [438975] = RD:CreatePriority(2), -- Shredding Sting
         [442995] = RD:CreatePriority(0), -- Swarming Surprise
@@ -2013,7 +2005,7 @@ local debuffs = {
 
         -- Speaker Shadowcrown
         [426735] = RD:CreatePriority(0), -- Burning Shadows (Magic)
-        
+
         -- Anub'ikkaj
         -- Rasha'nan
     },
@@ -2042,7 +2034,7 @@ local debuffs = {
         [469799] = RD:CreatePriority(), -- Overcharge (Magic)
 
         -- Big M.O.M.M.A
-        
+
         -- Demolition Duo
         [473690] = RD:CreatePriority(10), -- Kinetic Explosive Gel (Magic)
 
@@ -2056,7 +2048,7 @@ local debuffs = {
         -- Azhicaar
         [1217241] = RD:CreatePriority(8), -- Feast
         [1217247] = RD:CreatePriority(8), -- Feast
-        
+
         -- Taah'bat and A'wazj
         [1220384] = RD:CreatePriority(7), -- Wrap Strike
         [1219482] = RD:CreatePriority(7), -- Rift Claws
@@ -2075,7 +2067,7 @@ local debuffs = {
         [442604] = RD:CreatePriority(), -- Goresplatter
         [443612] = RD:CreatePriority(), -- Gruesome Disgorge
         [445570] = RD:CreatePriority(false), -- Unseeming Blight
-        
+
         -- Sikran, Captain of the Sureki
         [434860] = RD:CreatePriority(), -- Phase Blade
 
@@ -2092,10 +2084,10 @@ local debuffs = {
         [442437] = RD:CreatePriority(false), -- Ingest Black Blood
         [443274] = RD:CreatePriority(false), -- Unstable Infusion
         [450661] = RD:CreatePriority(false), -- Caustic Reaction
-        
+
         -- Nexus-Princess Ky'veza
         [437343] = RD:CreatePriority(0), -- Queensbane
-        
+
         -- The Silken Court
         [438200] = RD:CreatePriority(), -- Poison Bold
         [438218] = RD:CreatePriority(), -- Piercing Strike
@@ -2105,7 +2097,7 @@ local debuffs = {
         [460600] = RD:CreatePriority(false), -- Entropic Barrage
         [451086] = RD:CreatePriority(), -- Entropic Web
         [463461] = RD:CreatePriority(1), -- Entropic Vulnerability
-        
+
         [438708] = RD:CreatePriority(10), -- Stinging Swarm
         [441772] = RD:CreatePriority(8), -- Void Bolt
 
@@ -2126,15 +2118,15 @@ local debuffs = {
             [464638] = RD:CreatePriority(1, 3), -- Frothy Toxin
             [464643] = RD:CreatePriority(false), -- Lingering Toxin (Mythic)
             -- [??????] = RD:CreatePriority(false), -- Toxin Reaction (Mythic)
-            
+
             -- Intermission
             [447170] = RD:CreatePriority(false), -- Predation Threads
-            
+
             -- Stage Two
             [443403] = RD:CreatePriority(), -- Gloom
             [447967] = RD:CreatePriority(), -- Gloom Touch
             [448660] = RD:CreatePriority(), -- Acid Bolt
-            
+
             -- Stage Three
             [438974] = RD:CreatePriority(), -- Royal Condemnation
             [439536] = RD:CreatePriority(), -- Web Blades
@@ -2340,7 +2332,7 @@ else
         [22570] = RD:CreatePriority(3), -- Maim
         [33786] = (not oUF.isClassic) and RD:CreatePriority(3) or nil, -- Cyclone
         [45334] = (not oUF.isClassic) and RD:CreatePriority(2) or nil, -- Feral Charge Effect
-        
+
         -- HUNTER
         [3355] = RD:CreatePriority(3), -- Freezing Trap
         [4167] = RD:CreatePriority(2), -- Web (Pet)
@@ -2363,14 +2355,14 @@ else
         [28272] = RD:CreatePriority(3), -- Polymorph: Pig
         [31661] = (not oUF.isClassic) and RD:CreatePriority(3) or nil, -- Dragon's Breath
         [33395] = (not oUF.isClassic) and RD:CreatePriority(2) or nil, -- Freeze (Water Elemental)
-        
+
         -- PALADIN
         [853] = RD:CreatePriority(3), -- Hammer of Justice
         [2878] = RD:CreatePriority(3), -- Turn Undead
         [10326] = RD:CreatePriority(3), -- Turn Evil
         [20066] = RD:CreatePriority(3), -- Repentance
         [20170] = RD:CreatePriority(3), -- Stun (Seal of Justice Proc)
-        
+
         -- PRIEST
         [605] = RD:CreatePriority(3), -- Mind Control
         [8122] = RD:CreatePriority(3), -- Psychic Scream
@@ -2378,7 +2370,7 @@ else
         [15269] = RD:CreatePriority(3), -- Blackout
         [15487] = RD:CreatePriority(3), -- Silence
         [44041] = (not oUF.isClassic) and RD:CreatePriority(3) or nil, -- Chastise
-        
+
         -- ROGUE
         [408] = RD:CreatePriority(3), -- Kidney Shot
         [1330] = RD:CreatePriority(3), -- Garrote - Silence
@@ -2389,7 +2381,7 @@ else
         [14251] = RD:CreatePriority(3), -- Riposte
         [18425] = RD:CreatePriority(3), -- Silenced - Improved Kick
         [32747] = (not oUF.isClassic) and RD:CreatePriority(3) or nil, -- Deadly Throw Interrupt
-        
+
         -- WARLOCK
         [5484] = RD:CreatePriority(3), -- Howl of Terror
         [5782] = RD:CreatePriority(3), -- Fear
@@ -2399,7 +2391,7 @@ else
         [24259] = RD:CreatePriority(3), -- Spell Lock (Felhunter)
         [30153] = (not oUF.isClassic) and RD:CreatePriority(3) or nil, -- Intercept Stun (Felguard)
         [30283] = (not oUF.isClassic) and RD:CreatePriority(3) or nil, -- Shadowfury
-        
+
         -- WARRIOR
         [676] = RD:CreatePriority(3), -- Disarm
         [5246] = RD:CreatePriority(3), -- Intimidating Shout
@@ -2409,11 +2401,11 @@ else
         [18498] = RD:CreatePriority(3), -- Shield Bash - Silenced
         [20253] = RD:CreatePriority(3), -- Intercept Stun
         [23694] = RD:CreatePriority(2), -- Improved Hamstring
-        
+
         -- RACIAL
         [20549] = RD:CreatePriority(3), -- War Stomp
         [28730]  = (not oUF.isClassic) and RD:CreatePriority(3) or nil, -- Arcane Torrent
-        
+
         -- OTHERS
         [5530] = RD:CreatePriority(3), -- Mace Specialization
     }
@@ -2429,7 +2421,7 @@ local validated = {}
 
 function RD:ValidateDebuffs(instanceID)
     if debuffs[instanceID] and not validated[instanceID] then
-		for spellID, value in next, debuffs[instanceID] do
+		for spellID in next, debuffs[instanceID] do
 			local name = GetSpellName(spellID)
 			if not name then
 				self:print("[" .. instanceID .. "] Spell " .. spellID .. " do not exists.")

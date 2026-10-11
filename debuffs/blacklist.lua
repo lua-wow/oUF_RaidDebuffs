@@ -22,7 +22,7 @@ local blacklist = {
 
     -- Others
     [306600] = true,                    -- Experience Eliminated
-    
+
     ["Riding Along"] = true,
     [388501] = true,                    -- Riding Along
     [390106] = true,                    -- Riding Along
@@ -44,7 +44,7 @@ local blacklist = {
     [440752] = true,                    -- Riding Along
     [440774] = true,                    -- Riding Along
     [456869] = true,                    -- Riding Along
-    
+
     --------------------------------------------------
     -- Events
     --------------------------------------------------
