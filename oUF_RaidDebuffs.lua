@@ -140,7 +140,7 @@ local dispelPriority = {
 	["Curse"] = 3,
 	["Disease"]	= 2,
 	["Poison"] = 1,
-	["none"] = 0
+	["None"] = 0
 }
 
 --------------------------------------------------
@@ -182,7 +182,7 @@ local function Update(element, unit, data)
 		element.duration = data.duration or 0
 		element.expirationTime = data.expirationTime
 
-		local color = (oUF.colors.debuff or oUF.colors.dispel)[data.dispelName or "none"]
+		local color = (oUF.colors.debuff or oUF.colors.dispel)[data.dispelName or "None"]
 		if (element.Backdrop) then
 			if (color) then
 				element.Backdrop:SetBackdropBorderColor(color.r, color.g, color.b)
@@ -308,7 +308,7 @@ local function ProcessData(element, unit, data)
 	end
 
 	-- increment priority based on dispel type
-	data.priority = data.priority + (dispelPriority[data.dispelName or "none"] or 0)
+	data.priority = data.priority + (dispelPriority[data.dispelName or "None"] or 0)
 
 	--[[ Callback: RaidDebuffs:PostProcessAuraData(unit, data)
 	Called after the aura data has been processed.
